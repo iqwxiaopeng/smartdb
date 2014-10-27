@@ -9,9 +9,9 @@
 /* Begin PBXAggregateTarget section */
 		0FA5B97054A947CB99AD861B /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = DAE63DEAD3674348BE4E632F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 96AA9A050BAF45919075ECDB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				18F8DA4FB14F4B759782BACB /* CMake Rules */,
+				A7F53F22A5FA42D7B8F77735 /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -20,13 +20,13 @@
 		};
 		FA11BF1DDF79412099B8E756 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = AA8442D7CA0B4419A2594808 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 07938FA421CA492F9A5D1ACB /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				D479D3DCFD624DC08CFECC59 /* CMake Rules */,
+				719488BF8C514071AC790AFD /* CMake Rules */,
 			);
 			dependencies = (
-				5859E46075F34AB589B9884D /* PBXTargetDependency */,
-				E68594A1C37C47F69371C7C3 /* PBXTargetDependency */,
+				888599BA1C314FD28FC916E5 /* PBXTargetDependency */,
+				9857CC1F378E48C299A0525B /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,25 +34,26 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		D1C7EFD5EFA14F2C985D7871 /* hoge.cc in Sources */ = {isa = PBXBuildFile; fileRef = A400BFC2A0524450A5993005 /* hoge.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		02020EE46039415FACF734B7 /* csv.cc in Sources */ = {isa = PBXBuildFile; fileRef = 917E4E7E2B9D4D10BAD14734 /* csv.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		FB7169DB34374C8095A3F1AE /* hoge.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27215206124A49DCA5C5695E /* hoge.cc */; settings = {COMPILER_FLAGS = ""; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0CA4706F127F4437874A082C /* PBXContainerItemProxy */ = {
+		5F4CD49BC88641FA9E5AE10F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B3244CA84444B0DA8E1FFF1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0FA5B97054A947CB99AD861B;
 			remoteInfo = ZERO_CHECK;
 		};
-		AF6DBC5478404A84BC3E8D3F /* PBXContainerItemProxy */ = {
+		88CCFDCC452C47AD9AAB21DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B3244CA84444B0DA8E1FFF1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0FA5B97054A947CB99AD861B;
 			remoteInfo = ZERO_CHECK;
 		};
-		DC892D7894494E5E980D54DC /* PBXContainerItemProxy */ = {
+		E29D2EED4E334736A8DFFAF9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B3244CA84444B0DA8E1FFF1 /* Project object */;
 			proxyType = 1;
@@ -62,91 +63,91 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A400BFC2A0524450A5993005 /* hoge.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = hoge.cc; path = lib/hoge.cc; sourceTree = SOURCE_ROOT; };
-		EE5849F66EB54A3EB70AC020 /* liblibsmartdb.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = liblibsmartdb.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA96BB4755724AE8AA4E3223 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		27215206124A49DCA5C5695E /* hoge.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = hoge.cc; path = lib/hoge.cc; sourceTree = SOURCE_ROOT; };
+		917E4E7E2B9D4D10BAD14734 /* csv.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; indentWidth = 2; name = csv.cc; path = lib/storage/csv.cc; sourceTree = SOURCE_ROOT; tabWidth = 2; };
+		B1838716703240EE87A8A90E /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		CCA34B289E9E432391D66852 /* liblibsmartdb.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = liblibsmartdb.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		13DD10A3C4F0404F8E2A1BA7 /* Resources */ = {
+		2DE96391B60B404E999DEA57 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		8452483E6E7446B59B1D459D /* libsmartdb */ = {
+			isa = PBXGroup;
+			children = (
+				B6DAB89F016A40B3B9E975C3 /* Source Files */,
+				B1838716703240EE87A8A90E /* CMakeLists.txt */,
+			);
+			name = libsmartdb;
+			sourceTree = "<group>";
+		};
+		8A59C895FAC14F738792EF6C = {
+			isa = PBXGroup;
+			children = (
+				A25B275ADCA94717BEEC3FF2 /* Sources */,
+				A3A6C871764E48AFBA4A1612 /* Resources */,
+				FDED8FDBBA8848E8B178047D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A25B275ADCA94717BEEC3FF2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B7E16CA18011481587FE4A61 /* ALL_BUILD */,
+				B564C72058F64A7DAB94F83F /* ZERO_CHECK */,
+				8452483E6E7446B59B1D459D /* libsmartdb */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		A3A6C871764E48AFBA4A1612 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		50BD6379AC09497D8A00FCE9 /* libsmartdb */ = {
-			isa = PBXGroup;
-			children = (
-				B9970FE7FC3A4C7FA8F8BC85 /* Source Files */,
-				FA96BB4755724AE8AA4E3223 /* CMakeLists.txt */,
-			);
-			name = libsmartdb;
-			sourceTree = "<group>";
-		};
-		5B7669EA9E0F4D9BB88E98B9 /* CMake Rules */ = {
+		A52F1AE593CD4C69AEDB2E8B /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		8E84AA3E593649A38DAB2DC7 /* Sources */ = {
+		B564C72058F64A7DAB94F83F /* ZERO_CHECK */ = {
 			isa = PBXGroup;
 			children = (
-				F2F4222CC4884DF9AAD2101E /* ALL_BUILD */,
-				B69D9E9BC8584D148D1ED71C /* ZERO_CHECK */,
-				50BD6379AC09497D8A00FCE9 /* libsmartdb */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-		B69D9E9BC8584D148D1ED71C /* ZERO_CHECK */ = {
-			isa = PBXGroup;
-			children = (
-				5B7669EA9E0F4D9BB88E98B9 /* CMake Rules */,
+				A52F1AE593CD4C69AEDB2E8B /* CMake Rules */,
 			);
 			name = ZERO_CHECK;
 			sourceTree = "<group>";
 		};
-		B9970FE7FC3A4C7FA8F8BC85 /* Source Files */ = {
+		B6DAB89F016A40B3B9E975C3 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				A400BFC2A0524450A5993005 /* hoge.cc */,
+				27215206124A49DCA5C5695E /* hoge.cc */,
+				917E4E7E2B9D4D10BAD14734 /* csv.cc */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		C565C23326354C0E81A24764 /* CMake Rules */ = {
+		B7E16CA18011481587FE4A61 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		D336A910255D4F4C9B1D0EF7 = {
-			isa = PBXGroup;
-			children = (
-				8E84AA3E593649A38DAB2DC7 /* Sources */,
-				13DD10A3C4F0404F8E2A1BA7 /* Resources */,
-				F756118C1FFD4CDE92637388 /* Products */,
-			);
-			indentWidth = 2;
-			sourceTree = "<group>";
-			tabWidth = 2;
-		};
-		F2F4222CC4884DF9AAD2101E /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				C565C23326354C0E81A24764 /* CMake Rules */,
+				2DE96391B60B404E999DEA57 /* CMake Rules */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		F756118C1FFD4CDE92637388 /* Products */ = {
+		FDED8FDBBA8848E8B178047D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE5849F66EB54A3EB70AC020 /* liblibsmartdb.dylib */,
+				CCA34B289E9E432391D66852 /* liblibsmartdb.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,19 +157,19 @@
 /* Begin PBXNativeTarget section */
 		9212705ADE7D47ACB8C15427 /* libsmartdb */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2884E2327908471CA3F36547 /* Build configuration list for PBXNativeTarget "libsmartdb" */;
+			buildConfigurationList = 2E4A66FC50C2461E9D96355F /* Build configuration list for PBXNativeTarget "libsmartdb" */;
 			buildPhases = (
-				256B737283B14E7F9F8F2585 /* Sources */,
-				89FFF24CFB674B6DB4944E9D /* CMake PostBuild Rules */,
+				5AEE9DEB503342E784AB99E1 /* Sources */,
+				213D62F8C94D48C4932391D5 /* CMake PostBuild Rules */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7A94812E029A45188A721808 /* PBXTargetDependency */,
+				09436D95B3544587A900BE45 /* PBXTargetDependency */,
 			);
 			name = libsmartdb;
 			productName = libsmartdb;
-			productReference = EE5849F66EB54A3EB70AC020 /* liblibsmartdb.dylib */;
+			productReference = CCA34B289E9E432391D66852 /* liblibsmartdb.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -179,14 +180,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 			};
-			buildConfigurationList = 1818C1A84E1347E899A0CB82 /* Build configuration list for PBXProject "smartdb" */;
+			buildConfigurationList = FF8ECFE2135E4CF8B196C248 /* Build configuration list for PBXProject "smartdb" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D336A910255D4F4C9B1D0EF7;
+			mainGroup = 8A59C895FAC14F738792EF6C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -198,18 +199,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18F8DA4FB14F4B759782BACB /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/nakatani.sho/git/smartdb -f /Users/nakatani.sho/git/smartdb/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		89FFF24CFB674B6DB4944E9D /* CMake PostBuild Rules */ = {
+		213D62F8C94D48C4932391D5 /* CMake PostBuild Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -220,7 +210,7 @@
 			shellScript = "make -C /Users/nakatani.sho/git/smartdb -f /Users/nakatani.sho/git/smartdb/CMakeScripts/libsmartdb_postBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		D479D3DCFD624DC08CFECC59 /* CMake Rules */ = {
+		719488BF8C514071AC790AFD /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -231,39 +221,101 @@
 			shellScript = "make -C /Users/nakatani.sho/git/smartdb -f /Users/nakatani.sho/git/smartdb/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
+		A7F53F22A5FA42D7B8F77735 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/nakatani.sho/git/smartdb -f /Users/nakatani.sho/git/smartdb/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		256B737283B14E7F9F8F2585 /* Sources */ = {
+		5AEE9DEB503342E784AB99E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1C7EFD5EFA14F2C985D7871 /* hoge.cc in Sources */,
+				FB7169DB34374C8095A3F1AE /* hoge.cc in Sources */,
+				02020EE46039415FACF734B7 /* csv.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5859E46075F34AB589B9884D /* PBXTargetDependency */ = {
+		09436D95B3544587A900BE45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FA5B97054A947CB99AD861B /* ZERO_CHECK */;
+			targetProxy = 88CCFDCC452C47AD9AAB21DE /* PBXContainerItemProxy */;
+		};
+		888599BA1C314FD28FC916E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9212705ADE7D47ACB8C15427 /* libsmartdb */;
-			targetProxy = DC892D7894494E5E980D54DC /* PBXContainerItemProxy */;
+			targetProxy = E29D2EED4E334736A8DFFAF9 /* PBXContainerItemProxy */;
 		};
-		7A94812E029A45188A721808 /* PBXTargetDependency */ = {
+		9857CC1F378E48C299A0525B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0FA5B97054A947CB99AD861B /* ZERO_CHECK */;
-			targetProxy = 0CA4706F127F4437874A082C /* PBXContainerItemProxy */;
-		};
-		E68594A1C37C47F69371C7C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0FA5B97054A947CB99AD861B /* ZERO_CHECK */;
-			targetProxy = AF6DBC5478404A84BC3E8D3F /* PBXContainerItemProxy */;
+			targetProxy = 5F4CD49BC88641FA9E5AE10F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		080C55DDE2F1401E83EED940 /* RelWithDebInfo */ = {
+		02D093C8EEA54EA59D779F0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/nakatani.sho/git/smartdb;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		0E6E8B14223842049245F6CE /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/nakatani.sho/git/smartdb;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		1A31BF8DDDEE4C4194D86AF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -286,9 +338,9 @@
 					"-Wno-unknown-pragmas",
 				);
 			};
-			name = RelWithDebInfo;
+			name = Debug;
 		};
-		0F8449AA310F4B1E80160293 /* Release */ = {
+		216C1674885449419D2833A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -296,25 +348,19 @@
 				DYLIB_CURRENT_VERSION = "";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = .dylib;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
 					libsmartdb_EXPORTS,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = /Users/nakatani.sho/git/smartdb/Release;
+				INSTALL_PATH = /Users/nakatani.sho/git/smartdb/Debug;
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = DYNAMIC;
-				OTHER_CFLAGS = (
-					"-DNDEBUG",
-					"-fPIC",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNDEBUG",
-					"-fPIC",
-				);
+				OTHER_CFLAGS = "   -fPIC  ";
+				OTHER_CPLUSPLUSFLAGS = "   -fPIC  ";
 				OTHER_LDFLAGS = (
 					"-dynamiclib",
 					"-Wl,-headerpad_max_install_names",
@@ -330,19 +376,9 @@
 					"-Wno-unknown-pragmas",
 				);
 			};
-			name = Release;
+			name = Debug;
 		};
-		416485D8714143ED948B2AB2 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
-				SYMROOT = /Users/nakatani.sho/git/smartdb/build;
-			};
-			name = RelWithDebInfo;
-		};
-		5AC6962CA8654BAE86079D7B /* RelWithDebInfo */ = {
+		29991FAE4F084159B8FD8A78 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -386,42 +422,7 @@
 			};
 			name = RelWithDebInfo;
 		};
-		6BE0E92211394F61ABDA2903 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
-				SYMROOT = /Users/nakatani.sho/git/smartdb/build;
-			};
-			name = MinSizeRel;
-		};
-		75FBB8EA0EC64F58B7372CB0 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/nakatani.sho/git/smartdb;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = RelWithDebInfo;
-		};
-		7DFFF8194FC14BB88BEA3F10 /* Release */ = {
+		2A1047E602E342BBBB823F83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -446,7 +447,137 @@
 			};
 			name = Release;
 		};
-		8B2DDD4E45384AE8B552F7D0 /* MinSizeRel */ = {
+		620D28A400E04550AD252987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/nakatani.sho/git/smartdb;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		70626A06E1AD471AA39EBF90 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/nakatani.sho/git/smartdb/build;
+			};
+			name = MinSizeRel;
+		};
+		8893809B424B4B50B4B14A07 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/nakatani.sho/git/smartdb;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		90D9462AB2DD4D8AAD1FC852 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/nakatani.sho/git/smartdb;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		9C983C982A5841298021E48D /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/nakatani.sho/git/smartdb;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		9CE626C9A40D49E385CE0885 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/nakatani.sho/git/smartdb/build;
+			};
+			name = RelWithDebInfo;
+		};
+		AAD3F7C2F6324B4C84300FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/nakatani.sho/git/smartdb/build;
+			};
+			name = Release;
+		};
+		B23917AC377B4AD88F54EEE5 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -490,92 +621,7 @@
 			};
 			name = MinSizeRel;
 		};
-		9C65EB75CCAD4DF084537728 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/nakatani.sho/git/smartdb;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = Release;
-		};
-		C2A76CED7CB949199503F1EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/nakatani.sho/git/smartdb;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = Debug;
-		};
-		C78C1AB6DA774A918B0CF550 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/nakatani.sho/git/smartdb;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = Debug;
-		};
-		CEB19B7CAA9F4630A9321F85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
-				SYMROOT = /Users/nakatani.sho/git/smartdb/build;
-			};
-			name = Release;
-		};
-		CF8039ED84604CC597A94AAC /* Debug */ = {
+		D44460E004CB407EB79F9C3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
@@ -585,32 +631,7 @@
 			};
 			name = Debug;
 		};
-		E1A8BA8F4D334E57BE5F58DD /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/nakatani.sho/git/smartdb;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = MinSizeRel;
-		};
-		E6FD1930F8DF4B52B9653F1D /* Debug */ = {
+		FE1FB9004D3240F9AFA2E862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -618,19 +639,25 @@
 				DYLIB_CURRENT_VERSION = "";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = .dylib;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
 					libsmartdb_EXPORTS,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = /Users/nakatani.sho/git/smartdb/Debug;
+				INSTALL_PATH = /Users/nakatani.sho/git/smartdb/Release;
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = DYNAMIC;
-				OTHER_CFLAGS = "   -fPIC  ";
-				OTHER_CPLUSPLUSFLAGS = "   -fPIC  ";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
 				OTHER_LDFLAGS = (
 					"-dynamiclib",
 					"-Wl,-headerpad_max_install_names",
@@ -646,76 +673,51 @@
 					"-Wno-unknown-pragmas",
 				);
 			};
-			name = Debug;
-		};
-		EA4AA14FDCF4496681EE66CC /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/nakatani.sho/git/smartdb;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-			};
-			name = MinSizeRel;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1818C1A84E1347E899A0CB82 /* Build configuration list for PBXProject "smartdb" */ = {
+		07938FA421CA492F9A5D1ACB /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF8039ED84604CC597A94AAC /* Debug */,
-				CEB19B7CAA9F4630A9321F85 /* Release */,
-				6BE0E92211394F61ABDA2903 /* MinSizeRel */,
-				416485D8714143ED948B2AB2 /* RelWithDebInfo */,
+				02D093C8EEA54EA59D779F0D /* Debug */,
+				620D28A400E04550AD252987 /* Release */,
+				0E6E8B14223842049245F6CE /* MinSizeRel */,
+				9C983C982A5841298021E48D /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		2884E2327908471CA3F36547 /* Build configuration list for PBXNativeTarget "libsmartdb" */ = {
+		2E4A66FC50C2461E9D96355F /* Build configuration list for PBXNativeTarget "libsmartdb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E6FD1930F8DF4B52B9653F1D /* Debug */,
-				0F8449AA310F4B1E80160293 /* Release */,
-				8B2DDD4E45384AE8B552F7D0 /* MinSizeRel */,
-				5AC6962CA8654BAE86079D7B /* RelWithDebInfo */,
+				216C1674885449419D2833A5 /* Debug */,
+				FE1FB9004D3240F9AFA2E862 /* Release */,
+				B23917AC377B4AD88F54EEE5 /* MinSizeRel */,
+				29991FAE4F084159B8FD8A78 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		AA8442D7CA0B4419A2594808 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		96AA9A050BAF45919075ECDB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C2A76CED7CB949199503F1EB /* Debug */,
-				9C65EB75CCAD4DF084537728 /* Release */,
-				E1A8BA8F4D334E57BE5F58DD /* MinSizeRel */,
-				75FBB8EA0EC64F58B7372CB0 /* RelWithDebInfo */,
+				1A31BF8DDDEE4C4194D86AF9 /* Debug */,
+				2A1047E602E342BBBB823F83 /* Release */,
+				90D9462AB2DD4D8AAD1FC852 /* MinSizeRel */,
+				8893809B424B4B50B4B14A07 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		DAE63DEAD3674348BE4E632F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		FF8ECFE2135E4CF8B196C248 /* Build configuration list for PBXProject "smartdb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C78C1AB6DA774A918B0CF550 /* Debug */,
-				7DFFF8194FC14BB88BEA3F10 /* Release */,
-				EA4AA14FDCF4496681EE66CC /* MinSizeRel */,
-				080C55DDE2F1401E83EED940 /* RelWithDebInfo */,
+				D44460E004CB407EB79F9C3F /* Debug */,
+				AAD3F7C2F6324B4C84300FDC /* Release */,
+				70626A06E1AD471AA39EBF90 /* MinSizeRel */,
+				9CE626C9A40D49E385CE0885 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

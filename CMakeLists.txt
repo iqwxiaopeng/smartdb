@@ -5,6 +5,7 @@ PROJECT(smartdb)
 
 SET(LIB_SOURCE_FILES
     lib/hoge.cc
+    lib/storage/csv.cc
     )
 
 ADD_LIBRARY(libsmartdb SHARED ${LIB_SOURCE_FILES})
