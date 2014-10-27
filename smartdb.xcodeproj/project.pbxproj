@@ -35,7 +35,6 @@
 
 /* Begin PBXBuildFile section */
 		02020EE46039415FACF734B7 /* csv.cc in Sources */ = {isa = PBXBuildFile; fileRef = 917E4E7E2B9D4D10BAD14734 /* csv.cc */; settings = {COMPILER_FLAGS = ""; }; };
-		FB7169DB34374C8095A3F1AE /* hoge.cc in Sources */ = {isa = PBXBuildFile; fileRef = 27215206124A49DCA5C5695E /* hoge.cc */; settings = {COMPILER_FLAGS = ""; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		27215206124A49DCA5C5695E /* hoge.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = hoge.cc; path = lib/hoge.cc; sourceTree = SOURCE_ROOT; };
+		51A294C419FF0F250080A5F2 /* storage_interface.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = storage_interface.cc; path = lib/core/storage_interface.cc; sourceTree = "<group>"; };
+		51A294C519FF11FA0080A5F2 /* table_reader.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = table_reader.cc; path = lib/op/table_reader.cc; sourceTree = "<group>"; };
+		51A294C619FF120A0080A5F2 /* buffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = buffer.cc; path = lib/datastruct/buffer.cc; sourceTree = "<group>"; };
+		51A294C719FF120A0080A5F2 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = lib/datastruct/buffer.h; sourceTree = "<group>"; };
 		917E4E7E2B9D4D10BAD14734 /* csv.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; indentWidth = 2; name = csv.cc; path = lib/storage/csv.cc; sourceTree = SOURCE_ROOT; tabWidth = 2; };
 		B1838716703240EE87A8A90E /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		CCA34B289E9E432391D66852 /* liblibsmartdb.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = liblibsmartdb.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,39 @@
 			children = (
 			);
 			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		51A294C819FF12350080A5F2 /* op */ = {
+			isa = PBXGroup;
+			children = (
+				51A294C519FF11FA0080A5F2 /* table_reader.cc */,
+			);
+			name = op;
+			sourceTree = "<group>";
+		};
+		51A294C919FF12480080A5F2 /* datastruct */ = {
+			isa = PBXGroup;
+			children = (
+				51A294C619FF120A0080A5F2 /* buffer.cc */,
+				51A294C719FF120A0080A5F2 /* buffer.h */,
+			);
+			name = datastruct;
+			sourceTree = "<group>";
+		};
+		51A294CA19FF12620080A5F2 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				917E4E7E2B9D4D10BAD14734 /* csv.cc */,
+			);
+			name = storage;
+			sourceTree = "<group>";
+		};
+		51A294CB19FF12770080A5F2 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				51A294C419FF0F250080A5F2 /* storage_interface.cc */,
+			);
+			name = core;
 			sourceTree = "<group>";
 		};
 		8452483E6E7446B59B1D459D /* libsmartdb */ = {
@@ -130,8 +165,10 @@
 		B6DAB89F016A40B3B9E975C3 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				27215206124A49DCA5C5695E /* hoge.cc */,
-				917E4E7E2B9D4D10BAD14734 /* csv.cc */,
+				51A294CB19FF12770080A5F2 /* core */,
+				51A294CA19FF12620080A5F2 /* storage */,
+				51A294C919FF12480080A5F2 /* datastruct */,
+				51A294C819FF12350080A5F2 /* op */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -239,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7169DB34374C8095A3F1AE /* hoge.cc in Sources */,
 				02020EE46039415FACF734B7 /* csv.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

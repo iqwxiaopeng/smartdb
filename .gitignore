@@ -40,6 +40,9 @@ cmake_install.cmake
 # Editor files
 *~
 
+# Mac OSX files
+.DS_Store
+
 # Xcode files
 **/*.xcodeproj/*
 !**/*.xcodeproj/project.pbxproj
