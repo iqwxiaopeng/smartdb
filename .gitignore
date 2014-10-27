@@ -30,5 +30,18 @@
 *.out
 *.app
 
+# cmake files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+
 # Editor files
 *~
+
+# Xcode files
+**/*.xcodeproj/*
+!**/*.xcodeproj/project.pbxproj
+!**/*.xcodeproj/default.*
+smartdb.build/
