@@ -4,7 +4,9 @@ CMAKE_POLICY(SET CMP0003 NEW)
 PROJECT(smartdb)
 
 SET(LIB_SOURCE_FILES
-    lib/hoge.cc
+    lib/datastruct/buffer.cc
+    lib/op/table_reader.cc
+    lib/core/storage_interface.cc
     lib/storage/csv.cc
     )
 
