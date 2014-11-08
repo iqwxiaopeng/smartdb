@@ -29,3 +29,12 @@ TEST(get_int, returns_2nd_added_value) {
   EXPECT_EQ(123, rec.get_int(0));
   EXPECT_EQ(456, rec.get_int(1));
 }
+TEST(get_int, reentrant) {
+  Record rec(2, buf);
+  rec.add_int(123);
+  rec.add_int(456);
+  EXPECT_EQ(123, rec.get_int(0));
+  EXPECT_EQ(456, rec.get_int(1));
+  EXPECT_EQ(123, rec.get_int(0));
+  EXPECT_EQ(456, rec.get_int(1));
+}
