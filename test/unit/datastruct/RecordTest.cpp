@@ -38,3 +38,11 @@ TEST(get_int, reentrant) {
   EXPECT_EQ(123, rec.get_int(0));
   EXPECT_EQ(456, rec.get_int(1));
 }
+TEST(get_int, returns_MEM_BUF_SHORTAGE_when_adding_too_much_columns) {
+  const size_t bufsz = 7;
+  Buffer buf(bufsz);
+
+  Record rec(bufsz, buf);
+  EXPECT_EQ(NO_ERR, rec.add_int(123));
+  EXPECT_EQ(MEM_BUF_SHORTAGE, rec.add_int(123));
+}
