@@ -9,14 +9,14 @@
 
 namespace Smartdb {
 
-  Record::Record() {
-    // TODO Auto-generated constructor stub
+Record::Record(Buffer& buf)
+: buf(buf)
+{
+}
 
-  }
-
-  Record::~Record() {
-    // TODO Auto-generated destructor stub
-  }
+Record::~Record() {
+  // TODO Auto-generated destructor stub
+}
 
   int hello() {
     return 777;

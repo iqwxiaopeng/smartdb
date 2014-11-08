@@ -8,12 +8,19 @@
 #ifndef LIB_DATASTRUCT_RECORD_H_
 #define LIB_DATASTRUCT_RECORD_H_
 
+#include "datastruct/Buffer.h"
+
 namespace Smartdb {
 
 class Record {
 public:
-  Record();
+  Record(Buffer &buf);
   virtual ~Record();
+
+  Buffer buf;
+
+private:
+  Record();
 };
 
 int hello();

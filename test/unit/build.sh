@@ -8,12 +8,12 @@ target=run_gtest
 
 smartdb_lib_test=$(find . -name '*.cpp')
 
-_proj_root_dir_for_sed=$(echo $proj_root_dir |sed -e 's/\./\\./g' |sed -e 's/\//\\\//g')
-smartdb_lib_src=$(echo $smartdb_lib_test |sed -e "s/\.\//${_proj_root_dir_for_sed}\/lib\//g" |sed -e 's/Test\.cpp/.cpp/g')
+_possible_cpp=$(grep '#include' $smartdb_lib_test |sed -e 's/.*"\(.*\).h".*/\1.cpp/g')
+smartdb_lib_src=$(for cpp in ${_possible_cpp} ; do test -f ${proj_root_dir}/lib/${cpp} && echo ${proj_root_dir}/lib/${cpp} ; done)
 
 g++ \
     -g \
-    -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib \
+    -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/include \
     ${gtest_src} \
     ${smartdb_lib_src} ${smartdb_lib_test} \
     -o ${target} \
