@@ -30,12 +30,21 @@
 *.out
 *.app
 
+# coredump
+core
+!core/
+
 # cmake files
 CMakeCache.txt
 CMakeFiles/
 CMakeScripts/
 Makefile
 cmake_install.cmake
+
+# Google Test files
+run_gtest
+run_gtest.*/
+contrib/gtest/
 
 # Editor files
 *~
