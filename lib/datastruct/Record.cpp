@@ -5,8 +5,8 @@
  *      Author: nakatani.sho
  */
 
-#include <assert.h>
 #include "Record.h"
+#include "hack/Assert.h"
 
 namespace Smartdb {
 
@@ -21,14 +21,14 @@ Record::~Record() {
 }
 
 SmartdbInt Record::get_int(size_t col_index) const {
-  assert(col_index < n_col);
+  ASSERT(col_index < n_col);
 
   size_t starts_from = this->col_starts_from[col_index];
   return *((SmartdbInt *)(this->buf.ptr + starts_from));
 }
 
 SmartdbErr Record::add_int(SmartdbInt val) {
-  assert(filled_col < n_col);
+  ASSERT(filled_col < n_col);
 
   if (col_starts_from[filled_col] + sizeof(SmartdbInt) > buf.size)
     return MEM_BUF_SHORTAGE;

@@ -43,7 +43,6 @@ cmake_install.cmake
 
 # Google Test files
 run_gtest
-run_gtest.*/
 contrib/gtest/
 
 # Editor files
@@ -51,6 +50,7 @@ contrib/gtest/
 
 # Mac OSX files
 .DS_Store
+*.dSYM/
 
 # Xcode files
 **/*.xcodeproj/*
