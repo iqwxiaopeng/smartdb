@@ -1,6 +1,5 @@
 #include "gtest/gtest.h"
 #include "datastruct/Record.h"
-#include "datastruct/Buffer.h"
 
 using namespace Smartdb;
 

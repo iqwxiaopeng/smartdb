@@ -7,13 +7,12 @@ gtest_src="${gtest_dir}/src/gtest-all.cc ${gtest_dir}/src/gtest_main.cc"
 target=run_gtest
 
 smartdb_lib_test=$(find . -name '*.cpp')
-
-_possible_cpp=$(grep '#include' $smartdb_lib_test |sed -e 's/.*"\(.*\).h".*/\1.cpp/g')
-smartdb_lib_src=$(for cpp in ${_possible_cpp} ; do test -f ${proj_root_dir}/lib/${cpp} && echo ${proj_root_dir}/lib/${cpp} ; done)
+smartdb_lib_src=$(find ${proj_root_dir}/lib -name '*.cpp')
 
 compile_cmd="\
 g++ \
     -g \
+    -fno-exceptions -fno-rtti \
     -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/include \
     ${gtest_src} \
     ${smartdb_lib_src} ${smartdb_lib_test} \

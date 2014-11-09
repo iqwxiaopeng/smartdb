@@ -1,14 +1,13 @@
-#include "TableReader.h"
+#include "op/TableReader.h"
+#include "datastruct/RecordQueue.h"
 
 namespace Smartdb {
 
 void TableReader::read() {
-  ssize_t ret = 1;
-  while (ret > 0) {
-    RecordQueue records = RecordQueue(size);
-    ret = read_records(this->storage, records);
-    this->out_queue.register_records(records);
-  }
+//  ssize_t ret = 1;
+//  while (ret > 0) {
+//    ret = this->storage.read_records(this->out_queue);
+//  }
 }
 
 }

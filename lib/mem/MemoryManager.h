@@ -8,6 +8,8 @@
 #ifndef LIB_CORE_MEMORYMANAGER_H_
 #define LIB_CORE_MEMORYMANAGER_H_
 
+#include "api/SmartdbType.h"
+
 namespace Smartdb {
 
 class MemoryManager {

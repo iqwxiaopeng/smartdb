@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "MemoryManager.h"
+#include "mem/MemoryManager.h"
 
 namespace Smartdb {
 
