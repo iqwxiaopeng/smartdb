@@ -11,9 +11,14 @@ smartdb_lib_test=$(find . -name '*.cpp')
 _possible_cpp=$(grep '#include' $smartdb_lib_test |sed -e 's/.*"\(.*\).h".*/\1.cpp/g')
 smartdb_lib_src=$(for cpp in ${_possible_cpp} ; do test -f ${proj_root_dir}/lib/${cpp} && echo ${proj_root_dir}/lib/${cpp} ; done)
 
+compile_cmd="\
 g++ \
     -g \
     -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/include \
     ${gtest_src} \
     ${smartdb_lib_src} ${smartdb_lib_test} \
     -o ${target} \
+"
+
+echo ${compile_cmd}
+eval ${compile_cmd}
