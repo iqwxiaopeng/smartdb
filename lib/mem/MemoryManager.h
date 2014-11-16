@@ -18,6 +18,7 @@ public:
   virtual ~MemoryManager();
 
   virtual void *allocate(size_t size_byte) = 0;
+  virtual void *reallocate(void *ptr, size_t size_byte) = 0;
   virtual void deallocate(void *ptr) = 0;
 };
 

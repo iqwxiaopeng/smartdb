@@ -8,14 +8,17 @@
 #ifndef LIB_MEM_MALLOCMEMORYMANAGER_H_
 #define LIB_MEM_MALLOCMEMORYMANAGER_H_
 
+#include "MemoryManager.h"
+
 namespace Smartdb {
 
-class MallocMemoryManager {
+class MallocMemoryManager : public MemoryManager {
 public:
   MallocMemoryManager();
   virtual ~MallocMemoryManager();
 
   virtual void *allocate(size_t size_byte);
+  virtual void *reallocate(void *ptr, size_t size_byte);
   virtual void deallocate(void *ptr);
 };
 

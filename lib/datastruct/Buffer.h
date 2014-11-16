@@ -15,13 +15,23 @@ namespace Smartdb {
 
 class Buffer {
 public:
-  Buffer(size_t size);
+  Buffer();
   virtual ~Buffer();
 
-  char *ptr;
-  size_t size;
+  SmartdbErr allocate(size_t size);
+  SmartdbErr reallocate(size_t size);
+  void deallocate();  // reentrant
 
-  PREVENT_CLASS_DEFAULT_METHODS(Buffer);
+private:
+  char *_ptr;
+  size_t _size;
+
+public:
+  char *ptr() const;
+  size_t size() const;
+
+  PREVENT_COPY_CONSTRUCTOR(Buffer);
+  PREVENT_OBJECT_ASSIGNMENT(Buffer);
 };
 
 } /* namespace Smartdb */

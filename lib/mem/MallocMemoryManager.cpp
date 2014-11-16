@@ -24,6 +24,11 @@ void* MallocMemoryManager::allocate(size_t size_byte) {
 }
 
 inline
+void* MallocMemoryManager::reallocate(void *ptr, size_t size_byte) {
+  return realloc(ptr, size_byte);
+}
+
+inline
 void MallocMemoryManager::deallocate(void* ptr) {
   free(ptr);
 }
