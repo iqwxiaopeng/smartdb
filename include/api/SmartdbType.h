@@ -11,6 +11,9 @@
 #include <stddef.h>
 #include <stdint.h>
 
+enum SmartdbType {
+  SMARTDB_INT = 0,
+};
 typedef int32_t SmartdbInt;
 
 enum SmartdbErr {

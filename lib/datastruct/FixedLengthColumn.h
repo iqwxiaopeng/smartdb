@@ -8,14 +8,16 @@
 #ifndef LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 #define LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 
-#include "datastruct/Buffer.h"
+#include "mem/Buffer.h"
+#include "Column.h"
 #include "hack/Class.h"
 #include "hack/Assert.h"
 
 namespace Smartdb {
 
+// FixedLengthColumn represents partial column (not including all records)
 template<typename T>
-class FixedLengthColumn {
+class FixedLengthColumn : public Column {
 public:
   FixedLengthColumn(Buffer &buf);
   virtual ~FixedLengthColumn();

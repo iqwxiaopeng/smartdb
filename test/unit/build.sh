@@ -11,7 +11,6 @@ smartdb_lib_src=$(find ${proj_root_dir}/lib -name '*.cpp')
 compile_cmd="\
 g++ \
     -g \
-    -fno-rtti \
     -DSMARTDB_GTEST \
     -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/include \
     ${gtest_src} \

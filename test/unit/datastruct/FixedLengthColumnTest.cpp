@@ -9,8 +9,11 @@ protected:
   static const size_t bufsz = 1024;
   Buffer buf;
 
+  FixedLengthColumnTest()
+  : buf(bufsz)
+  {}
+
   virtual void SetUp() {
-    buf.allocate(bufsz);
   }
 };
 
@@ -24,8 +27,7 @@ TEST_F(FixedLengthColumnTest, add_returns_no_error_on_multiple_addition) {
   EXPECT_EQ(NO_ERR, col.add(456));
 }
 TEST_F(FixedLengthColumnTest, add_returns_MEM_BUF_SHORTAGE_on_too_much_addition) {
-  Buffer buf;
-  buf.allocate(1);
+  Buffer buf(1);
   FixedLengthColumn<SmartdbInt> col(buf);
   EXPECT_EQ(MEM_BUF_SHORTAGE, col.add(123));
 }

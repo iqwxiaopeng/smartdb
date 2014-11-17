@@ -1,20 +1,20 @@
 /*
- * MemoryManager.cpp
+ * Node.cpp
  *
  *  Created on: 2014/11/06
  *      Author: nakatani.sho
  */
 
-#include "mem/MemoryManager.h"
+#include "Node.h"
 
 namespace Smartdb {
 
-  MemoryManager::MemoryManager() {
+  Node::Node() {
     // TODO Auto-generated constructor stub
 
   }
 
-  MemoryManager::~MemoryManager() {
+  Node::~Node() {
     // TODO Auto-generated destructor stub
   }
 
