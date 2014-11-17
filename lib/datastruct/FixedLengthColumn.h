@@ -8,8 +8,9 @@
 #ifndef LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 #define LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 
-#include "mem/Buffer.h"
 #include "Column.h"
+#include "api/SmartdbType.h"
+#include "mem/Buffer.h"
 #include "hack/Class.h"
 #include "hack/Assert.h"
 
