@@ -4,6 +4,14 @@
 #include "hack/DynamicLib.h"
 #include "log/Logger.h"
 
+#define LOAD_FUNC(func_name) \
+  if (!(storage_funcs.func_name = \
+        (func_name ## _t)load_func(dlib_handler, #func_name))) { \
+    logger->error(::dlerror()); \
+    abort(); \
+  }
+
+
 namespace Smartdb {
 
 TableReader::TableReader(const std::string& storage_engine_name)
@@ -34,16 +42,9 @@ void TableReader::load_dlib_funcs() {
     logger->error(::dlerror());
     abort();
   }
-  if (!(storage_funcs.storage_init =
-        (storage_init_t)load_func(dlib_handler, "storage_init"))) {
-    logger->error(::dlerror());
-    abort();
-  }
-  if (!(storage_funcs.storage_read_records =
-        (storage_read_records_t)load_func(dlib_handler, "storage_read_records"))) {
-    logger->error(::dlerror());
-    abort();
-  }
+  LOAD_FUNC(storage_init);
+  LOAD_FUNC(storage_read_records);
+  LOAD_FUNC(storage_finish);
 }
 
 inline

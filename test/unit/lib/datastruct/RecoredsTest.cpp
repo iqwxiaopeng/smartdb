@@ -16,12 +16,13 @@ protected:
 };
 
 TEST_F(RecordsTest, add_and_get_to_single_column) {
-  Buffer colbuf(1024);
   ColumnDef coldef("col1", SMARTDB_INT);
+  std::vector<const ColumnDef *> coldefs(1, &coldef);
 
-  Records records(
-    std::vector<const ColumnDef * const>(1, &coldef),
-    std::vector<Buffer * const>(1, &colbuf));
+  Buffer colbuf(1024);
+  std::vector<Buffer *> colbufs(1, &colbuf);
+
+  Records records(coldefs, colbufs);
 
   SET_SMARTDB_VALUE(v, SmartdbInt, 777); records.columns[0]->add(v);
   EXPECT_EQ(777, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
@@ -30,14 +31,14 @@ TEST_F(RecordsTest, add_and_get_to_multiple_column) {
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_DOUBLE);
   std::vector<const ColumnDef *> coldefs(2, 0);
-  coldefs.push_back(&coldef1);
-  coldefs.push_back(&coldef2);
+  coldefs[0] = &coldef1;
+  coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
   std::vector<Buffer *> colbufs(2, 0);
-  colbufs.push_back(&colbuf1);
-  colbufs.push_back(&colbuf2);
+  colbufs[0] = &colbuf1;
+  colbufs[1] = &colbuf2;
 
   Records records(coldefs, colbufs);
 

@@ -12,7 +12,7 @@ smartdb_storage_src=$(find ${proj_root_dir}/storage -name '*.cpp' |grep -v CMake
 
 compile_cmd="\
 g++ \
-    -g \
+    -g -O0 \
     -DSMARTDB_GTEST \
     -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/storage -I${proj_root_dir}/include \
     ${gtest_src} \
