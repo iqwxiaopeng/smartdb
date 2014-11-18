@@ -8,6 +8,7 @@ SET(CMAKE_C_FLAGS "-O2 -g -Wall ${CMAKE_C_FLAGS}")
 INCLUDE_DIRECTORIES(
     include
     lib
+    storage
 )
 
 SET(LIB_SOURCE_FILES
@@ -22,4 +23,4 @@ SET(LIB_SOURCE_FILES
     lib/op/TableReader.cpp
 )
 
-ADD_LIBRARY(libsmartdb SHARED ${LIB_SOURCE_FILES})
+ADD_LIBRARY(smartdb MODULE ${LIB_SOURCE_FILES})

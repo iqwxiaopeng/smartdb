@@ -16,5 +16,6 @@
 #include "datastruct/Records.h"  // storage engines' output
 #include "mem/Buffer.h"   // storage engine implementations may use
                           // this for memory allocation
+#include "log/Logger.h"
 
 #endif /* INCLUDE_API_SMARTDB_H_ */

@@ -7,23 +7,17 @@
 
 #include <stdio.h>
 #include "Csv.h"
-#include "datastruct/Records.h"
-#include "mem/Buffer.h"
 #include "hack/Assert.h"
 
-namespace Smartdb {
+Smartdb::Logger * logger = 0;
 
-Csv::Csv()
-: read_buf(10 * 1e6)
-{
+void* storage_init(Smartdb::Logger* const _logger) {
+  logger = _logger;
+  return 0;
 }
 
-Csv::~Csv() {
-	// TODO Auto-generated destructor stub
-}
-
-SmartdbErr Csv::read_records(Records &records, size_t n_records) {
-  FILE *fp = fopen()
+void* storage_read_records(Smartdb::Records& records, size_t n_records) {
+/*  FILE *fp = fopen()
   fread();
   //freadでread_buf埋める
 
@@ -35,7 +29,5 @@ SmartdbErr Csv::read_records(Records &records, size_t n_records) {
           col_idx = cols.search(records.coldefs[i].name);
         records.columns[col_idx]->add(cols[col_idx]);
         */
-  return NO_ERR;
+  return 0;
 }
-
-} /* namespace Smartdb */
