@@ -10,7 +10,7 @@
 
 #include <vector>
 #include "datastruct/ColumnDef.h"
-#include "Column.h"
+#include "datastruct/Column.h"
 #include "mem/Buffer.h"
 #include "hack/Class.h"
 
@@ -20,7 +20,7 @@ namespace Smartdb {
 class Records {
 public:
   Records(const std::vector<const ColumnDef * const>& coldefs,
-          std::vector<Column *>& columns,
+          std::vector<Column *>& columns,  // derived class is instantiated by info from coldefs
           const std::vector<Buffer * const>& colbufs);
   virtual ~Records();
 

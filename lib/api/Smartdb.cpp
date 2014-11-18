@@ -9,8 +9,4 @@
 
 namespace Smartdb {
 
-// initializer
-void init() {
-}
-
 } /* namespace Smartdb */

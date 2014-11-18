@@ -19,7 +19,6 @@ SET(LIB_SOURCE_FILES
     lib/mem/Buffer.cpp
     lib/op/Operator.cpp
     lib/op/TableReader.cpp
-    lib/storage/Csv.cpp
 )
 
 ADD_LIBRARY(libsmartdb SHARED ${LIB_SOURCE_FILES})
