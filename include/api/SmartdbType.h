@@ -14,9 +14,20 @@
 //
 // embedded types of Smartdb
 enum SmartdbType {
-  SMARTDB_INT = 0,
+  SMARTDB_INT = 1,
+  SMARTDB_DOUBLE,
 };
+
 typedef int32_t SmartdbInt;
+typedef double SmartdbDouble;
+
+typedef union SmartdbValue {
+  SmartdbDouble v_SmartdbDouble;
+  SmartdbInt v_SmartdbInt;
+} SmartdbValue;
+
+#define GET_SMARTDB_VALUE(var, type) var.v_##type
+#define SET_SMARTDB_VALUE(var, type, val) (var.v_##type = val);
 
 //
 // error types

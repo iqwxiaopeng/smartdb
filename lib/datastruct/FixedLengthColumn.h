@@ -10,22 +10,22 @@
 
 #include "Column.h"
 #include "api/SmartdbType.h"
+#include "ColumnDef.h"
 #include "mem/Buffer.h"
 #include "hack/Class.h"
-#include "hack/Assert.h"
 
 namespace Smartdb {
 
 // FixedLengthColumn represents partial column (not including all records)
-template<typename T>
 class FixedLengthColumn : public Column {
 public:
-  FixedLengthColumn(Buffer &buf);
+  FixedLengthColumn(const ColumnDef &coldef, Buffer &buf);
   virtual ~FixedLengthColumn();
 
-  SmartdbErr add(T val);
-  T get(size_t row_index) const;
+  virtual SmartdbErr add(const SmartdbValue &val);
+  virtual SmartdbValue get(size_t row_index) const;
 
+  const ColumnDef &coldef;
   Buffer &buf;
 
 private:
@@ -33,37 +33,6 @@ private:
 
   PREVENT_CLASS_DEFAULT_METHODS(FixedLengthColumn);
 };
-
-
-template<typename T>
-FixedLengthColumn<T>::FixedLengthColumn(Buffer& buf)
-: filled_row(0), buf(buf)
-{
-}
-
-template<typename T>
-FixedLengthColumn<T>::~FixedLengthColumn() {
-  // TODO Auto-generated destructor stub
-}
-
-template<typename T>
-inline
-SmartdbErr FixedLengthColumn<T>::add(T val) {
-  if ((filled_row + 1) * sizeof(T) > buf.size())
-    return MEM_BUF_SHORTAGE;
-
-  *((T *)(buf.ptr() + (filled_row * sizeof(T)))) = val;
-  filled_row++;
-
-  return NO_ERR;
-}
-
-template<typename T>
-inline
-T FixedLengthColumn<T>::get(size_t row_index) const {
-  ASSERT(row_index < filled_row);
-  return *((T *)(this->buf.ptr() + (row_index * sizeof(T))));
-}
 
 } /* namespace Smartdb */
 

@@ -8,13 +8,19 @@
 #ifndef LIB_DATASTRUCT_COLUMN_H_
 #define LIB_DATASTRUCT_COLUMN_H_
 
+#include "ColumnDef.h"
+#include "hack/Assert.h"
+
 namespace Smartdb {
 
 class Column {
 public:
   virtual ~Column() {}
+
+  virtual SmartdbErr add(const SmartdbValue &val) = 0;
+  virtual SmartdbValue get(size_t row_index) const = 0;
 };
 
-} /* namespace Smartdb */
+}
 
 #endif /* LIB_DATASTRUCT_COLUMN_H_ */

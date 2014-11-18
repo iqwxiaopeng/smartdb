@@ -20,12 +20,11 @@ namespace Smartdb {
 class Records {
 public:
   Records(const std::vector<const ColumnDef * const>& coldefs,
-          std::vector<Column *>& columns,  // derived class is instantiated by info from coldefs
           const std::vector<Buffer * const>& colbufs);
   virtual ~Records();
 
   const std::vector<const ColumnDef * const> &coldefs;
-  std::vector<Column *> &columns;
+  std::vector<Column *> columns;
 
 private:
   const std::vector<Buffer * const> &colbufs;

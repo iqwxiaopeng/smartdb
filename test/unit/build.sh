@@ -5,10 +5,10 @@ gtest_dir=${proj_root_dir}/contrib/gtest
 gtest_src="${gtest_dir}/src/gtest-all.cc ${gtest_dir}/src/gtest_main.cc"
 target=run_gtest
 
-smartdb_lib_test=$(find ./lib -name '*.cpp')
-smartdb_lib_src=$(find ${proj_root_dir}/lib -name '*.cpp')
-smartdb_storage_test=$(find ./storage -name '*.cpp')
-smartdb_storage_src=$(find ${proj_root_dir}/storage -name '*.cpp')
+smartdb_lib_test=$(find ./lib -name '*.cpp' |grep -v CMakeFiles)
+smartdb_lib_src=$(find ${proj_root_dir}/lib -name '*.cpp' |grep -v CMakeFiles)
+smartdb_storage_test=$(find ./storage -name '*.cpp' |grep -v CMakeFiles)
+smartdb_storage_src=$(find ${proj_root_dir}/storage -name '*.cpp' |grep -v CMakeFiles)
 
 compile_cmd="\
 g++ \

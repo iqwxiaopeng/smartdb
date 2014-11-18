@@ -13,18 +13,12 @@ namespace Smartdb {
 
 Records::Records(
   const std::vector<const ColumnDef * const>& coldefs,
-  std::vector<Column *>& columns,
   const std::vector<Buffer * const>& colbufs)
-: coldefs(coldefs), columns(columns), colbufs(colbufs)
+: coldefs(coldefs), colbufs(colbufs),
+  columns(coldefs.size(), 0)
 {
   for (size_t i = 0; i < coldefs.size(); ++i) {
-    switch (coldefs[i]->type)
-    case SMARTDB_INT: {
-      columns[i] = new FixedLengthColumn<SmartdbInt>(*(colbufs[i]));
-      break;
-    default:
-      ASSERT(false);
-    }
+    columns[i] = new FixedLengthColumn(*coldefs[i], *colbufs[i]);
   }
 }
 
