@@ -8,13 +8,12 @@ using namespace Smartdb;
 
 class FixedLengthColumnTest : public ::testing::Test {
 protected:
-  static const size_t bufsz = 1024;
   Buffer buf;
   SmartdbValue v;
   ColumnDef coldef_int, coldef_double;
 
   FixedLengthColumnTest()
-  : buf(bufsz),
+  : buf(1024),
     coldef_int("col1", SMARTDB_INT), coldef_double("col1", SMARTDB_DOUBLE)
   {}
 

@@ -19,15 +19,15 @@ namespace Smartdb {
 // Records are set of Column
 class Records {
 public:
-  Records(const std::vector<const ColumnDef * const>& coldefs,
-          const std::vector<Buffer * const>& colbufs);
+  Records(const std::vector<const ColumnDef *>& coldefs,
+          const std::vector<Buffer *>& colbufs);
   virtual ~Records();
 
-  const std::vector<const ColumnDef * const> &coldefs;
+  const std::vector<const ColumnDef *> &coldefs;
   std::vector<Column *> columns;
 
 private:
-  const std::vector<Buffer * const> &colbufs;
+  const std::vector<Buffer *> &colbufs;
 
   PREVENT_CLASS_DEFAULT_METHODS(Records)
 };

@@ -12,8 +12,8 @@
 namespace Smartdb {
 
 Records::Records(
-  const std::vector<const ColumnDef * const>& coldefs,
-  const std::vector<Buffer * const>& colbufs)
+  const std::vector<const ColumnDef *>& coldefs,
+  const std::vector<Buffer *>& colbufs)
 : coldefs(coldefs), colbufs(colbufs),
   columns(coldefs.size(), 0)
 {

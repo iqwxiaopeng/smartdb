@@ -19,6 +19,8 @@ public:
 
   virtual SmartdbErr add(const SmartdbValue &val) = 0;
   virtual SmartdbValue get(size_t row_index) const = 0;
+
+  // [TODO] - Bulk add/get for performance
 };
 
 }
