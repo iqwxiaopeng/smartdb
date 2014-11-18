@@ -43,8 +43,8 @@ namespace Smartdb {
   class Logger;
 }
 
-typedef SmartdbErr (storage_init_t)(Smartdb::Logger * const logger);
-typedef SmartdbErr (storage_read_records_t)(Smartdb::Records &, size_t);
+typedef void (*storage_init_t)(Smartdb::Logger * const logger);
+typedef void (*storage_read_records_t)(Smartdb::Records &, size_t);
 typedef struct storage_funcs_t {
   storage_init_t storage_init;
   storage_read_records_t storage_read_records;

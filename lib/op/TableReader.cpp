@@ -7,15 +7,13 @@
 namespace Smartdb {
 
 TableReader::TableReader(const std::string& storage_engine_name)
-: storage_engine_name(storage_engine_name), lib_handler(0)
+: storage_engine_name(storage_engine_name), dlib_handler(0)
 {
-  if (!(lib_handler = ::load_dlib(storage_engine_dlib_name().c_str()))) {
-    logger->error(dlerror());
-    abort();
-  }
-/*  if (!(hello = (hello_t)::MyLoadProc(hMyLib, "Smartdb::hello"))) {  }
+  load_dlib_funcs();
+}
 
-hello();*/
+TableReader::~TableReader() {
+  unload_dlib_funcs();
 }
 
 void TableReader::read() {
@@ -26,8 +24,31 @@ void TableReader::read() {
 }
 
 inline
-std::string TableReader::storage_engine_dlib_name() {
+std::string TableReader::dlib_name() {
   return std::string("lib") + storage_engine_name + std::string(".so");
+}
+
+inline
+void TableReader::load_dlib_funcs() {
+  if (!(dlib_handler = load_dlib(dlib_name().c_str()))) {
+    logger->error(::dlerror());
+    abort();
+  }
+  if (!(storage_funcs.storage_init =
+        (storage_init_t)load_func(dlib_handler, "storage_init"))) {
+    logger->error(::dlerror());
+    abort();
+  }
+  if (!(storage_funcs.storage_read_records =
+        (storage_read_records_t)load_func(dlib_handler, "storage_read_records"))) {
+    logger->error(::dlerror());
+    abort();
+  }
+}
+
+inline
+void TableReader::unload_dlib_funcs() {
+  unload_dlib(dlib_handler);
 }
 
 }
