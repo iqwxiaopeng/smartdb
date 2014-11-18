@@ -16,6 +16,7 @@ SET(LIB_SOURCE_FILES
     lib/datastruct/ColumnDef.cpp
     lib/datastruct/FixedLengthColumn.cpp
     lib/datastruct/Records.cpp
+    lib/log/StderrLogger.cpp
     lib/mem/Buffer.cpp
     lib/op/Operator.cpp
     lib/op/TableReader.cpp

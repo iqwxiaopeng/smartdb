@@ -1,21 +1,21 @@
+#include <stdlib.h>
 #include "op/TableReader.h"
 #include "datastruct/Records.h"
 #include "hack/DynamicLib.h"
+#include "log/Logger.h"
 
 namespace Smartdb {
 
 TableReader::TableReader(const std::string& storage_engine_name)
 : storage_engine_name(storage_engine_name), lib_handler(0)
 {
-/*
-  lib_t hMyLib = 0;
-  hello_t hello = 0;
-
-  if (!(hMyLib = ::MyLoadLib((std::string("/Users/nakatani.sho/tmp/lib") + engine + std::string(".dylib")).c_str()))) { std::cout << dlerror(); abort();
+  if (!(lib_handler = ::load_dlib(storage_engine_dlib_name().c_str()))) {
+    logger->error(dlerror());
+    abort();
   }
-  if (!(hello = (hello_t)::MyLoadProc(hMyLib, "Smartdb::hello"))) {  }
+/*  if (!(hello = (hello_t)::MyLoadProc(hMyLib, "Smartdb::hello"))) {  }
 
-hello(); */
+hello();*/
 }
 
 void TableReader::read() {
@@ -23,6 +23,11 @@ void TableReader::read() {
 //  while (ret > 0) {
 //    ret = this->storage.read_records(out_records, 1000 /* 行 */);
 //  }
+}
+
+inline
+std::string TableReader::storage_engine_dlib_name() {
+  return std::string("lib") + storage_engine_name + std::string(".so");
 }
 
 }

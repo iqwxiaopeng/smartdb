@@ -40,12 +40,14 @@ typedef void* lib_t;
 // storage engine functions
 namespace Smartdb {
   class Records;
+  class Logger;
 }
 
-typedef SmartdbErr (storage_init_t)();
+typedef SmartdbErr (storage_init_t)(Smartdb::Logger * const logger);
 typedef SmartdbErr (storage_read_records_t)(Smartdb::Records &, size_t);
 typedef struct storage_funcs_t {
-
-} strorage_funcs_t;
+  storage_init_t storage_init;
+  storage_read_records_t storage_read_records;
+} storage_funcs_t;
 
 #endif /* INCLUDE_API_SMARTDBTYPE_H_ */

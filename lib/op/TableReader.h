@@ -15,8 +15,11 @@ public:
   void read();
 
 private:
+  std::string storage_engine_dlib_name();
+
   std::string storage_engine_name;
   lib_t lib_handler;
+  storage_funcs_t storage_funcs;
 
 PREVENT_CLASS_DEFAULT_METHODS(TableReader);
 };
