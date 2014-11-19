@@ -71,3 +71,13 @@ TEST_F(FixedLengthColumnTest, get_assertion_fails_on_invalid_column_range) {
   SET_SMARTDB_VALUE(v, SmartdbInt, 123); col.add(v);
   ASSERT_THROW(col.get(1), SmartdbAssertionFailed);
 }
+
+TEST_F(FixedLengthColumnTest, clear) {
+  FixedLengthColumn col(coldef_int, buf);
+  SET_SMARTDB_VALUE(v, SmartdbInt, 123); col.add(v);
+  EXPECT_EQ(123, GET_SMARTDB_VALUE(col.get(0), SmartdbInt));
+
+  col.clear();
+  SET_SMARTDB_VALUE(v, SmartdbInt, 456); col.add(v);
+  EXPECT_EQ(456, GET_SMARTDB_VALUE(col.get(0), SmartdbInt));
+}

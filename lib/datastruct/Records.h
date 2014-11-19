@@ -21,7 +21,9 @@ class Records {
 public:
   Records(const std::vector<const ColumnDef *>& coldefs,
           const std::vector<Buffer *>& colbufs);
-  virtual ~Records();
+  ~Records();
+
+  void clear();
 
   const std::vector<const ColumnDef *> &coldefs;
   std::vector<Column *> columns;
@@ -31,6 +33,12 @@ private:
 
   PREVENT_CLASS_DEFAULT_METHODS(Records)
 };
+
+
+inline
+void Records::clear() {
+  for (size_t i = 0; i < columns.size(); ++i) columns[i]->clear();
+}
 
 } /* namespace Smartdb */
 

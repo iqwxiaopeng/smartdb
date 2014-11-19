@@ -67,5 +67,9 @@ SmartdbValue FixedLengthColumn::get(size_t row_index) const {
   return val;
 }
 
-} /* namespace Smartdb */
+inline
+void FixedLengthColumn::clear() {
+  filled_row = 0;
+}
 
+} /* namespace Smartdb */

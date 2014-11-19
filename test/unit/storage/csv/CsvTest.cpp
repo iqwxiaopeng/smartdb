@@ -109,9 +109,39 @@ TEST_F(CsvTest, requesting_more_records_than_in_CSV_is_ok) {
   EXPECT_EQ(301, GET_SMARTDB_VALUE(records.columns[0]->get(2), SmartdbInt));
   EXPECT_EQ(302, GET_SMARTDB_VALUE(records.columns[1]->get(2), SmartdbInt));
 }
+TEST_F(CsvTest, reads_twice) {
+  const ColumnDef coldef1("col1", SMARTDB_INT);
+  const ColumnDef coldef2("col2", SMARTDB_INT);
+  std::vector<const ColumnDef *> coldefs(2, 0);
+  coldefs[0] = &coldef1;
+  coldefs[1] = &coldef2;
 
-TEST_F(CsvTest, reads_only_3rd_record_from_CSV) {
-  // [TODO] - limit offset や、メモリを意識した連続 read_records() のために途中の行から読めるようにする
+  Buffer colbuf1(1024);
+  Buffer colbuf2(1024);
+  std::vector<Buffer *> colbufs(2, 0);
+  colbufs[0] = &colbuf1;
+  colbufs[1] = &colbuf2;
+
+  Records records(coldefs, colbufs);
+
+  size_t read_records;
+  bool finished;
+
+  // 1st
+  storage_read_records(records, 1, read_records, finished);
+  EXPECT_FALSE(finished);
+  EXPECT_EQ(1, read_records);
+  EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
+  EXPECT_EQ(102, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
+
+  records.clear();
+
+  // 2nd
+  storage_read_records(records, 1, read_records, finished);
+  EXPECT_FALSE(finished);
+  EXPECT_EQ(1, read_records);
+  EXPECT_EQ(201, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
+  EXPECT_EQ(202, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
 }
 
 TEST_F(CsvTest, reads_too_many_records) {

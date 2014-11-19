@@ -20,10 +20,11 @@ namespace Smartdb {
 class FixedLengthColumn : public Column {
 public:
   FixedLengthColumn(const ColumnDef &coldef, Buffer &buf);
-  virtual ~FixedLengthColumn();
+  ~FixedLengthColumn();
 
-  virtual SmartdbErr add(const SmartdbValue &val);
-  virtual SmartdbValue get(size_t row_index) const;
+  SmartdbErr add(const SmartdbValue &val);
+  SmartdbValue get(size_t row_index) const;
+  void clear();
 
   const ColumnDef &coldef;
   Buffer &buf;
