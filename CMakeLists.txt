@@ -23,4 +23,4 @@ SET(LIB_SOURCE_FILES
     lib/op/TableReader.cpp
 )
 
-ADD_LIBRARY(smartdb MODULE ${LIB_SOURCE_FILES})
+ADD_LIBRARY(smartdb SHARED ${LIB_SOURCE_FILES})

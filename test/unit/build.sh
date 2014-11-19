@@ -16,7 +16,7 @@ g++ \
     -DSMARTDB_GTEST \
     -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/storage -I${proj_root_dir}/include \
     ${gtest_src} \
-    ${smartdb_lib_src} ${smartdb_lib_test} ${smartdb_storage_src} ${smartdb_storage_test} \
+    ${smartdb_lib_src} ${smartdb_lib_test} \
     -o ${target} \
 "
 

@@ -12,6 +12,8 @@ INCLUDE_DIRECTORIES(
 
 SET(LIB_SOURCE_FILES
     Csv.cpp
+    ../../contrib/csv_parser/libcsv_parser.a
 )
 
 ADD_LIBRARY(csv MODULE ${LIB_SOURCE_FILES})
+TARGET_LINK_LIBRARIES(csv smartdb)
