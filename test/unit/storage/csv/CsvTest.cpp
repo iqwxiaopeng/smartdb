@@ -20,7 +20,7 @@ protected:
 
 TEST_F(CsvTest, reads_1record_from_CSV) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
@@ -48,7 +48,7 @@ TEST_F(CsvTest, reads_1record_from_CSV) {
 }
 TEST_F(CsvTest, reads_3records_from_CSV) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
@@ -82,7 +82,7 @@ TEST_F(CsvTest, reads_3records_from_CSV) {
 }
 TEST_F(CsvTest, requesting_more_records_than_in_CSV_is_ok) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
@@ -116,7 +116,7 @@ TEST_F(CsvTest, requesting_more_records_than_in_CSV_is_ok) {
 }
 TEST_F(CsvTest, reads_1column_from_2columns) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, 0);
@@ -139,7 +139,7 @@ TEST_F(CsvTest, reads_1column_from_2columns) {
 }
 TEST_F(CsvTest, reads_twice) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
@@ -176,7 +176,7 @@ TEST_F(CsvTest, reads_twice) {
 }
 TEST_F(CsvTest, reads_double_value) {
   extra["path"] = "fixture/storage_csv_double.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_DOUBLE);
   const ColumnDef coldef2("col2", SMARTDB_DOUBLE);
@@ -204,7 +204,7 @@ TEST_F(CsvTest, reads_double_value) {
 }
 TEST_F(CsvTest, column_not_found) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef("col404", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, 0);
@@ -222,7 +222,7 @@ TEST_F(CsvTest, column_not_found) {
 }
 TEST_F(CsvTest, reads_from_same_column) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col1", SMARTDB_INT);
@@ -250,7 +250,7 @@ TEST_F(CsvTest, reads_from_same_column) {
 }
 TEST_F(CsvTest, reads_too_many_records) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
@@ -278,7 +278,7 @@ TEST_F(CsvTest, reads_too_many_records) {
 }
 TEST_F(CsvTest, reread_after_reading_too_many_records) {
   extra["path"] = "fixture/storage_csv_normal.csv";
-  storage_init(&logger, extra);
+  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
@@ -311,4 +311,6 @@ TEST_F(CsvTest, reread_after_reading_too_many_records) {
   EXPECT_EQ(202, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
 }
 TEST_F(CsvTest, csv_file_not_found) {
+  extra["path"] = "fixture/storage_csv_normal.csv............exe";
+  EXPECT_EQ((void *)IO_ERR, storage_init(&logger, extra));
 }

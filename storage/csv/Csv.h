@@ -25,7 +25,7 @@ void *storage_read_records(
 extern "C"
 void *storage_finish();
 
-void set_parser(const std::string &path);
+void set_special_chars();
 void set_col_index();
 
 #endif /* STORAGE_CSV_H_ */

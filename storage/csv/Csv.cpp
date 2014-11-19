@@ -28,14 +28,14 @@ void* storage_init(
 
   csv_path = extra.at("path");
 
-  set_parser(csv_path);
+  if (!parser.init(csv_path.c_str())) return (void *)IO_ERR;
+  set_special_chars();
   set_col_index();
 
   return (void *)NO_ERR;
 }
 
-void set_parser(const std::string &path) {
-  parser.init(path.c_str());
+void set_special_chars() {
   parser.set_enclosed_char('"', ENCLOSURE_OPTIONAL);
   parser.set_field_term_char(',');
   parser.set_line_term_char('\n');
