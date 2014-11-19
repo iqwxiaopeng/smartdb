@@ -10,6 +10,9 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <string>
+#include "hack/Assert.h"
 
 //
 // embedded types of Smartdb
@@ -28,6 +31,24 @@ typedef union SmartdbValue {
 
 #define GET_SMARTDB_VALUE(var, type) var.v_##type
 #define SET_SMARTDB_VALUE(var, type, val) (var.v_##type = val);
+
+inline
+SmartdbValue str_to_SmartdbValue(const std::string &str, SmartdbType type) {
+  SmartdbValue val;
+
+  switch (type) {
+  case SMARTDB_INT:
+    val.v_SmartdbInt = atoi(str.c_str());
+    break;
+  case SMARTDB_DOUBLE:
+    val.v_SmartdbDouble = atof(str.c_str());
+    break;
+  default:
+    ASSERT(false);
+  }
+
+  return val;
+}
 
 //
 // error types

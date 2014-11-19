@@ -10,13 +10,17 @@ smartdb_lib_src=$(find ${proj_root_dir}/lib -name '*.cpp' |grep -v CMakeFiles)
 smartdb_storage_test=$(find ./storage -name '*.cpp' |grep -v CMakeFiles)
 smartdb_storage_src=$(find ${proj_root_dir}/storage -name '*.cpp' |grep -v CMakeFiles)
 
+include="-I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/include -I${proj_root_dir}/storage/csv/contrib/csv_parser"
+static_lib="${proj_root_dir}/storage/csv/contrib/csv_parser/libcsv_parser.a"
+
 compile_cmd="\
 g++ \
     -g -O0 \
     -DSMARTDB_GTEST \
-    -I${gtest_dir} -I${gtest_dir}/include -I${proj_root_dir}/lib -I${proj_root_dir}/storage -I${proj_root_dir}/include \
+    ${include} \
     ${gtest_src} \
-    ${smartdb_lib_src} ${smartdb_lib_test} \
+    ${static_lib} \
+    ${smartdb_lib_src} ${smartdb_lib_test} ${smartdb_storage_src} ${smartdb_storage_test} \
     -o ${target} \
 "
 

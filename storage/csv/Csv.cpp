@@ -9,16 +9,16 @@
 #include <string.h>
 #include <errno.h>
 #include <unordered_map>
+#include "csv_parser.hpp"
 #include "Csv.h"
 #include "api/Smartdb.h"
 #include "hack/Assert.h"
 
 // [TODO] - use thread local storage
 Smartdb::Logger * logger = 0;
-std::string csv_path = 0;
-FILE *csv_fp = 0;
-const size_t read_buf_size = 10 * 1e6;
-Smartdb::Buffer *read_buf = 0;
+std::string csv_path;
+csv_parser parser;
+std::unordered_map<std::string, size_t> col_index;  // { "col1" => 0, ... }
 
 void* storage_init(
   Smartdb::Logger* const _logger,
@@ -26,50 +26,45 @@ void* storage_init(
   logger = _logger;
 
   csv_path = extra.at("path");
-  if (!(csv_fp = fopen(csv_path.c_str(), "r"))) {
-    logger->error(strerror(errno));
-    return (void *)IO_ERR;
-  }
 
-  read_buf = new Smartdb::Buffer(read_buf_size);
+  set_parser(csv_path);
+  set_col_index();
 
   return (void *)NO_ERR;
+}
+
+void set_parser(const std::string &path) {
+  parser.init(path.c_str());
+  parser.set_enclosed_char(',', ENCLOSURE_OPTIONAL);
+  parser.set_field_term_char('\n');
+  parser.set_line_term_char('"');
+}
+
+void set_col_index() {
+  csv_row row = parser.get_row();
+  for (size_t i = 0; i < row.size(); ++i) col_index[row[i]] = i;
 }
 
 // limitation
 // large CSV file is not supported
 void* storage_read_records(Smartdb::Records& records, size_t n_records) {
-  size_t ret = fread(read_buf->ptr(), read_buf_size, 1, csv_fp);
-  if (ret != 0) {
-    logger->warn((std::string(csv_path) + " is too large").c_str());
-    return (void *)ERR;
+  for (size_t rec_i = 0; rec_i < n_records && parser.has_more_rows(); ++rec_i) {
+    csv_row row = parser.get_row();
+    for (size_t col_i = 0; col_i < records.coldefs.size(); ++col_i) {
+      const Smartdb::ColumnDef *coldef = records.coldefs[col_i];
+      Smartdb::Column *col = records.columns[col_i];
+      size_t col_index_in_csv = col_index[coldef->name];
+      std::string &column_s = row[col_index_in_csv];
+
+      SmartdbValue column_v = str_to_SmartdbValue(column_s, coldef->type);
+      col->add(column_v);
+    }
   }
-  if (ferror(csv_fp)) {
-    logger->error("Something wrong while fread()");
-    return (void *)IO_ERR;
-  }
 
-  const char *line_start = read_buf->ptr();
-  size_t line_size;
-
-  /*  FILE *fp = fopen()
-  fread();
-  //freadでread_buf埋める
-
-
-  lines in read_buf.readline()
-      cols in lines.split(',')
-        size_t col_idx;
-        for (size_t i = 0; i < records.coldefs.size(); ++i)
-          col_idx = cols.search(records.coldefs[i].name);
-        records.columns[col_idx]->add(cols[col_idx]);
-        */
   return (void *)NO_ERR;
 }
 
 // reentrant
 void* storage_finish() {
-  if (csv_fp) fclose(csv_fp);
-  if (read_buf) delete read_buf;
   return (void *)NO_ERR;
 }

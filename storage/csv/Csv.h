@@ -16,4 +16,10 @@ void *storage_init(Smartdb::Logger * const logger);
 extern "C"
 void *storage_read_records(Smartdb::Records &records, size_t n_records);
 
+extern "C"
+void *storage_finish();
+
+void set_parser(const std::string &path);
+void set_col_index();
+
 #endif /* STORAGE_CSV_H_ */
