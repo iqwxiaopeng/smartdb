@@ -220,10 +220,95 @@ TEST_F(CsvTest, column_not_found) {
   bool finished;
   EXPECT_EQ((void *)UNKNOWN_COLUMN, storage_read_records(records, 1, read_records, finished));
 }
-TEST_F(CsvTest, duplicate_column_name) {
+TEST_F(CsvTest, reads_from_same_column) {
+  extra["path"] = "fixture/storage_csv_normal.csv";
+  storage_init(&logger, extra);
+
+  const ColumnDef coldef1("col1", SMARTDB_INT);
+  const ColumnDef coldef2("col1", SMARTDB_INT);
+  std::vector<const ColumnDef *> coldefs(2, 0);
+  coldefs[0] = &coldef1;
+  coldefs[1] = &coldef2;
+
+  Buffer colbuf1(1024);
+  Buffer colbuf2(1024);
+  std::vector<Buffer *> colbufs(2, 0);
+  colbufs[0] = &colbuf1;
+  colbufs[1] = &colbuf2;
+
+  Records records(coldefs, colbufs);
+
+  size_t read_records;
+  bool finished;
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+
+  EXPECT_FALSE(finished);
+  EXPECT_EQ(1, read_records);
+
+  EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
+  EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
 }
 TEST_F(CsvTest, reads_too_many_records) {
-  // [TODO] - Smartdb側で規定した返り値か例外を返す
+  extra["path"] = "fixture/storage_csv_normal.csv";
+  storage_init(&logger, extra);
+
+  const ColumnDef coldef1("col1", SMARTDB_INT);
+  const ColumnDef coldef2("col2", SMARTDB_INT);
+  std::vector<const ColumnDef *> coldefs(2, 0);
+  coldefs[0] = &coldef1;
+  coldefs[1] = &coldef2;
+
+  Buffer colbuf1(4);  // not enough for reading 2 columns
+  Buffer colbuf2(1024);
+  std::vector<Buffer *> colbufs(2, 0);
+  colbufs[0] = &colbuf1;
+  colbufs[1] = &colbuf2;
+
+  Records records(coldefs, colbufs);
+
+  size_t read_records;
+  bool finished;
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 2, read_records, finished));
+
+  EXPECT_FALSE(finished);
+  EXPECT_EQ(1, read_records);
+
+  EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
+  EXPECT_EQ(102, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
+}
+TEST_F(CsvTest, reread_after_reading_too_many_records) {
+  extra["path"] = "fixture/storage_csv_normal.csv";
+  storage_init(&logger, extra);
+
+  const ColumnDef coldef1("col1", SMARTDB_INT);
+  const ColumnDef coldef2("col2", SMARTDB_INT);
+  std::vector<const ColumnDef *> coldefs(2, 0);
+  coldefs[0] = &coldef1;
+  coldefs[1] = &coldef2;
+
+  Buffer colbuf1(4);  // not enough for reading 2 columns
+  Buffer colbuf2(1024);
+  std::vector<Buffer *> colbufs(2, 0);
+  colbufs[0] = &colbuf1;
+  colbufs[1] = &colbuf2;
+
+  Records records(coldefs, colbufs);
+
+  size_t read_records;
+  bool finished;
+
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 2, read_records, finished));
+  EXPECT_FALSE(finished);
+  EXPECT_EQ(1, read_records);
+  EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
+  EXPECT_EQ(102, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
+
+  records.clear();
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 2, read_records, finished));
+  EXPECT_FALSE(finished);
+  EXPECT_EQ(1, read_records);
+  EXPECT_EQ(201, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
+  EXPECT_EQ(202, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
 }
 TEST_F(CsvTest, csv_file_not_found) {
 }
