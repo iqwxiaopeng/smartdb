@@ -16,7 +16,11 @@ void *storage_init(
   const std::unordered_map<std::string, std::string> &extra);
 
 extern "C"
-void *storage_read_records(Smartdb::Records &records, size_t n_records);
+void *storage_read_records(
+  Smartdb::Records &records,
+  size_t n_records,
+  size_t &read_records,
+  bool &finished);
 
 extern "C"
 void *storage_finish();

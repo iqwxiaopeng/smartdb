@@ -46,9 +46,14 @@ void set_col_index() {
 }
 
 // limitation
-// large CSV file is not supported
-void* storage_read_records(Smartdb::Records& records, size_t n_records) {
-  for (size_t rec_i = 0; rec_i < n_records && parser.has_more_rows(); ++rec_i) {
+void* storage_read_records(
+  Smartdb::Records& records,
+  size_t n_records,
+  size_t &read_records,
+  bool &finished)
+{
+  finished = false;
+  for (read_records = 0; read_records < n_records && parser.has_more_rows(); ++read_records) {
     csv_row row = parser.get_row();
     for (size_t col_i = 0; col_i < records.coldefs.size(); ++col_i) {
       const Smartdb::ColumnDef *coldef = records.coldefs[col_i];
@@ -60,6 +65,7 @@ void* storage_read_records(Smartdb::Records& records, size_t n_records) {
       col->add(column_v);
     }
   }
+  if (!parser.has_more_rows()) finished = true;
 
   return (void *)NO_ERR;
 }
