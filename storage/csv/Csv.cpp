@@ -35,9 +35,9 @@ void* storage_init(
 
 void set_parser(const std::string &path) {
   parser.init(path.c_str());
-  parser.set_enclosed_char(',', ENCLOSURE_OPTIONAL);
-  parser.set_field_term_char('\n');
-  parser.set_line_term_char('"');
+  parser.set_enclosed_char('"', ENCLOSURE_OPTIONAL);
+  parser.set_field_term_char(',');
+  parser.set_line_term_char('\n');
 }
 
 void set_col_index() {

@@ -11,7 +11,9 @@
 #include "api/Smartdb.h"
 
 extern "C"
-void *storage_init(Smartdb::Logger * const logger);
+void *storage_init(
+  Smartdb::Logger * const logger,
+  const std::unordered_map<std::string, std::string> &extra);
 
 extern "C"
 void *storage_read_records(Smartdb::Records &records, size_t n_records);
