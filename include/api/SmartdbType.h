@@ -57,6 +57,7 @@ enum SmartdbErr {
   PHYSICAL_MEM_SHORTAGE,  // Cannot allocate memory
   MEM_BUF_SHORTAGE,       // `Buffer` space is not enough
   IO_ERR,
+  UNKNOWN_COLUMN,
 
   ERR,
 };

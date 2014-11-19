@@ -58,7 +58,11 @@ void* storage_read_records(
     for (size_t col_i = 0; col_i < records.coldefs.size(); ++col_i) {
       const Smartdb::ColumnDef *coldef = records.coldefs[col_i];
       Smartdb::Column *col = records.columns[col_i];
-      size_t col_index_in_csv = col_index[coldef->name];
+
+      std::unordered_map<std::string, size_t>::const_iterator kv;
+      kv = col_index.find(coldef->name);
+      if (kv == col_index.end()) return (void *)UNKNOWN_COLUMN;
+      size_t col_index_in_csv = kv->second;
       std::string &column_s = row[col_index_in_csv];
 
       SmartdbValue column_v = str_to_SmartdbValue(column_s, coldef->type);
@@ -72,5 +76,6 @@ void* storage_read_records(
 
 // reentrant
 void* storage_finish() {
+  parser.reset_record_count();
   return (void *)NO_ERR;
 }
