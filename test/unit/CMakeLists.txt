@@ -34,7 +34,7 @@ EXECUTE_PROCESS(
     COMMAND tr "\n" ";"
     OUTPUT_VARIABLE SMARTDB_LIB_SRC
 )
-test/unit/EXECUTE_PROCESS(
+EXECUTE_PROCESS(
     COMMAND find ${PROJ_ROOT_DIR}/storage -name "*.cpp"
     COMMAND grep -v CMakeFiles
     COMMAND tr "\n" ";"
