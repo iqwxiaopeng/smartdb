@@ -34,14 +34,16 @@ $ ./run_gtest
     1. Project -> Properties -> C/C++ Build -> Manage Configurations ...
     2. Create a configuration named "gtest".
     3. Return to "C/C++ Build" dialogue.
-    4. Build command: `${workspace_loc:/smartdb}/test/unit/build.sh`, build directory: `${workspace_loc:/smartdb}/test/unit/`.
+    4. Build command: `make`, build directory: `${workspace_loc:/smartdb}/test/unit/`.
 
     ![Make build configuration to create `test/unit/run_gtest` binary](doc/img/eclipse/gtest_build_config.png)
 3. Create configuration to build & run `test/unit/run_gtest` binary.
-    1. Run -> Run Configurations -> C/C++ Unit.
-    2. C/C++ Application: `${workspace_loc:/smartdb}/test/unit/run_test`.
-    3. Build configuration: "gtest".
-    4. Apply.
+    1. **NOTE.** Execute `cmake . ; make` first in your shell. Eclipse requires `run_gtest` binary to exist.
+    2. Run -> Run Configurations -> C/C++ Unit.
+    3. C/C++ Application: `${workspace_loc:/smartdb}/test/unit/run_test`.
+    4. Build configuration: "gtest".
+    5. Argumnts tab => Working directory: `${workspace_loc:/smartdb}/test/unit`
+    6. Apply.
 
     ![Create configuration to build & run `test/unit/run_gtest` binary](doc/img/eclipse/gtest_run_config.png)
 4. Run unit test.
