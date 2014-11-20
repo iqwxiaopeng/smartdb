@@ -3,7 +3,7 @@ CMAKE_POLICY(SET CMP0003 NEW)
 
 PROJECT(smartdb)
 
-SET(CMAKE_C_FLAGS "-O2 -g -Wall ${CMAKE_C_FLAGS}")
+SET(CMAKE_CXX_FLAGS "-O2 -g -Wall ${CMAKE_C_FLAGS}")
 
 INCLUDE_DIRECTORIES(
     include
@@ -11,16 +11,11 @@ INCLUDE_DIRECTORIES(
     storage
 )
 
-SET(LIB_SOURCE_FILES
-    lib/api/Smartdb.cpp
-    lib/ast/Node.cpp
-    lib/datastruct/ColumnDef.cpp
-    lib/datastruct/FixedLengthColumn.cpp
-    lib/datastruct/Records.cpp
-    lib/log/StderrLogger.cpp
-    lib/mem/Buffer.cpp
-    lib/op/Operator.cpp
-    lib/op/TableReader.cpp
+EXECUTE_PROCESS(
+    COMMAND find ${CMAKE_CURRENT_SOURCE_DIR}/lib -name "*.cpp"
+    COMMAND grep -v CMakeFiles
+    COMMAND tr "\n" ";"
+    OUTPUT_VARIABLE LIB_SOURCE_FILES
 )
 
 ADD_LIBRARY(smartdb SHARED ${LIB_SOURCE_FILES})
