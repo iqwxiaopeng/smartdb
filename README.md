@@ -1,6 +1,6 @@
 # Smartdb
 
-[![Build Status](https://travis-ci.org/laysakura/smartdb.svg)](https://travis-ci.org/laysakura/smartdb)
+[![Build Status](https://travis-ci.org/laysakura/smartdb.svg?branch=master)](https://travis-ci.org/laysakura/smartdb)
 
 ## How to run test cases
 
@@ -29,7 +29,7 @@ $ cp include/csv_parser/csv_parser.hpp /path/to/smartdb/storage/csv/contrib/csv_
 
 ```bash
 $ cd test/unit
-$ ./build.sh
+$ cmake . && make
 $ ./run_gtest
 ```
 
