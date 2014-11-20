@@ -14,8 +14,7 @@ namespace Smartdb {
 Records::Records(
   const std::vector<const ColumnDef *>& coldefs,
   const std::vector<Buffer *>& colbufs)
-: coldefs(coldefs), colbufs(colbufs),
-  columns(coldefs.size(), 0)
+: coldefs(coldefs), columns(coldefs.size(), 0), colbufs(colbufs)
 {
   for (size_t i = 0; i < coldefs.size(); ++i) {
     columns[i] = new FixedLengthColumn(*coldefs[i], *colbufs[i]);
