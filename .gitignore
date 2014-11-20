@@ -45,6 +45,9 @@ cmake_install.cmake
 run_gtest
 contrib/gtest/
 
+# csv-parser-cplusplus
+storage/csv/contrib/csv_parser
+
 # Editor files
 *~
 

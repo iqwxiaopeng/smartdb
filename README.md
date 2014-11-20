@@ -13,6 +13,20 @@ CHANGES        CONTRIBUTORS   Makefile.am    README         build-aux      codeg
 CMakeLists.txt LICENSE        Makefile.in    aclocal.m4     cmake          configure      fused-src      m4             msvc           scripts        test
 ```
 
+### Getting csv-parser-cplusplus
+
+CSV storage engine depends on [csv-parser-cplusplus](https://code.google.com/p/csv-parser-cplusplus).
+
+Get the latest [csv-parser-cplusplus](https://code.google.com/p/csv-parser-cplusplus/downloads/list) source,
+and compile it to attain `libcsv_parser.a`.
+
+Then copy `libcsv_parser.a` and `csv_parser.hpp` into `storage/csv/contrib/csv_parser/`.
+
+```bash
+$ ls storage/csv/contrib/csv_parser/
+csv_parser.hpp  libcsv_parser.a
+```
+
 ### Running via shell
 
 ```bash
