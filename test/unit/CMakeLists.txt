@@ -34,7 +34,7 @@ EXECUTE_PROCESS(
     COMMAND tr "\n" ";"
     OUTPUT_VARIABLE SMARTDB_LIB_SRC
 )
-test/unit/EXECUTE_PROCESS(
+EXECUTE_PROCESS(
     COMMAND find ${PROJ_ROOT_DIR}/storage -name "*.cpp"
     COMMAND grep -v CMakeFiles
     COMMAND tr "\n" ";"
@@ -47,7 +47,7 @@ ADD_DEFINITIONS(
     -DSMARTDB_GTEST
 )
 
-SET(CMAKE_CXX_FLAGS "-O0 -g -Wall ${CMAKE_C_FLAGS}")
+SET(CMAKE_CXX_FLAGS "-O0 -g -Wall -std=c++11 ${CMAKE_C_FLAGS}")
 
 INCLUDE_DIRECTORIES(
     ${GTEST_DIR}
@@ -69,3 +69,5 @@ SET(SOURCE_FILES
 ADD_EXECUTABLE(run_gtest ${SOURCE_FILES})
 
 TARGET_LINK_LIBRARIES(run_gtest ${STATIC_LIBS})
+TARGET_LINK_LIBRARIES(run_gtest dl)  # for using dlopen()
+TARGET_LINK_LIBRARIES(run_gtest pthread)
