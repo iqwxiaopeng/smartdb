@@ -23,7 +23,7 @@
 namespace Smartdb {
 
 FixedLengthColumn::FixedLengthColumn(const ColumnDef &coldef, Buffer& buf)
-: coldef(coldef), filled_row(0), buf(buf)
+: coldef(coldef), buf(buf), filled_row(0)
 {
 }
 
