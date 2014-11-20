@@ -18,7 +18,7 @@ RecordsQueue::~RecordsQueue() {
   // TODO Auto-generated destructor stub
 }
 
-void RecordsQueue::push(const Records * const records) {
+void RecordsQueue::push(const Records * records) {
   q.push(records);
 }
 
@@ -26,7 +26,7 @@ void RecordsQueue::pop() {
   q.pop();
 }
 
-const Records * RecordsQueue::front() const {
+const Records * const RecordsQueue::front() const {
   if (q.empty()) return NULL;
   return q.front();
 }

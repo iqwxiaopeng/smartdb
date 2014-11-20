@@ -19,14 +19,14 @@ public:
   RecordsQueue();
   virtual ~RecordsQueue();
 
-  void push(const Records * const records);
+  void push(const Records * records);
   void pop();
-  const Records * front() const;  // NULL when empty
+  const Records * const front() const;  // NULL when empty
   void finish() { _finished = true; }
   bool finished() { return _finished; }
 
 private:
-  std::queue<const Records * const> q;
+  std::queue<const Records *> q;
   bool _finished;
 
   PREVENT_COPY_CONSTRUCTOR(RecordsQueue);
