@@ -30,13 +30,13 @@ TEST_F(RecordsTest, add_and_get_to_single_column) {
 TEST_F(RecordsTest, add_and_get_to_multiple_column) {
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_DOUBLE);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 

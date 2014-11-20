@@ -10,7 +10,7 @@
 
 #if SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)
 #include <new>
-#define __THROW throw(std::bad_alloc)
+#define BUFFER_ALLOCATE_THROW throw(std::bad_alloc)
 #endif // SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)
 
 #include "api/SmartdbType.h"
@@ -25,7 +25,7 @@ public:
   virtual ~Buffer();
 
 private:
-  void allocate() __THROW;
+  void allocate() BUFFER_ALLOCATE_THROW;
   void deallocate();
 
 public:

@@ -22,7 +22,7 @@ Buffer::~Buffer() {
 }
 
 // Customize this function and deallocate() to implement *better* allocation
-void Buffer::allocate() __THROW {
+void Buffer::allocate() BUFFER_ALLOCATE_THROW {
 #if SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)
   ASSERT(!_ptr);
   _ptr = new char[_size];

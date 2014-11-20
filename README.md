@@ -1,30 +1,28 @@
 # Smartdb
 
+[![Build Status](https://travis-ci.org/laysakura/smartdb.svg)](https://travis-ci.org/laysakura/smartdb)
+
 ## How to run test cases
 
 ### Getting Google Test
 
-Download the latest [Google Test](https://code.google.com/p/googletest/downloads/list) source
-and unzip it in `contrib/gtest` directory.
-
 ```bash
-$ ls contrib/gtest/
-CHANGES        CONTRIBUTORS   Makefile.am    README         build-aux      codegear       configure.ac   include        make           samples        src            xcode
-CMakeLists.txt LICENSE        Makefile.in    aclocal.m4     cmake          configure      fused-src      m4             msvc           scripts        test
+$ wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
+$ unzip gtest-1.7.0.zip
+$ mv gtest-1.7.0 /path/to/smartdb/contrib/gtest
 ```
 
 ### Getting csv-parser-cplusplus
 
 CSV storage engine depends on [csv-parser-cplusplus](https://code.google.com/p/csv-parser-cplusplus).
 
-Get the latest [csv-parser-cplusplus](https://code.google.com/p/csv-parser-cplusplus/downloads/list) source,
-and compile it to attain `libcsv_parser.a`.
-
-Then copy `libcsv_parser.a` and `csv_parser.hpp` into `storage/csv/contrib/csv_parser/`.
-
 ```bash
-$ ls storage/csv/contrib/csv_parser/
-csv_parser.hpp  libcsv_parser.a
+$ wget https://csv-parser-cplusplus.googlecode.com/files/libcsv_parser%2B%2B-1.0.0.tar.bz2
+$ tar xvf libcsv_parser++-1.0.0.tar.bz2
+$ cd libcsv_parser++-1.0.0/
+$ ./configure && make
+$ cp .libs/libcsv_parser.a /path/to/smartdb/storage/csv/contrib/csv_parser/
+$ cp include/csv_parser/csv_parser.hpp /path/to/smartdb/storage/csv/contrib/csv_parser/
 ```
 
 ### Running via shell

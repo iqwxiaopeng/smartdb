@@ -24,13 +24,13 @@ TEST_F(CsvTest, reads_1record_from_CSV) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -52,13 +52,13 @@ TEST_F(CsvTest, reads_3records_from_CSV) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -86,13 +86,13 @@ TEST_F(CsvTest, requesting_more_records_than_in_CSV_is_ok) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -119,11 +119,11 @@ TEST_F(CsvTest, reads_1column_from_2columns) {
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(1, 0);
+  std::vector<const ColumnDef *> coldefs(1, NULL);
   coldefs[0] = &coldef;
 
   Buffer colbuf(1024);
-  std::vector<Buffer *> colbufs(1, 0);
+  std::vector<Buffer *> colbufs(1, NULL);
   colbufs[0] = &colbuf;
 
   Records records(coldefs, colbufs);
@@ -143,13 +143,13 @@ TEST_F(CsvTest, reads_twice) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -180,13 +180,13 @@ TEST_F(CsvTest, reads_double_value) {
 
   const ColumnDef coldef1("col1", SMARTDB_DOUBLE);
   const ColumnDef coldef2("col2", SMARTDB_DOUBLE);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -207,11 +207,11 @@ TEST_F(CsvTest, column_not_found) {
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
   const ColumnDef coldef("col404", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(1, 0);
+  std::vector<const ColumnDef *> coldefs(1, NULL);
   coldefs[0] = &coldef;
 
   Buffer colbuf(1024);
-  std::vector<Buffer *> colbufs(1, 0);
+  std::vector<Buffer *> colbufs(1, NULL);
   colbufs[0] = &colbuf;
 
   Records records(coldefs, colbufs);
@@ -226,13 +226,13 @@ TEST_F(CsvTest, reads_from_same_column) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col1", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(1024);
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -254,13 +254,13 @@ TEST_F(CsvTest, reads_too_many_records) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(4);  // not enough for reading 2 columns
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
@@ -282,13 +282,13 @@ TEST_F(CsvTest, reread_after_reading_too_many_records) {
 
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, 0);
+  std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
   Buffer colbuf1(4);  // not enough for reading 2 columns
   Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, 0);
+  std::vector<Buffer *> colbufs(2, NULL);
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
