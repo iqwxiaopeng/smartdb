@@ -24,11 +24,34 @@ TableReader::~TableReader() {
   unload_dlib_funcs();
 }
 
-void TableReader::read() {
-//  ssize_t ret = 1;
+SmartdbErr TableReader::run() {
+  return read();
+}
+
+SmartdbErr TableReader::read() {
+/*  extra["path"] = "fixture/storage_csv_normal.csv";
+    EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
+
+    const ColumnDef coldef1("col1", SMARTDB_INT);
+    const ColumnDef coldef2("col2", SMARTDB_INT);
+    std::vector<const ColumnDef *> coldefs(2, NULL);
+    coldefs[0] = &coldef1;
+    coldefs[1] = &coldef2;
+
+    Buffer colbuf1(1024);
+    Buffer colbuf2(1024);
+    std::vector<Buffer *> colbufs(2, NULL);
+    colbufs[0] = &colbuf1;
+    colbufs[1] = &colbuf2;
+
+    Records records(coldefs, colbufs);
+
+
+    //  ssize_t ret = 1;
 //  while (ret > 0) {
-//    ret = this->storage.read_records(out_records, 1000 /* 行 */);
-//  }
+//    ret = this->storage.read_records(out_records, 1000);
+//  }*/
+  return NO_ERR;
 }
 
 inline

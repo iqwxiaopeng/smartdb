@@ -13,9 +13,10 @@ public:
   TableReader(const std::string &storage_engine_name);
   ~TableReader();
 
-  void read();
+  SmartdbErr run();
 
 private:
+  SmartdbErr read();
   std::string dlib_name();
   void load_dlib_funcs();
   void unload_dlib_funcs();
