@@ -8,12 +8,16 @@
 #ifndef INCLUDE_OP_OPERATOR_H_
 #define INCLUDE_OP_OPERATOR_H_
 
+#include "datastruct/RecordsQueue.h"
+
 namespace Smartdb {
 
 class Operator {
 public:
-	Operator();
-	virtual ~Operator();
+  Operator();
+  virtual ~Operator();
+
+  RecordsQueue out_q;
 };
 
 }

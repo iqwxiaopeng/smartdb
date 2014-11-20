@@ -26,6 +26,10 @@ void RecordsQueue::pop() {
   q.pop();
 }
 
+size_t RecordsQueue::size() const {
+  return q.size();
+}
+
 const Records * const RecordsQueue::front() const {
   if (q.empty()) return NULL;
   return q.front();

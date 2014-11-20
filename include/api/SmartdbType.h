@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string>
+#include <unordered_map>
 #include "hack/Assert.h"
 
 //
@@ -79,9 +80,9 @@ namespace Smartdb {
   class Logger;
 }
 
-typedef void (*storage_init_t)(Smartdb::Logger * const logger);
-typedef void (*storage_read_records_t)(Smartdb::Records &, size_t, size_t, bool);
-typedef void (*storage_finish_t)();
+typedef void *(*storage_init_t)(Smartdb::Logger * const logger, const std::unordered_map<std::string, std::string> &extra);
+typedef void *(*storage_read_records_t)(Smartdb::Records &, size_t, size_t, bool);
+typedef void *(*storage_finish_t)();
 
 typedef struct storage_funcs_t {
   storage_init_t storage_init;

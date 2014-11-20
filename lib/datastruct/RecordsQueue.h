@@ -22,8 +22,9 @@ public:
   void push(const Records * records);
   void pop();
   const Records * const front() const;  // NULL when empty
+  size_t size() const;
   void finish() { _finished = true; }
-  bool finished() { return _finished; }
+  bool finished() { return _finished && size() == 0; }
 
 private:
   std::queue<const Records *> q;

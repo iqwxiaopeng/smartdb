@@ -56,6 +56,7 @@ INCLUDE_DIRECTORIES(
     ${PROJ_ROOT_DIR}/include
     ${PROJ_ROOT_DIR}/storage
     ${PROJ_ROOT_DIR}/storage/csv/contrib/csv_parser
+    ${PROJ_ROOT_DIR}/test
 )
 
 SET(SOURCE_FILES
