@@ -58,19 +58,22 @@ void set_col_index() {
     std::string &column_s = row[col_index_in_csv]; \
     \
     SmartdbValue column_v = str_to_SmartdbValue(column_s, coldef->type); \
-    if (col->add(column_v) != NO_ERR) { \
+    SmartdbErr ret = col->add(column_v); \
+    if (ret == MEM_BUF_SHORTAGE) { \
       row_not_added = row; \
       goto read_stops; \
+    } else if (ret != NO_ERR) { \
+      logger->error((std::string("Column::add() returns error: ") + smartdb_errmsg(ret)).c_str()); \
+      return (void *)ret; \
     } \
   }
 
 
-// limitation
 void* storage_read_records(
   Smartdb::Records& records,
   size_t n_records,
-  size_t &read_records,
-  bool &finished)
+  size_t& read_records,
+  bool& finished)
 {
   finished = false;
   read_records = 0;
@@ -80,12 +83,10 @@ void* storage_read_records(
     ++read_records;
     row_not_added.clear();
   }
-
   for ( ; read_records < n_records && parser.has_more_rows(); ++read_records) {
     csv_row row = parser.get_row();
     FILL_A_RECORD(row, records);
   }
-
 read_stops:
   if (!parser.has_more_rows() && row_not_added.empty()) finished = true;
 

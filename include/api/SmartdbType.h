@@ -81,7 +81,7 @@ namespace Smartdb {
 }
 
 typedef void *(*storage_init_t)(Smartdb::Logger * const logger, const std::unordered_map<std::string, std::string> &extra);
-typedef void *(*storage_read_records_t)(Smartdb::Records &, size_t, size_t, bool);
+typedef void *(*storage_read_records_t)(Smartdb::Records& records, size_t n_records, size_t& read_records, bool& finished);
 typedef void *(*storage_finish_t)();
 
 typedef struct storage_funcs_t {

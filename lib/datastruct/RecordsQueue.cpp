@@ -23,6 +23,8 @@ void RecordsQueue::push(const Records * records) {
 }
 
 void RecordsQueue::pop() {
+  const Records *r = front();
+  if (r) delete r;
   q.pop();
 }
 

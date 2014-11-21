@@ -25,11 +25,11 @@ TEST_F(RecordsQueueTest, push_front_pop) {
   colbufs[0] = &colbuf1;
   colbufs[1] = &colbuf2;
 
-  Records records(coldefs, colbufs);
+  Records *records = new Records(coldefs, colbufs);
 
   EXPECT_EQ(NULL, q.front());
-  q.push(&records);
-  EXPECT_EQ(&records, q.front());
+  q.push(records);
+  EXPECT_EQ(records, q.front());
   q.pop();
   EXPECT_EQ(NULL, q.front());
 }
@@ -38,19 +38,19 @@ TEST_F(RecordsQueueTest, FIFO) {
   std::vector<const ColumnDef *> coldefs1(1, &coldef1);
   Buffer colbuf1(1024);
   std::vector<Buffer *> colbufs1(1, &colbuf1);
-  Records records1(coldefs1, colbufs1);
+  Records *records1 = new Records(coldefs1, colbufs1);
 
   const ColumnDef coldef2("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs2(1, &coldef2);
   Buffer colbuf2(1024);
   std::vector<Buffer *> colbufs2(1, &colbuf2);
-  Records records2(coldefs2, colbufs2);
+  Records *records2 = new Records(coldefs2, colbufs2);
 
-  q.push(&records1);
-  q.push(&records2);
-  EXPECT_EQ(&records1, q.front());
+  q.push(records1);
+  q.push(records2);
+  EXPECT_EQ(records1, q.front());
   q.pop();
-  EXPECT_EQ(&records2, q.front());
+  EXPECT_EQ(records2, q.front());
   q.pop();
   EXPECT_EQ(NULL, q.front());
 }

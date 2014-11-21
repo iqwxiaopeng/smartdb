@@ -47,15 +47,15 @@ SmartdbErr TableReader::read() {
   for (size_t i = 0; i < coldefs.size(); ++i)
     colbufs[i] = new Buffer(colbuf_size);
 
-  Records records(coldefs, colbufs);
+  Records *records = new Records(coldefs, colbufs);
 
   size_t read_records = 0;
   bool finished = false;
-  while (finished) {
+  while (!finished) {
     ret = (uintptr_t)storage_funcs.storage_read_records(
-      records, n_records_to_read, read_records, finished);
+      *records, n_records_to_read, read_records, finished);
     if (ret != (uintptr_t)NO_ERR) goto fin;
-    out_q.push(&records);
+    out_q.push(records);
   }
 
   out_q.finish();

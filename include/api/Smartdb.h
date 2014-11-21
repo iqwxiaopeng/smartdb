@@ -27,4 +27,7 @@ void smartdb_init();
 extern "C"
 void smartdb_finish();
 
+extern "C"
+const char *smartdb_errmsg(SmartdbErr err);
+
 #endif /* INCLUDE_API_SMARTDB_H_ */

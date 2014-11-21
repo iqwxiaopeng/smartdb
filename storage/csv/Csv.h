@@ -19,8 +19,8 @@ extern "C"
 void *storage_read_records(
   Smartdb::Records &records,
   size_t n_records,
-  size_t &read_records,
-  bool &finished);
+  size_t& read_records,
+  bool& finished);
 
 extern "C"
 void *storage_finish();

@@ -23,6 +23,7 @@ public:
           const std::vector<Buffer *>& colbufs);
   ~Records();
 
+  size_t size() const;
   void clear();
 
   const std::vector<const ColumnDef *> &coldefs;
@@ -30,10 +31,16 @@ public:
 
 private:
   const std::vector<Buffer *> &colbufs;
+  size_t _size;
 
   PREVENT_CLASS_DEFAULT_METHODS(Records)
 };
 
+
+inline
+size_t Records::size() const {
+  return _size;
+}
 
 inline
 void Records::clear() {
