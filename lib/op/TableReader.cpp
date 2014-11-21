@@ -44,18 +44,21 @@ SmartdbErr TableReader::read() {
 
   std::vector<Buffer *> colbufs(coldefs.size(), NULL);
   std::vector<size_t> colbuf_sizes(coldefs.size(), 0);
-  for (size_t i = 0; i < colbuf_sizes.size(); ++i) {
-    // [TODO] - calculate average size of variable-sized column
-    colbuf_sizes[i] = coldefs[i]->size() * n_records_to_read;
-  }
-  Records *records = new Records(coldefs, colbuf_sizes);
 
   size_t read_records = 0;
   bool finished = false;
   while (!finished) {
+    // prepare for Records
+    for (size_t i = 0; i < colbuf_sizes.size(); ++i) {
+      // [TODO] - calculate average size of variable-sized column
+      colbuf_sizes[i] = coldefs[i]->size() * n_records_to_read;
+    }
+    Records *records = new Records(coldefs, colbuf_sizes);
+
     ret = (uintptr_t)storage_funcs.storage_read_records(
       *records, n_records_to_read, read_records, finished);
     if (ret != (uintptr_t)NO_ERR) goto fin;
+    ASSERT(read_records > 0);
     out_q.push(records);
   }
 

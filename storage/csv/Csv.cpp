@@ -83,11 +83,13 @@ void* storage_read_records(
     ++read_records;
     row_not_added.clear();
   }
+
   for ( ; read_records < n_records && parser.has_more_rows(); ++read_records) {
     csv_row row = parser.get_row();
     FILL_A_RECORD(row, records);
   }
 read_stops:
+  if (read_records == 0) return (void *)MEM_BUF_SHORTAGE;
   if (!parser.has_more_rows() && row_not_added.empty()) finished = true;
 
   return (void *)NO_ERR;
