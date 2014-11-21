@@ -22,19 +22,15 @@ TEST_F(CsvTest, reads_1record_from_CSV) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(1024);
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -50,19 +46,15 @@ TEST_F(CsvTest, reads_3records_from_CSV) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(1024);
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -84,19 +76,15 @@ TEST_F(CsvTest, requesting_more_records_than_in_CSV_is_ok) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(1024);
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -118,15 +106,13 @@ TEST_F(CsvTest, reads_1column_from_2columns) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(1, 1024);
+
   const ColumnDef coldef("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, NULL);
   coldefs[0] = &coldef;
 
-  Buffer colbuf(1024);
-  std::vector<Buffer *> colbufs(1, NULL);
-  colbufs[0] = &colbuf;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -141,19 +127,15 @@ TEST_F(CsvTest, reads_twice) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(1024);
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -178,19 +160,15 @@ TEST_F(CsvTest, reads_double_value) {
   extra["path"] = "fixture/storage_csv_double.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+
   const ColumnDef coldef1("col1", SMARTDB_DOUBLE);
   const ColumnDef coldef2("col2", SMARTDB_DOUBLE);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(1024);
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -206,15 +184,13 @@ TEST_F(CsvTest, column_not_found) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(1, 1024);
+
   const ColumnDef coldef("col404", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, NULL);
   coldefs[0] = &coldef;
 
-  Buffer colbuf(1024);
-  std::vector<Buffer *> colbufs(1, NULL);
-  colbufs[0] = &colbuf;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -224,19 +200,15 @@ TEST_F(CsvTest, reads_from_same_column) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(1024);
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -252,19 +224,16 @@ TEST_F(CsvTest, reads_too_many_records) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+  buf_sizes[0] = 4;  // not enough for reading 2 columns
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(4);  // not enough for reading 2 columns
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;
@@ -280,19 +249,16 @@ TEST_F(CsvTest, reread_after_reading_too_many_records) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
 
+  std::vector<size_t> buf_sizes(2, 1024);
+  buf_sizes[0] = 4;  // not enough for reading 2 columns
+
   const ColumnDef coldef1("col1", SMARTDB_INT);
   const ColumnDef coldef2("col2", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(2, NULL);
   coldefs[0] = &coldef1;
   coldefs[1] = &coldef2;
 
-  Buffer colbuf1(4);  // not enough for reading 2 columns
-  Buffer colbuf2(1024);
-  std::vector<Buffer *> colbufs(2, NULL);
-  colbufs[0] = &colbuf1;
-  colbufs[1] = &colbuf2;
-
-  Records records(coldefs, colbufs);
+  Records records(coldefs, buf_sizes);
 
   size_t read_records;
   bool finished;

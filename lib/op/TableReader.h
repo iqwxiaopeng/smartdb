@@ -17,7 +17,7 @@ public:
     const std::vector<const ColumnDef *> &coldefs,
     const std::string& storage_engine_name,
     const std::unordered_map<std::string, std::string> &extra,
-    size_t n_records_to_read, size_t buf_size);
+    size_t n_records_to_read);
   ~TableReader();
 
   SmartdbErr run();
@@ -34,7 +34,6 @@ private:
   lib_t dlib_handler;
   storage_funcs_t storage_funcs;
   size_t n_records_to_read;
-  size_t buf_size;
 
 PREVENT_CLASS_DEFAULT_METHODS(TableReader);
 };

@@ -24,6 +24,7 @@ public:
 
   SmartdbErr add(const SmartdbValue &val);
   SmartdbValue get(size_t row_index) const;
+  size_t size() const;
   void clear();
 
   const ColumnDef &coldef;

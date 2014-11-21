@@ -19,10 +19,10 @@ TableReader::TableReader(
   const std::vector<const ColumnDef *> &coldefs,
   const std::string& storage_engine_name,
   const std::unordered_map<std::string, std::string> &extra,
-  size_t n_records_to_read, size_t buf_size)
+  size_t n_records_to_read)
 : coldefs(coldefs), extra(extra),
   storage_engine_name(storage_engine_name), dlib_handler(0),
-  n_records_to_read(n_records_to_read), buf_size(buf_size)
+  n_records_to_read(n_records_to_read)
 {
   load_dlib_funcs();
 }
@@ -43,11 +43,12 @@ SmartdbErr TableReader::read() {
   if (ret != (uintptr_t)NO_ERR) return (SmartdbErr)ret;
 
   std::vector<Buffer *> colbufs(coldefs.size(), NULL);
-  size_t colbuf_size = buf_size / coldefs.size();
-  for (size_t i = 0; i < coldefs.size(); ++i)
-    colbufs[i] = new Buffer(colbuf_size);
-
-  Records *records = new Records(coldefs, colbufs);
+  std::vector<size_t> colbuf_sizes(coldefs.size(), 0);
+  for (size_t i = 0; i < colbuf_sizes.size(); ++i) {
+    // [TODO] - calculate average size of variable-sized column
+    colbuf_sizes[i] = coldefs[i]->size() * n_records_to_read;
+  }
+  Records *records = new Records(coldefs, colbuf_sizes);
 
   size_t read_records = 0;
   bool finished = false;
@@ -61,7 +62,6 @@ SmartdbErr TableReader::read() {
   out_q.finish();
   ret = (uintptr_t)NO_ERR;
 fin:
-  for (size_t i = 0; i < coldefs.size(); ++i) delete colbufs[i];
   return (SmartdbErr)ret;
 }
 

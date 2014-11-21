@@ -20,7 +20,7 @@ namespace Smartdb {
 class Records {
 public:
   Records(const std::vector<const ColumnDef *>& coldefs,
-          const std::vector<Buffer *>& colbufs);
+          const std::vector<size_t>& colbuf_sizes);
   ~Records();
 
   size_t size() const;
@@ -30,8 +30,7 @@ public:
   std::vector<Column *> columns;
 
 private:
-  const std::vector<Buffer *> &colbufs;
-  size_t _size;
+  std::vector<Buffer *> colbufs;
 
   PREVENT_CLASS_DEFAULT_METHODS(Records)
 };
@@ -39,6 +38,11 @@ private:
 
 inline
 size_t Records::size() const {
+  ASSERT(columns.size() > 0);
+  size_t _size = columns[0]->size();
+  for (size_t i = 1; i < columns.size(); ++i)
+    ASSERT(columns[i]->size() == _size)
+
   return _size;
 }
 
