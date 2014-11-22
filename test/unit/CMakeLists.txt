@@ -24,18 +24,6 @@ EXECUTE_PROCESS(
     COMMAND tr "\n" ";"
     OUTPUT_VARIABLE SMARTDB_STORAGE_TEST
 )
-EXECUTE_PROCESS(
-    COMMAND find ${PROJ_ROOT_DIR}/lib -name "*.cpp"
-    COMMAND grep -v CMakeFiles
-    COMMAND tr "\n" ";"
-    OUTPUT_VARIABLE SMARTDB_LIB_SRC
-)
-EXECUTE_PROCESS(
-    COMMAND find ${PROJ_ROOT_DIR}/storage -name "*.cpp"
-    COMMAND grep -v CMakeFiles
-    COMMAND tr "\n" ";"
-    OUTPUT_VARIABLE SMARTDB_STORAGE_SRC
-)
 
 #
 # compile environments
@@ -59,12 +47,11 @@ SET(SOURCE_FILES
     ${GTEST_SRC}
     ${SMARTDB_LIB_SRC}
     ${SMARTDB_LIB_TEST}
-    ${SMARTDB_STORAGE_SRC}
-    ${SMARTDB_STORAGE_TEST}
 )
 
 ADD_EXECUTABLE(run_gtest ${SOURCE_FILES})
 
+TARGET_LINK_LIBRARIES(run_gtest csv)
 TARGET_LINK_LIBRARIES(run_gtest csv_parser)
 TARGET_LINK_LIBRARIES(run_gtest dl)  # for using dlopen()
 TARGET_LINK_LIBRARIES(run_gtest pthread)
