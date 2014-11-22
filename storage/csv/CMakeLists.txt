@@ -20,6 +20,6 @@ ADD_LIBRARY(csv SHARED ${LIB_SOURCE_FILES})
 #
 # Link external libraries (both dynamic & static)
 TARGET_LINK_LIBRARIES(csv smartdb)
-TARGET_LINK_LIBRARIES(csv ${CMAKE_CURRENT_SOURCE_DIR}/contrib/csv_parser/libcsv_parser.la)
+TARGET_LINK_LIBRARIES(csv ${CMAKE_CURRENT_SOURCE_DIR}/contrib/csv_parser/libcsv_parser.a)
 
 INSTALL(TARGETS csv LIBRARY DESTINATION lib)
