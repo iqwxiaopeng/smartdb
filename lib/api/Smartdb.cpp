@@ -12,7 +12,7 @@
 namespace Smartdb {
 
 Logger *logger = 0;
-//std::unordered_map<int, const char *> _errmsg;
+std::unordered_map<int, const char *> _errmsg;
 
 } /* namespace Smartdb */
 
@@ -26,14 +26,14 @@ void smartdb_init() {
   Smartdb::logger = new Smartdb::StderrLogger();
 #endif
 
-  //
-  //init error message dict
-//  Smartdb::_errmsg[NO_ERR] = "Success.";
-//  Smartdb::_errmsg[PHYSICAL_MEM_SHORTAGE] = "Cannot allocate memory from kernel.";
-//  Smartdb::_errmsg[MEM_BUF_SHORTAGE] = "`Buffer` does not have enough memory.";
-//  Smartdb::_errmsg[IO_ERR] = "IO error.";
-//  Smartdb::_errmsg[UNKNOWN_COLUMN] = "Unknown column is specified.";
-//  Smartdb::_errmsg[ERR] = "Something wrong happened.";
+ //
+ // init error message dict
+ Smartdb::_errmsg[NO_ERR] = "Success.";
+ Smartdb::_errmsg[PHYSICAL_MEM_SHORTAGE] = "Cannot allocate memory from kernel.";
+ Smartdb::_errmsg[MEM_BUF_SHORTAGE] = "`Buffer` does not have enough memory.";
+ Smartdb::_errmsg[IO_ERR] = "IO error.";
+ Smartdb::_errmsg[UNKNOWN_COLUMN] = "Unknown column is specified.";
+ Smartdb::_errmsg[ERR] = "Something wrong happened.";
 }
 
 extern "C"
@@ -43,6 +43,5 @@ void smartdb_finish() {
 
 extern "C"
 const char * smartdb_errmsg(SmartdbErr err) {
-//  return Smartdb::_errmsg.at(err);
-  return "abc";
+  return Smartdb::_errmsg.at(err);
 }
