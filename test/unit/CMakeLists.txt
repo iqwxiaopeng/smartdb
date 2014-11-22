@@ -12,10 +12,6 @@ SET(GTEST_SRC
     ${GTEST_DIR}/src/gtest_main.cc
 )
 
-SET(STATIC_LIBS
-    ${PROJ_ROOT_DIR}/storage/csv/contrib/csv_parser/libcsv_parser.a
-)
-
 EXECUTE_PROCESS(
     COMMAND find ${CMAKE_CURRENT_SOURCE_DIR}/lib -name "*.cpp"
     COMMAND grep -v CMakeFiles
@@ -69,6 +65,6 @@ SET(SOURCE_FILES
 
 ADD_EXECUTABLE(run_gtest ${SOURCE_FILES})
 
-TARGET_LINK_LIBRARIES(run_gtest ${STATIC_LIBS})
+TARGET_LINK_LIBRARIES(run_gtest csv_parser)
 TARGET_LINK_LIBRARIES(run_gtest dl)  # for using dlopen()
 TARGET_LINK_LIBRARIES(run_gtest pthread)

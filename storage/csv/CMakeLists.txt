@@ -8,7 +8,6 @@ SET(CMAKE_CXX_FLAGS "-O2 -g -Wall -std=c++11 ${CMAKE_CXX_FLAGS}")
 INCLUDE_DIRECTORIES(
     ../../include
     ../../lib
-    contrib/csv_parser
 )
 
 SET(LIB_SOURCE_FILES
