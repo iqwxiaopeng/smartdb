@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include <vector>
-#include "datastruct/Records.h"
+#include "storageinterface/Records.h"
 #include "api/SmartdbType.h"
 #include "hack/Assert.h"
 

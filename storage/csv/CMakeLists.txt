@@ -18,7 +18,7 @@ ADD_LIBRARY(csv SHARED ${LIB_SOURCE_FILES})
 
 #
 # Link external libraries (both dynamic & static)
-TARGET_LINK_LIBRARIES(csv smartdb)
 TARGET_LINK_LIBRARIES(csv csv_parser)
+TARGET_LINK_LIBRARIES(csv smartdb_storageinterface)
 
 INSTALL(TARGETS csv LIBRARY DESTINATION lib)

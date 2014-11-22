@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
-#include "datastruct/FixedLengthColumn.h"
+#include "storageinterface/FixedLengthColumn.h"
 #include "api/SmartdbType.h"
-#include "datastruct/ColumnDef.h"
+#include "storageinterface/ColumnDef.h"
 #include "hack/Assert.h"
 
 using namespace Smartdb;

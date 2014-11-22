@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "FixedLengthColumn.h"
+#include "storageinterface/FixedLengthColumn.h"
 #include "api/SmartdbType.h"
 #include "hack/Assert.h"
 

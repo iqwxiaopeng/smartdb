@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "datastruct/ColumnDef.h"
+#include "storageinterface/ColumnDef.h"
 #include "api/SmartdbType.h"
 #include "op/Operator.h"
 #include "hack/Class.h"

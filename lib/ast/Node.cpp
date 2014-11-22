@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "Node.h"
+#include "ast/Node.h"
 
 namespace Smartdb {
 

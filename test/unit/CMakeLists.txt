@@ -24,6 +24,18 @@ EXECUTE_PROCESS(
     COMMAND tr "\n" ";"
     OUTPUT_VARIABLE SMARTDB_LIB_SRC
 )
+EXECUTE_PROCESS(
+    COMMAND find ${CMAKE_CURRENT_SOURCE_DIR}/storageinterface -name "*.cpp"
+    COMMAND grep -v CMakeFiles
+    COMMAND tr "\n" ";"
+    OUTPUT_VARIABLE SMARTDB_STORAGEINTERFACE_TEST
+)
+EXECUTE_PROCESS(
+    COMMAND find ${PROJ_ROOT_DIR}/storageinterface -name "*.cpp"
+    COMMAND grep -v CMakeFiles
+    COMMAND tr "\n" ";"
+    OUTPUT_VARIABLE SMARTDB_STORAGEINTERFACE_SRC
+)
 
 #
 # compile environments
@@ -36,10 +48,7 @@ SET(CMAKE_CXX_FLAGS "-O0 -g -Wall -std=c++11 ${CMAKE_C_FLAGS}")
 INCLUDE_DIRECTORIES(
     ${GTEST_DIR}
     ${GTEST_DIR}/include
-    ${PROJ_ROOT_DIR}/lib
     ${PROJ_ROOT_DIR}/include
-    ${PROJ_ROOT_DIR}/storage
-    ${PROJ_ROOT_DIR}/storage/csv/contrib/csv_parser
     ${PROJ_ROOT_DIR}/test
 )
 
@@ -47,6 +56,8 @@ SET(SOURCE_FILES
     ${GTEST_SRC}
     ${SMARTDB_LIB_SRC}
     ${SMARTDB_LIB_TEST}
+    ${SMARTDB_STORAGEINTERFACE_SRC}
+    ${SMARTDB_STORAGEINTERFACE_TEST}
 )
 
 ADD_EXECUTABLE(run_gtest ${SOURCE_FILES})

@@ -11,7 +11,6 @@
 #include <unordered_map>
 #include <csv_parser/csv_parser.hpp>
 #include "Csv.h"
-#include "api/Smartdb.h"
 #include "hack/Assert.h"
 
 // [TODO] - use thread local storage

@@ -11,7 +11,7 @@
 #include "Column.h"
 #include "api/SmartdbType.h"
 #include "ColumnDef.h"
-#include "mem/Buffer.h"
+#include "storageinterface/Buffer.h"
 #include "hack/Class.h"
 
 namespace Smartdb {

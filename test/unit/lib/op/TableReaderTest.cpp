@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include "SmartdbTest.h"
 #include "op/TableReader.h"
-#include "datastruct/ColumnDef.h"
+#include "storageinterface/ColumnDef.h"
 #include "datastruct/RecordsQueue.h"
 #include "hack/Assert.h"
 

@@ -9,7 +9,7 @@
 #define LIB_DATASTRUCT_RECORDSQUEUE_H_
 
 #include <queue>
-#include "Records.h"
+#include "storageinterface/Records.h"
 #include "hack/Class.h"
 
 namespace Smartdb {

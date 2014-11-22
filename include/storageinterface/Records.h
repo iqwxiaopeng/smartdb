@@ -9,9 +9,9 @@
 #define LIB_DATASTRUCT_RECORDS_H_
 
 #include <vector>
-#include "datastruct/ColumnDef.h"
-#include "datastruct/Column.h"
-#include "mem/Buffer.h"
+#include "storageinterface/ColumnDef.h"
+#include "storageinterface/Column.h"
+#include "storageinterface/Buffer.h"
 #include "hack/Class.h"
 
 namespace Smartdb {

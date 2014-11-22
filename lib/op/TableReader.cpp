@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "op/TableReader.h"
-#include "datastruct/Records.h"
+#include "storageinterface/Records.h"
 #include "hack/DynamicLib.h"
 #include "log/Logger.h"
 
@@ -14,6 +14,9 @@
 
 
 namespace Smartdb {
+
+extern
+Logger *logger;
 
 TableReader::TableReader(
   const std::vector<const ColumnDef *> &coldefs,

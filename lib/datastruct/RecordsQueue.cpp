@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "RecordsQueue.h"
+#include "datastruct/RecordsQueue.h"
 
 namespace Smartdb {
 
