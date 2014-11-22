@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "FixedLengthColumn.h"
+#include "storageinterface/FixedLengthColumn.h"
 #include "api/SmartdbType.h"
 #include "hack/Assert.h"
 
@@ -65,6 +65,11 @@ SmartdbValue FixedLengthColumn::get(size_t row_index) const {
     ASSERT(false);
   }
   return val;
+}
+
+inline
+size_t FixedLengthColumn::size() const {
+  return filled_row;
 }
 
 inline

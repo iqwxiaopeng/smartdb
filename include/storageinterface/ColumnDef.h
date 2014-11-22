@@ -19,11 +19,23 @@ public:
   ColumnDef(std::string name, SmartdbType type);
   virtual ~ColumnDef();
 
+  size_t size() const;
+
   std::string name;
   SmartdbType type;
 
   PREVENT_CLASS_DEFAULT_METHODS(ColumnDef);
 };
+
+
+inline
+size_t ColumnDef::size() const {
+  switch (type) {
+  case SMARTDB_INT: return sizeof(SmartdbInt);
+  case SMARTDB_DOUBLE: return sizeof(SmartdbDouble);
+  default: abort(); return -1;
+  }
+}
 
 } /* namespace Smartdb */
 

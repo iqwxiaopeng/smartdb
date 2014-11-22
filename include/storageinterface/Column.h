@@ -19,6 +19,7 @@ public:
 
   virtual SmartdbErr add(const SmartdbValue &val) = 0;
   virtual SmartdbValue get(size_t row_index) const = 0;
+  virtual size_t size() const = 0;
   virtual void clear() = 0;
 
   // [TODO] - Bulk add/get for performance

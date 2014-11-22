@@ -11,14 +11,22 @@
 
 namespace Smartdb {
 
-Logger *logger;
+Logger *logger = 0;
 
+} /* namespace Smartdb */
+
+extern "C"
 void smartdb_init() {
+  //
+  // sets logger
 #if Logger == Stderr
-  logger = new StderrLogger();
+  Smartdb::logger = new Smartdb::StderrLogger();
 #else
-  logger = new StderrLogger();
+  Smartdb::logger = new Smartdb::StderrLogger();
 #endif
 }
 
-} /* namespace Smartdb */
+extern "C"
+void smartdb_finish() {
+  if (Smartdb::logger) delete Smartdb::logger;
+}

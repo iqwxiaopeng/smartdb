@@ -8,7 +8,7 @@
 #ifndef STORAGE_CSV_H_
 #define STORAGE_CSV_H_
 
-#include "api/Smartdb.h"
+#include "api/SmartdbStorage.h"
 
 extern "C"
 void *storage_init(
@@ -19,8 +19,8 @@ extern "C"
 void *storage_read_records(
   Smartdb::Records &records,
   size_t n_records,
-  size_t &read_records,
-  bool &finished);
+  size_t& read_records,
+  bool& finished);
 
 extern "C"
 void *storage_finish();

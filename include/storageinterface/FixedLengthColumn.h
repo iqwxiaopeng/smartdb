@@ -11,7 +11,7 @@
 #include "Column.h"
 #include "api/SmartdbType.h"
 #include "ColumnDef.h"
-#include "mem/Buffer.h"
+#include "storageinterface/Buffer.h"
 #include "hack/Class.h"
 
 namespace Smartdb {
@@ -24,6 +24,7 @@ public:
 
   SmartdbErr add(const SmartdbValue &val);
   SmartdbValue get(size_t row_index) const;
+  size_t size() const;
   void clear();
 
   const ColumnDef &coldef;

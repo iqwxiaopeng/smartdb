@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "Buffer.h"
+#include "storageinterface/Buffer.h"
 #include "hack/Assert.h"
 #include "api/SmartdbType.h"
 

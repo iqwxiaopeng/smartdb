@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "ColumnDef.h"
+#include "storageinterface/ColumnDef.h"
 
 namespace Smartdb {
 
