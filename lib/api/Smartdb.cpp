@@ -26,14 +26,14 @@ void smartdb_init() {
   Smartdb::logger = new Smartdb::StderrLogger();
 #endif
 
- //
- // init error message dict
- Smartdb::_errmsg[NO_ERR] = "Success.";
- Smartdb::_errmsg[PHYSICAL_MEM_SHORTAGE] = "Cannot allocate memory from kernel.";
- Smartdb::_errmsg[MEM_BUF_SHORTAGE] = "`Buffer` does not have enough memory.";
- Smartdb::_errmsg[IO_ERR] = "IO error.";
- Smartdb::_errmsg[UNKNOWN_COLUMN] = "Unknown column is specified.";
- Smartdb::_errmsg[ERR] = "Something wrong happened.";
+  //
+  // init error message dict
+  Smartdb::_errmsg[NO_ERR] = "Success.";
+  Smartdb::_errmsg[PHYSICAL_MEM_SHORTAGE] = "Cannot allocate memory from kernel.";
+  Smartdb::_errmsg[MEM_BUF_SHORTAGE] = "`Buffer` does not have enough memory.";
+  Smartdb::_errmsg[IO_ERR] = "IO error.";
+  Smartdb::_errmsg[UNKNOWN_COLUMN] = "Unknown column is specified.";
+  Smartdb::_errmsg[ERR] = "Something wrong happened.";
 }
 
 extern "C"
