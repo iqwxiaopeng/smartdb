@@ -27,7 +27,7 @@ script:
   # build & run test
   - (cd test/unit ; cmake . && make VERBOSE=1 && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_gtest)
 
-  - for i in $(find ./ -maxdepth 1 -name 'core*' -print); do gdb $(pwd)/test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;
+  - for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;
 
 notifications:
   email:
