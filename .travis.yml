@@ -12,7 +12,7 @@ install:
 
 before_script:
   - wget https://googletest.googlecode.com/files/gtest-1.7.0.zip && unzip gtest-1.7.0.zip && mv gtest-1.7.0 contrib/gtest
-  - wget https://csv-parser-cplusplus.googlecode.com/files/libcsv_parser%2B%2B-1.0.0.tar.bz2 && tar xvf libcsv_parser++-1.0.0.tar.bz2 && (cd libcsv_parser++-1.0.0/ ; ./configure && make && cp .libs/libcsv_parser.a ../storage/csv/contrib/csv_parser/ && cp include/csv_parser/csv_parser.hpp ../storage/csv/contrib/csv_parser/ )
+  - wget https://csv-parser-cplusplus.googlecode.com/files/libcsv_parser%2B%2B-1.0.0.tar.bz2 && tar xvf libcsv_parser++-1.0.0.tar.bz2 && (cd libcsv_parser++-1.0.0/ ; ./configure && make && cp .libs/libcsv_parser.la ../storage/csv/contrib/csv_parser/ && cp include/csv_parser/csv_parser.hpp ../storage/csv/contrib/csv_parser/ )
 script:
   # build & install libsmartdb
   - cmake . && make VERBOSE=1 && sudo make install
