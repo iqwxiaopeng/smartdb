@@ -9,13 +9,15 @@
 #define LIB_AST_NODE_H_
 
 namespace Smartdb {
+namespace Ast {
 
-  class Node {
-  public:
-    Node();
-    virtual ~Node();
-  };
+class Node {
+public:
+  Node();
+  virtual ~Node();
+};
 
+}
 } /* namespace Smartdb */
 
 #endif /* LIB_AST_NODE_H_ */
