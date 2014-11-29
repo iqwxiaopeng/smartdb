@@ -40,6 +40,7 @@ CMakeFiles/
 CMakeScripts/
 Makefile
 cmake_install.cmake
+install_manifest.txt
 
 # Google Test files
 run_gtest
@@ -54,6 +55,11 @@ storage/csv/contrib/csv_parser
 # Mac OSX files
 .DS_Store
 *.dSYM/
+
+# Eclipse files
+.cproject
+.project
+.settings
 
 # Xcode files
 **/*.xcodeproj/*
