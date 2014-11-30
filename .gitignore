@@ -66,3 +66,6 @@ storage/csv/contrib/csv_parser
 !**/*.xcodeproj/project.pbxproj
 !**/*.xcodeproj/default.*
 smartdb.build/
+
+# yacc files
+lib/parser/*.output

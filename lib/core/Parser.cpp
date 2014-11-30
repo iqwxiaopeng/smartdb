@@ -11,9 +11,12 @@
 
 namespace Smartdb {
 
+const char * Parser::sql = 0;
+
 Parser::Parser(const char* const sql)
 : root_ast(0)
 {
+  Parser::sql = sql;
   root_ast = parse();
 }
 

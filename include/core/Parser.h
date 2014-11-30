@@ -18,6 +18,8 @@ class Root;
 
 class Parser {
 public:
+  static const char * sql;
+
   Parser(const char * const sql);
   virtual ~Parser();
 

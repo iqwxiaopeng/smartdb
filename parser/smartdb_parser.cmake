@@ -11,14 +11,16 @@ MESSAGE(${GENERATED_SRC_DIR}/parser.cpp)
 
 # Create custom command for flex/lex (note the outputs)
 ADD_CUSTOM_COMMAND(
-    OUTPUT ${GENERATED_SRC_DIR}/lexer.cpp
-    COMMAND ${LEX_EXECUTABLE} -o ${GENERATED_SRC_DIR}/lexer.cpp -I ${PARSER_GENERATOR_SRC_DIR}/lexer.l
+    OUTPUT ${GENERATED_SRC_DIR}/lexer.c
+    COMMAND ${LEX_EXECUTABLE} -o ${GENERATED_SRC_DIR}/lexer.c -I ${PARSER_GENERATOR_SRC_DIR}/lexer.l
+    DEPENDS ${PARSER_GENERATOR_SRC_DIR}/lexer.l
 )
 # Create custom command for bison/yacc (note the DEPENDS)
 ADD_CUSTOM_COMMAND(
     OUTPUT ${GENERATED_SRC_DIR}/parser.cpp
-    COMMAND ${YACC_EXECUTABLE} -dv -o ${GENERATED_SRC_DIR}/parser.cpp ${PARSER_GENERATOR_SRC_DIR}/parser.y
+    COMMAND ${YACC_EXECUTABLE} -dv -o ${GENERATED_SRC_DIR}/parser.cpp ${PARSER_GENERATOR_SRC_DIR}/parser.ypp
+    DEPENDS ${PARSER_GENERATOR_SRC_DIR}/parser.ypp
 )
 
-# Add lexer.cpp, parser.cpp to the list of sources
-SET(PARSER_SOURCE_FILES ${GENERATED_SRC_DIR}/lexer.cpp ${GENERATED_SRC_DIR}/parser.cpp)
+# Add lexer.c, parser.cpp to the list of sources
+SET(PARSER_SOURCE_FILES ${GENERATED_SRC_DIR}/lexer.c ${GENERATED_SRC_DIR}/parser.cpp)

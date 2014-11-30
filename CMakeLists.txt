@@ -3,7 +3,7 @@ CMAKE_POLICY(SET CMP0003 NEW)
 
 PROJECT(smartdb)
 
-SET(CMAKE_CXX_FLAGS "-O2 -g -Wall -std=c++11 ${CMAKE_CXX_FLAGS}")
+SET(CMAKE_CXX_FLAGS "-O2 -g -Wall -Wno-deprecated-register -std=c++11 ${CMAKE_CXX_FLAGS}")
 
 INCLUDE_DIRECTORIES(
     include

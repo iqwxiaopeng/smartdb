@@ -5,15 +5,13 @@
  */
 
 
-#include "sql1.h"
+#include "parser.hpp"
 #include <string.h>
 
+int yywrap() { return 1; }
+
 int lineno = 1;
-void yyerror(char *s);
-
-int yywrap(void) { return 1; }
-
-namespace Smartdb { namespace Ast { class Root; } }
+extern void yyerror(const char *s);
 
 %}
 	/* MKS needs the next line to increase the NFA table */
@@ -161,17 +159,17 @@ namespace Smartdb { namespace Ast { class Root; } }
 
 %%
 
-void
-yyerror(char *s)
+extern
+void yyerror(const char *s)
 {
 	fprintf(stderr, "%d: %s at %s\n", lineno, s, yytext);
 }
 
-int main()
-{
-	if(!yyparse())
-		printf("SQL parse worked\n");
-	else
-		printf("SQL parse failed\n");
-	return 0;
-} /* main */
+/* int main() */
+/* { */
+/* 	if(!yyparse()) */
+/* 		printf("SQL parse worked\n"); */
+/* 	else */
+/* 		printf("SQL parse failed\n"); */
+/* 	return 0; */
+/* } */

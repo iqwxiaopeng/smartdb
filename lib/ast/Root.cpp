@@ -12,5 +12,11 @@ namespace Ast {
 
 Root * Root::ast_root = 0;
 
+Root::Root() {
+}
+
+Root::~Root() {
+}
+
 }
 }
