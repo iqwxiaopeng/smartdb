@@ -13,6 +13,8 @@ void yyerror(char *s);
 
 int yywrap(void) { return 1; }
 
+namespace Smartdb { namespace Ast { class Root; } }
+
 %}
 	/* MKS needs the next line to increase the NFA table */
 %e 1200
@@ -162,7 +164,7 @@ int yywrap(void) { return 1; }
 void
 yyerror(char *s)
 {
-	printf("%d: %s at %s\n", lineno, s, yytext);
+	fprintf(stderr, "%d: %s at %s\n", lineno, s, yytext);
 }
 
 int main()

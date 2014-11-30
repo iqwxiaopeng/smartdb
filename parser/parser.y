@@ -41,7 +41,8 @@
 %%
 
 direct_SQL_statement
-  : directly_executable_statement ';'
+  : directly_executable_statement { Smartdb::Ast::Root::ast_root = new Smartdb::Ast::Root; }
+    ';'
   ;
 
 directly_executable_statement

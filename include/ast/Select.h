@@ -9,8 +9,6 @@
 #define INCLUDE_AST_SELECT_H_
 
 #include "Node.h"
-#include "SelectList.h"
-#include "TableExpression.h"
 
 namespace Smartdb {
 namespace Ast {
@@ -20,8 +18,7 @@ public:
   Select();
   virtual ~Select();
 
-  const SelectList * const select_list;
-  const TableExpression * const table_expression;
+  // [TODO] - Define operator new, delete, which creates/deletes object in free list (like mem_root in mysql)
 };
 
 }
