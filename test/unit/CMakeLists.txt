@@ -19,7 +19,7 @@ EXECUTE_PROCESS(
     OUTPUT_VARIABLE SMARTDB_LIB_TEST
 )
 EXECUTE_PROCESS(
-    COMMAND find ${PROJ_ROOT_DIR}/lib -name "*.cpp"
+    COMMAND find -E ${PROJ_ROOT_DIR}/lib -regex "^.+\\.(c|cpp)$"
     COMMAND grep -v CMakeFiles
     COMMAND tr "\n" ";"
     OUTPUT_VARIABLE SMARTDB_LIB_SRC

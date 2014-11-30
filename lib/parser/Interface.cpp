@@ -7,14 +7,22 @@
 
 #include "parser/Interface.h"
 
-extern
-int yyparse();
+extern int yyparse();
+extern "C" void * yy_scan_string(const char *);
+extern "C" void yy_delete_buffer(void *);
 
 namespace Smartdb {
 
-bool smartdb_parse() {
+int smartdb_parse() {
   return ::yyparse();
 }
 
+void * smartdb_reg_parsed_str(const char * str) {
+  return ::yy_scan_string(str);
 }
 
+void smartdb_delete_parse_buf(void* buf) {
+  ::yy_delete_buffer(buf);
+}
+
+}

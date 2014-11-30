@@ -11,7 +11,9 @@
 
 namespace Smartdb {
 
-bool smartdb_parse();
+int smartdb_parse();
+void * smartdb_reg_parsed_str(const char * str);
+void smartdb_delete_parse_buf(void * buf);
 
 }
 

@@ -8,6 +8,7 @@
 #include "core/Parser.h"
 #include "ast/Root.h"
 #include "parser/Interface.h"
+#include "err/ParseError.h"
 
 namespace Smartdb {
 
@@ -25,9 +26,12 @@ Parser::~Parser() {
 }
 
 const Ast::Root* Parser::parse() {
-  if (!smartdb_parse()) {
+  void * buf = smartdb_reg_parsed_str(Parser::sql);
+  int ret = smartdb_parse();
+  smartdb_delete_parse_buf(buf);
+  if (ret != 0) {
     // after yyerror() is called
-    // [TODO] - throw ParseError(sql);
+    throw ParseError(sql);
   }
   return Ast::Root::ast_root;
 }
