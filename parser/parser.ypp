@@ -4,6 +4,9 @@ extern "C" int yylex();
 extern "C" void yyerror(const char *s);
 
 #include "ast/Root.h"
+#include "ast/SelectStatement.h"
+using namespace Smartdb::Ast;
+
 %}
 	/* symbolic tokens */
 
@@ -48,7 +51,7 @@ extern "C" void yyerror(const char *s);
 %%
 
 direct_SQL_statement
-  : directly_executable_statement { Smartdb::Ast::Root::ast_root = new(NULL) Smartdb::Ast::Root; }
+  : directly_executable_statement
     ';'
   ;
 
@@ -111,7 +114,14 @@ opt_updatability_clause
   ;
 
 query_specification
-  : SELECT opt_set_quantifier select_list table_expression
+  : SELECT {
+      Root::ast_root = new(NULL) Root;
+      Root::ast_root->root_type = SELECT_STATEMENT;
+      Root::ast_root->root_node = new(Root::ast_root) SelectStatement;
+    }
+    opt_set_quantifier
+    select_list
+    table_expression
   ;
 
 opt_set_quantifier
@@ -119,7 +129,10 @@ opt_set_quantifier
   ;
 
 select_list
-  : '*'
+  : '*' {
+      SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
+      select_stmt->select_list_all = true;
+    }
   | select_sublist
   | select_list ',' select_sublist
   ;

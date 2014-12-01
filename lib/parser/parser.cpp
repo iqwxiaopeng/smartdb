@@ -269,6 +269,9 @@ extern "C" int yylex();
 extern "C" void yyerror(const char *s);
 
 #include "ast/Root.h"
+#include "ast/SelectStatement.h"
+using namespace Smartdb::Ast;
+
 
 
 /* Enabling traces.  */
@@ -291,7 +294,7 @@ extern "C" void yyerror(const char *s);
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 10 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 13 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
 {
 	int intval;
 	double floatval;
@@ -299,7 +302,7 @@ typedef union YYSTYPE
 	int subtok;
 }
 /* Line 193 of yacc.c.  */
-#line 303 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
+#line 306 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -312,7 +315,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 316 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
+#line 319 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
 
 #ifdef short
 # undef short
@@ -591,8 +594,8 @@ static const yytype_uint8 yytranslate[] =
    YYRHS.  */
 static const yytype_uint8 yyprhs[] =
 {
-       0,     0,     3,     4,     8,    10,    12,    14,    18,    20,
-      22,    24,    26,    28,    30,    31,    32,    37,    38,    40,
+       0,     0,     3,     6,     8,    10,    12,    16,    18,    20,
+      22,    24,    26,    28,    29,    30,    31,    37,    38,    40,
       42,    46,    48,    50,    52,    54,    56,    58,    60,    64,
       66,    68,    70,    72,    74,    76,    78,    80,    82,    88,
       91,    93,    97,    99,   101,   103,   105,   107,   109,   111,
@@ -602,10 +605,10 @@ static const yytype_uint8 yyprhs[] =
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int16 yyrhs[] =
 {
-     106,     0,    -1,    -1,   108,   107,   101,    -1,   109,    -1,
-     110,    -1,   111,    -1,   112,   118,   119,    -1,   113,    -1,
-     114,    -1,   115,    -1,   116,    -1,   117,    -1,   120,    -1,
-      -1,    -1,    77,   121,   122,   139,    -1,    -1,    13,    -1,
+     106,     0,    -1,   107,   101,    -1,   108,    -1,   109,    -1,
+     110,    -1,   111,   117,   118,    -1,   112,    -1,   113,    -1,
+     114,    -1,   115,    -1,   116,    -1,   119,    -1,    -1,    -1,
+      -1,    77,   120,   121,   122,   139,    -1,    -1,    13,    -1,
      123,    -1,   122,   102,   123,    -1,   124,    -1,   125,    -1,
      126,    -1,   127,    -1,   128,    -1,   129,    -1,   130,    -1,
      103,   125,   104,    -1,   131,    -1,   132,    -1,   133,    -1,
@@ -619,12 +622,12 @@ static const yytype_int16 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    51,    51,    51,    56,    61,    66,    70,    74,    79,
-      84,    89,    94,    99,   103,   108,   114,   117,   122,   123,
-     124,   128,   133,   138,   143,   148,   152,   153,   157,   161,
-     166,   171,   175,   180,   184,   189,   193,   198,   202,   206,
-     210,   211,   215,   220,   225,   230,   235,   239,   244,   247,
-     252,   257,   262
+       0,    54,    54,    59,    64,    69,    73,    77,    82,    87,
+      92,    97,   102,   106,   111,   117,   117,   127,   132,   136,
+     137,   141,   146,   151,   156,   161,   165,   166,   170,   174,
+     179,   184,   188,   193,   197,   202,   206,   211,   215,   219,
+     223,   224,   228,   233,   238,   243,   248,   252,   257,   260,
+     265,   270,   275
 };
 #endif
 
@@ -647,19 +650,19 @@ static const char *const yytname[] =
   "SQLERROR", "TABLE", "TO", "UNION", "UNIQUE", "UPDATE", "USER", "VALUES",
   "VIEW", "WHENEVER", "WHERE", "WITH", "WORK", "COBOL", "FORTRAN",
   "PASCAL", "PLI", "C", "ADA", "';'", "','", "'('", "')'", "$accept",
-  "direct_SQL_statement", "@1", "directly_executable_statement",
+  "direct_SQL_statement", "directly_executable_statement",
   "direct_SQL_data_statement", "direct_select_statement_multiple_rows",
   "cursor_specification", "query_expression", "query_specification_body",
   "non_join_query_expression", "non_join_query_term",
   "non_join_query_primary", "simple_table", "opt_order_by_clause",
-  "opt_updatability_clause", "query_specification", "opt_set_quantifier",
-  "select_list", "select_sublist", "derived_column", "value_expression",
-  "common_value_expression", "reference_value_expression",
-  "value_expression_primary", "parenthesized_value_expression",
-  "nonparenthesized_value_expression", "column_reference",
-  "basic_identifier_chain", "identifier_chain", "identifier",
-  "actual_identifier", "regular_identifier", "identifier_body",
-  "identifier_start", "table_expression", "from_clause",
+  "opt_updatability_clause", "query_specification", "@1",
+  "opt_set_quantifier", "select_list", "select_sublist", "derived_column",
+  "value_expression", "common_value_expression",
+  "reference_value_expression", "value_expression_primary",
+  "parenthesized_value_expression", "nonparenthesized_value_expression",
+  "column_reference", "basic_identifier_chain", "identifier_chain",
+  "identifier", "actual_identifier", "regular_identifier",
+  "identifier_body", "identifier_start", "table_expression", "from_clause",
   "table_reference_list", "table_reference",
   "table_primary_or_joined_table", "table_primary", "table_or_query_name",
   "table_name", "local_or_schema_qualified_name", "qualified_identifier",
@@ -690,8 +693,8 @@ static const yytype_uint16 yytoknum[] =
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,   105,   107,   106,   108,   109,   110,   111,   112,   113,
-     114,   115,   116,   117,   118,   119,   120,   121,   122,   122,
+       0,   105,   106,   107,   108,   109,   110,   111,   112,   113,
+     114,   115,   116,   117,   118,   120,   119,   121,   122,   122,
      122,   123,   124,   125,   126,   127,   128,   128,   129,   130,
      131,   132,   133,   134,   135,   136,   137,   138,   139,   140,
      141,   141,   142,   143,   144,   145,   146,   147,   148,   149,
@@ -701,8 +704,8 @@ static const yytype_uint8 yyr1[] =
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     0,     3,     1,     1,     1,     3,     1,     1,
-       1,     1,     1,     1,     0,     0,     4,     0,     1,     1,
+       0,     2,     2,     1,     1,     1,     3,     1,     1,     1,
+       1,     1,     1,     0,     0,     0,     5,     0,     1,     1,
        3,     1,     1,     1,     1,     1,     1,     1,     3,     1,
        1,     1,     1,     1,     1,     1,     1,     1,     5,     2,
        1,     3,     1,     1,     1,     1,     1,     1,     1,     0,
@@ -714,10 +717,10 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,    17,     0,     2,     4,     5,     6,    14,     8,     9,
-      10,    11,    12,    13,     0,     1,     0,    15,    37,    18,
-       0,     0,    19,    21,    22,    23,    24,    25,    26,    27,
-      29,    30,    31,    32,    33,    34,    35,    36,     3,     7,
+       0,    15,     0,     0,     3,     4,     5,    13,     7,     8,
+       9,    10,    11,    12,    17,     1,     2,    14,     0,     6,
+      37,    18,     0,     0,    19,    21,    22,    23,    24,    25,
+      26,    27,    29,    30,    31,    32,    33,    34,    35,    36,
        0,     0,     0,    16,    49,    28,    48,    39,    40,    42,
       43,    44,    45,    46,    47,    20,    50,     0,    51,    41,
       52,    38
@@ -726,10 +729,10 @@ static const yytype_uint8 yydefact[] =
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,    16,     3,     4,     5,     6,     7,     8,     9,
-      10,    11,    12,    17,    39,    13,    14,    21,    22,    23,
-      24,    25,    26,    27,    28,    29,    30,    31,    32,    33,
-      34,    35,    36,    37,    43,    44,    47,    48,    49,    50,
+      -1,     2,     3,     4,     5,     6,     7,     8,     9,    10,
+      11,    12,    17,    19,    13,    14,    18,    23,    24,    25,
+      26,    27,    28,    29,    30,    31,    32,    33,    34,    35,
+      36,    37,    38,    39,    43,    44,    47,    48,    49,    50,
       51,    52,    53,    54,    56,    58,    60,    61
 };
 
@@ -738,9 +741,9 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -98
 static const yytype_int8 yypact[] =
 {
-     -73,   -98,     5,   -98,   -98,   -98,   -98,   -98,   -98,   -98,
-     -98,   -98,   -98,   -98,    -3,   -98,   -95,   -98,   -98,   -98,
-      -2,   -44,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,
+     -73,   -98,     5,   -95,   -98,   -98,   -98,   -98,   -98,   -98,
+     -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,    -3,   -98,
+     -98,   -98,    -2,   -44,   -98,   -98,   -98,   -98,   -98,   -98,
      -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,
      -97,     6,    -2,   -98,   -98,   -98,   -98,   -94,   -98,   -98,
      -98,   -98,   -98,   -98,   -98,   -98,   -98,     6,   -98,   -98,
@@ -752,7 +755,7 @@ static const yytype_int8 yypgoto[] =
 {
      -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,
      -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -31,   -98,
-      -8,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -38,
+     -10,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98,   -38,
      -98,   -98,   -98,   -98,   -98,   -98,   -98,   -43,   -98,   -98,
      -98,   -98,   -98,   -98,   -98,   -98,   -98,   -98
 };
@@ -764,8 +767,8 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      18,    18,    41,    46,     1,    15,    38,    45,    57,    18,
-      19,    55,    40,     0,    59,     0,     0,     0,     0,    46,
+      20,    20,    41,    46,     1,    15,    16,    45,    57,    20,
+      21,    55,    40,     0,    59,     0,     0,     0,     0,    46,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
@@ -774,13 +777,13 @@ static const yytype_uint8 yytable[] =
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-      20,    20
+      22,    22
 };
 
 static const yytype_int8 yycheck[] =
 {
        3,     3,    46,    41,    77,     0,   101,   104,   102,     3,
-      13,    42,    20,    -1,    57,    -1,    -1,    -1,    -1,    57,
+      13,    42,    22,    -1,    57,    -1,    -1,    -1,    -1,    57,
       -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
       -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
       -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
@@ -796,10 +799,10 @@ static const yytype_int8 yycheck[] =
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,    77,   106,   108,   109,   110,   111,   112,   113,   114,
-     115,   116,   117,   120,   121,     0,   107,   118,     3,    13,
-     103,   122,   123,   124,   125,   126,   127,   128,   129,   130,
-     131,   132,   133,   134,   135,   136,   137,   138,   101,   119,
+       0,    77,   106,   107,   108,   109,   110,   111,   112,   113,
+     114,   115,   116,   119,   120,     0,   101,   117,   121,   118,
+       3,    13,   103,   122,   123,   124,   125,   126,   127,   128,
+     129,   130,   131,   132,   133,   134,   135,   136,   137,   138,
      125,    46,   102,   139,   140,   104,   134,   141,   142,   143,
      144,   145,   146,   147,   148,   123,   149,   102,   150,   142,
      151,   152
@@ -1616,14 +1619,26 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 2:
-#line 51 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
-    { Smartdb::Ast::Root::ast_root = new(NULL) Smartdb::Ast::Root; ;}
+        case 15:
+#line 117 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+    {
+      Root::ast_root = new(NULL) Root;
+      Root::ast_root->root_type = SELECT_STATEMENT;
+      Root::ast_root->root_node = new(Root::ast_root) SelectStatement;
+    ;}
+    break;
+
+  case 18:
+#line 132 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+    {
+      SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
+      select_stmt->select_list_all = true;
+    ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1627 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
+#line 1642 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1837,6 +1852,6 @@ yyreturn:
 }
 
 
-#line 267 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 280 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
 
 

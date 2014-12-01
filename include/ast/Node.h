@@ -13,12 +13,15 @@
 namespace Smartdb {
 namespace Ast {
 
+class Root;
+
 class Node {
 public:
   Node();
   virtual ~Node();
 
-  static void * operator new(size_t size, const Node * parent);
+  // append newly created Node to free-list
+  static void * operator new(size_t size, Smartdb::Ast::Root * root);
   static void operator delete(void * p);
 };
 
