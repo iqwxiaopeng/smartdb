@@ -236,7 +236,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 13 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 12 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
 {
 	int intval;
 	double floatval;

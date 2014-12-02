@@ -1,5 +1,4 @@
 %{
-#define YYDEBUG 1
 extern "C" int yylex();
 extern "C" void yyerror(const char *s);
 
@@ -17,7 +16,8 @@ using namespace Smartdb::Ast;
 	int subtok;
 }
 
-	
+%type <strval> basic_identifier_chain
+
 %token NAME
 %token STRING
 %token INTNUM APPROXNUM
@@ -51,7 +51,12 @@ using namespace Smartdb::Ast;
 %%
 
 direct_SQL_statement
-  : directly_executable_statement
+  : {
+    #if YYDEBUG == 1
+      yydebug = 1;
+    #endif
+    }
+    directly_executable_statement
     ';'
   ;
 
@@ -131,7 +136,7 @@ opt_set_quantifier
 select_list
   : '*' {
       SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
-      select_stmt->select_list_all = true;
+      select_stmt->set_select_list_all(true);
     }
   | select_sublist
   | select_list ',' select_sublist
@@ -154,6 +159,7 @@ value_expression
 
 common_value_expression
   : reference_value_expression
+//| interval_value_expression  // col1 + 1 とか
     /* TODO */
   ;
 
@@ -176,7 +182,10 @@ nonparenthesized_value_expression
   ;
 
 column_reference
-  : basic_identifier_chain
+  : basic_identifier_chain {
+      SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
+      select_stmt->append_select_list_column($1);
+    }
     /* TODO */
   ;
 
@@ -186,7 +195,7 @@ basic_identifier_chain
 
 identifier_chain
   : identifier
-    /* TODO */
+//| identifier_chain '.' identifier  // これあると002のテストが . と , を同一視してエラーになる
   ;
 
 identifier

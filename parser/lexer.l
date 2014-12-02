@@ -121,11 +121,14 @@ extern void yyerror(const char *s);
 "<="	|
 ">="		{ return COMPARISON; }
 
-[-+*/:(),.;]	{ return yytext[0]; }
+[-+*\/:(),.;] { return yytext[0]; }
 
 	/* names */
 
-[A-Za-z][A-Za-z0-9_]*	{ return NAME; }
+[A-Za-z][A-Za-z0-9_]* {
+  yylval.strval = yytext;
+  return NAME;
+}
 
 	/* numbers */
 

@@ -1558,31 +1558,34 @@ YY_RULE_SETUP
 case 98:
 YY_RULE_SETUP
 #line 128 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
-{ return NAME; }
+{
+  yylval.strval = yytext;
+  return NAME;
+}
 	YY_BREAK
 /* numbers */
 case 99:
-#line 133 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 136 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 case 100:
-#line 134 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 137 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 case 101:
 YY_RULE_SETUP
-#line 134 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 137 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 { return INTNUM; }
 	YY_BREAK
 case 102:
-#line 137 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 140 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 case 103:
-#line 138 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 141 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 case 104:
 YY_RULE_SETUP
-#line 138 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 141 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 { return APPROXNUM; }
 	YY_BREAK
 /* strings */
 case 105:
 YY_RULE_SETUP
-#line 142 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 145 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 {
 		int c = input();
 
@@ -1598,18 +1601,18 @@ case 106:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 152 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 155 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 { yyerror("Unterminated string"); }
 	YY_BREAK
 case 107:
 /* rule 107 can match eol */
 YY_RULE_SETUP
-#line 154 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 157 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 lineno++;
 	YY_BREAK
 case 108:
 YY_RULE_SETUP
-#line 156 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 159 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 ;	/* white space */
 	YY_BREAK
 case 109:
@@ -1617,15 +1620,15 @@ case 109:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 158 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 161 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 ;	/* comment */
 	YY_BREAK
 case 110:
 YY_RULE_SETUP
-#line 160 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 163 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 ECHO;
 	YY_BREAK
-#line 1629 "/Users/nakatani.sho/git/smartdb/lib/parser/lexer.c"
+#line 1632 "/Users/nakatani.sho/git/smartdb/lib/parser/lexer.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2622,7 +2625,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 160 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
+#line 163 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 
 
 

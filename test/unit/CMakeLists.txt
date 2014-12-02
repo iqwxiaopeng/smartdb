@@ -42,6 +42,7 @@ EXECUTE_PROCESS(
 # compile environments
 ADD_DEFINITIONS(
     -DSMARTDB_GTEST
+    -DYYDEBUG=0
 )
 
 SET(CMAKE_CXX_FLAGS "-O0 -g -Wall -std=c++11 ${CMAKE_C_FLAGS}")
