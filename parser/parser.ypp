@@ -18,7 +18,7 @@ using namespace Smartdb::Ast;
 
 %type <strval> basic_identifier_chain
 
-%token NAME
+%token IDENTIFIER
 %token STRING
 %token INTNUM APPROXNUM
 
@@ -217,7 +217,7 @@ identifier_body
   ;
 
 identifier_start
-  : NAME
+  : IDENTIFIER
   ;
 
 table_expression

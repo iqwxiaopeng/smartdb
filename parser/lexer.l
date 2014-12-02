@@ -127,7 +127,7 @@ extern void yyerror(const char *s);
 
 [A-Za-z][A-Za-z0-9_]* {
   yylval.strval = yytext;
-  return NAME;
+  return IDENTIFIER;
 }
 
 	/* numbers */

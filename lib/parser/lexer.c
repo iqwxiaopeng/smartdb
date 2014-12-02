@@ -1560,7 +1560,7 @@ YY_RULE_SETUP
 #line 128 "/Users/nakatani.sho/git/smartdb/parser/lexer.l"
 {
   yylval.strval = yytext;
-  return NAME;
+  return IDENTIFIER;
 }
 	YY_BREAK
 /* numbers */

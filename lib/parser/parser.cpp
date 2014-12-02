@@ -66,7 +66,7 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     NAME = 258,
+     IDENTIFIER = 258,
      STRING = 259,
      INTNUM = 260,
      APPROXNUM = 261,
@@ -163,7 +163,7 @@
    };
 #endif
 /* Tokens.  */
-#define NAME 258
+#define IDENTIFIER 258
 #define STRING 259
 #define INTNUM 260
 #define APPROXNUM 261
@@ -635,23 +635,24 @@ static const yytype_uint16 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "NAME", "STRING", "INTNUM", "APPROXNUM",
-  "OR", "AND", "NOT", "COMPARISON", "'+'", "'-'", "'*'", "'/'", "UMINUS",
-  "ALL", "AMMSC", "ANY", "AS", "ASC", "AUTHORIZATION", "BETWEEN", "BY",
-  "CHARACTER", "CHECK", "CLOSE", "COMMIT", "CONTINUE", "CREATE", "CURRENT",
-  "CURSOR", "DECIMAL", "DECLARE", "DEFAULT", "DELETE", "DESC", "DISTINCT",
-  "DOUBLE", "ESCAPE", "EXISTS", "FETCH", "FLOAT", "FOR", "FOREIGN",
-  "FOUND", "FROM", "GOTO", "GRANT", "GROUP", "HAVING", "IN", "INDICATOR",
-  "INSERT", "INTEGER", "INTO", "IS", "KEY", "LANGUAGE", "LIKE", "MODULE",
-  "NULLX", "NUMERIC", "OF", "ON", "OPEN", "OPTION", "ORDER", "PRECISION",
-  "PRIMARY", "PRIVILEGES", "PROCEDURE", "PUBLIC", "REAL", "REFERENCES",
-  "ROLLBACK", "SCHEMA", "SELECT", "SET", "SMALLINT", "SOME", "SQLCODE",
-  "SQLERROR", "TABLE", "TO", "UNION", "UNIQUE", "UPDATE", "USER", "VALUES",
-  "VIEW", "WHENEVER", "WHERE", "WITH", "WORK", "COBOL", "FORTRAN",
-  "PASCAL", "PLI", "C", "ADA", "';'", "','", "'('", "')'", "$accept",
-  "direct_SQL_statement", "@1", "directly_executable_statement",
-  "direct_SQL_data_statement", "direct_select_statement_multiple_rows",
-  "cursor_specification", "query_expression", "query_specification_body",
+  "$end", "error", "$undefined", "IDENTIFIER", "STRING", "INTNUM",
+  "APPROXNUM", "OR", "AND", "NOT", "COMPARISON", "'+'", "'-'", "'*'",
+  "'/'", "UMINUS", "ALL", "AMMSC", "ANY", "AS", "ASC", "AUTHORIZATION",
+  "BETWEEN", "BY", "CHARACTER", "CHECK", "CLOSE", "COMMIT", "CONTINUE",
+  "CREATE", "CURRENT", "CURSOR", "DECIMAL", "DECLARE", "DEFAULT", "DELETE",
+  "DESC", "DISTINCT", "DOUBLE", "ESCAPE", "EXISTS", "FETCH", "FLOAT",
+  "FOR", "FOREIGN", "FOUND", "FROM", "GOTO", "GRANT", "GROUP", "HAVING",
+  "IN", "INDICATOR", "INSERT", "INTEGER", "INTO", "IS", "KEY", "LANGUAGE",
+  "LIKE", "MODULE", "NULLX", "NUMERIC", "OF", "ON", "OPEN", "OPTION",
+  "ORDER", "PRECISION", "PRIMARY", "PRIVILEGES", "PROCEDURE", "PUBLIC",
+  "REAL", "REFERENCES", "ROLLBACK", "SCHEMA", "SELECT", "SET", "SMALLINT",
+  "SOME", "SQLCODE", "SQLERROR", "TABLE", "TO", "UNION", "UNIQUE",
+  "UPDATE", "USER", "VALUES", "VIEW", "WHENEVER", "WHERE", "WITH", "WORK",
+  "COBOL", "FORTRAN", "PASCAL", "PLI", "C", "ADA", "';'", "','", "'('",
+  "')'", "$accept", "direct_SQL_statement", "@1",
+  "directly_executable_statement", "direct_SQL_data_statement",
+  "direct_select_statement_multiple_rows", "cursor_specification",
+  "query_expression", "query_specification_body",
   "non_join_query_expression", "non_join_query_term",
   "non_join_query_primary", "simple_table", "opt_order_by_clause",
   "opt_updatability_clause", "query_specification", "@2",
@@ -1654,7 +1655,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1658 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
+#line 1659 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);

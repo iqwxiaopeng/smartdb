@@ -39,7 +39,7 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     NAME = 258,
+     IDENTIFIER = 258,
      STRING = 259,
      INTNUM = 260,
      APPROXNUM = 261,
@@ -136,7 +136,7 @@
    };
 #endif
 /* Tokens.  */
-#define NAME 258
+#define IDENTIFIER 258
 #define STRING 259
 #define INTNUM 260
 #define APPROXNUM 261
