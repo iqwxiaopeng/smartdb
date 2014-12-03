@@ -40,6 +40,7 @@ CMakeFiles/
 CMakeScripts/
 Makefile
 cmake_install.cmake
+install_manifest.txt
 
 # Google Test files
 run_gtest
@@ -55,8 +56,16 @@ storage/csv/contrib/csv_parser
 .DS_Store
 *.dSYM/
 
+# Eclipse files
+.cproject
+.project
+.settings
+
 # Xcode files
 **/*.xcodeproj/*
 !**/*.xcodeproj/project.pbxproj
 !**/*.xcodeproj/default.*
 smartdb.build/
+
+# yacc files
+lib/parser/*.output

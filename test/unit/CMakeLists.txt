@@ -19,7 +19,8 @@ EXECUTE_PROCESS(
     OUTPUT_VARIABLE SMARTDB_LIB_TEST
 )
 EXECUTE_PROCESS(
-    COMMAND find ${PROJ_ROOT_DIR}/lib -name "*.cpp"
+    COMMAND find ../../lib -type f
+    COMMAND egrep "\\.(c|cpp)$"
     COMMAND grep -v CMakeFiles
     COMMAND tr "\n" ";"
     OUTPUT_VARIABLE SMARTDB_LIB_SRC
@@ -41,6 +42,7 @@ EXECUTE_PROCESS(
 # compile environments
 ADD_DEFINITIONS(
     -DSMARTDB_GTEST
+    -DYYDEBUG=0
 )
 
 SET(CMAKE_CXX_FLAGS "-O0 -g -Wall -std=c++11 ${CMAKE_C_FLAGS}")
