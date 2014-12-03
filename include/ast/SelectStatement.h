@@ -31,14 +31,22 @@ public:
   void append_select_list_column(const char * const colname) {
     colnames.push_back(std::string(colname));
   }
-  std::string fetch_select_list_column(size_t index) {
+  const std::string & fetch_select_list_column(size_t index) const {
     ASSERT(index < colnames.size());
     return colnames[index];
+  }
+
+  const std::string& get_table() const {
+    return table;
+  }
+  void set_table(const std::string& table) {
+    this->table = table;
   }
 
 private:
   bool select_list_all;  // true when `SELECT * FROM ...`
   std::vector<std::string> colnames;
+  std::string table;  // [TODO] - should have list of joined-table (see BNF)
 };
 
 }

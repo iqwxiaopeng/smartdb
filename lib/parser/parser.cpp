@@ -621,12 +621,12 @@ static const yytype_int16 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    54,    54,    54,    64,    69,    74,    78,    82,    87,
-      92,    97,   102,   107,   111,   116,   122,   122,   132,   137,
-     141,   142,   146,   151,   156,   161,   167,   171,   172,   176,
-     180,   185,   193,   197,   202,   206,   211,   215,   220,   224,
-     228,   232,   233,   237,   242,   247,   252,   257,   261,   266,
-     269,   274,   279,   284
+       0,    55,    55,    55,    65,    70,    75,    79,    83,    88,
+      93,    98,   103,   108,   112,   117,   123,   123,   133,   138,
+     142,   143,   147,   152,   157,   162,   168,   172,   173,   177,
+     181,   186,   194,   198,   203,   207,   212,   216,   221,   225,
+     229,   233,   234,   238,   243,   248,   253,   258,   265,   270,
+     273,   278,   283,   288
 };
 #endif
 
@@ -1620,7 +1620,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 54 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 55 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
     {
     #if YYDEBUG == 1
       yydebug = 1;
@@ -1629,7 +1629,7 @@ yyreduce:
     break;
 
   case 16:
-#line 122 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 123 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
     {
       Root::ast_root = new(NULL) Root;
       Root::ast_root->root_type = SELECT_STATEMENT;
@@ -1638,7 +1638,7 @@ yyreduce:
     break;
 
   case 19:
-#line 137 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 138 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
     {
       SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
       select_stmt->set_select_list_all(true);
@@ -1646,16 +1646,24 @@ yyreduce:
     break;
 
   case 31:
-#line 185 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 186 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
     {
       SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
       select_stmt->append_select_list_column((yyvsp[(1) - (1)].strval));
     ;}
     break;
 
+  case 47:
+#line 258 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+    {
+      SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
+      select_stmt->set_table((yyvsp[(1) - (1)].strval));
+    ;}
+    break;
+
 
 /* Line 1267 of yacc.c.  */
-#line 1659 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
+#line 1667 "/Users/nakatani.sho/git/smartdb/lib/parser/parser.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1869,6 +1877,6 @@ yyreturn:
 }
 
 
-#line 289 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
+#line 293 "/Users/nakatani.sho/git/smartdb/parser/parser.ypp"
 
 

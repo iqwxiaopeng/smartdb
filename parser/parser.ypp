@@ -17,6 +17,7 @@ using namespace Smartdb::Ast;
 }
 
 %type <strval> basic_identifier_chain
+%type <strval> local_or_schema_qualified_name
 
 %token IDENTIFIER
 %token STRING
@@ -254,7 +255,10 @@ table_or_query_name
   ;
 
 table_name
-  : local_or_schema_qualified_name
+  : local_or_schema_qualified_name {
+      SelectStatement * select_stmt = (SelectStatement *)Root::ast_root->root_node;
+      select_stmt->set_table($1);
+    }
   ;
 
 local_or_schema_qualified_name
