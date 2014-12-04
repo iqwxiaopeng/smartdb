@@ -15,9 +15,7 @@ Logger *logger = 0;
 
 } /* namespace Smartdb */
 
-extern "C"
 void smartdb_init() {
-  //
   // sets logger
 #if Logger == Stderr
   Smartdb::logger = new Smartdb::StderrLogger();
@@ -25,8 +23,51 @@ void smartdb_init() {
   Smartdb::logger = new Smartdb::StderrLogger();
 #endif
 }
-
-extern "C"
 void smartdb_finish() {
   if (Smartdb::logger) delete Smartdb::logger;
+}
+
+extern "C"
+SmartdbErr smartdb_open(
+  const char* schema_file,
+  /* out */
+  smartdb** db)
+{
+  // [TODO] - use schema_file & db
+  return NO_ERR;
+}
+
+extern "C"
+void smartdb_close(smartdb* db) {
+  // [TODO] - delete db
+
+  if (Smartdb::logger) delete Smartdb::logger;
+}
+
+extern "C"
+SmartdbErr smartdb_prepare(
+  smartdb* db, const char* sql,
+  /* out */
+  smartdb_stmt** stmt)
+{
+  return NO_ERR;
+}
+
+extern "C"
+SmartdbErr smartdb_step(smartdb_stmt* stmt) {
+  return NO_ERR;
+}
+
+extern "C"
+SmartdbInt smartdb_column_int(smartdb_stmt* stmt, unsigned int i_col) {
+  return 777;
+}
+
+extern "C"
+SmartdbDouble smartdb_column_double(smartdb_stmt* stmt, unsigned int i_col) {
+  return 3.14;
+}
+
+SmartdbErr smartdb_finalize(smartdb_stmt* stmt) {
+  return NO_ERR;
 }

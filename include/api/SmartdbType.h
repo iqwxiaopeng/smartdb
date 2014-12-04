@@ -15,6 +15,14 @@
 #include <unordered_map>
 #include "hack/Assert.h"
 
+typedef struct smartdb {
+  // [TODO] - everything
+} smartdb;
+
+typedef struct smartdb_stmt {
+  // [TODO] - everything
+} smartdb_stmt;
+
 //
 // embedded types of Smartdb
 enum SmartdbType {
