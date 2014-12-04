@@ -9,7 +9,7 @@
 
 namespace Smartdb {
 
-Schema::Schema(const char* const schema_file)
+Schema::Schema(const char* const db_file)
 {
   // [TODO] - everything
   _storage_engine_name = "csv";

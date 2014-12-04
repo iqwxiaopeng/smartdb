@@ -15,8 +15,12 @@
 #include <unordered_map>
 #include "hack/Assert.h"
 
+namespace Smartdb {
+  class Schema;
+}
+
 typedef struct smartdb {
-  // [TODO] - everything
+  Smartdb::Schema * schema;
 } smartdb;
 
 typedef struct smartdb_stmt {

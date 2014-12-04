@@ -5,7 +5,9 @@
  *      Author: nakatani.sho
  */
 
+#include <stdlib.h>
 #include "api/Smartdb.h"
+#include "datastruct/Schema.h"
 #include "log/Logger.h"
 #include "log/StderrLogger.h"
 
@@ -29,19 +31,21 @@ void smartdb_finish() {
 
 extern "C"
 SmartdbErr smartdb_open(
-  const char* schema_file,
+  const char* db_file,
   /* out */
   smartdb** db)
 {
-  // [TODO] - use schema_file & db
+  *db = (smartdb *)malloc(sizeof(smartdb));
+  if (!(*db)) return PHYSICAL_MEM_SHORTAGE;
+
+  (*db)->schema = new Smartdb::Schema(db_file);
   return NO_ERR;
 }
 
 extern "C"
 void smartdb_close(smartdb* db) {
-  // [TODO] - delete db
-
-  if (Smartdb::logger) delete Smartdb::logger;
+  delete db->schema;
+  free(db);
 }
 
 extern "C"

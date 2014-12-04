@@ -22,7 +22,7 @@ void smartdb_finish();
 // API functions
 extern "C"
 SmartdbErr smartdb_open(
-  const char * schema_file,
+  const char * db_file,
   /* out */
   smartdb **db);
 

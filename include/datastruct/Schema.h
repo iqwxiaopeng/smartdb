@@ -17,7 +17,7 @@ namespace Smartdb {
 
 class Schema {
 public:
-  Schema(const char * const schema_file);
+  Schema(const char * const db_file);
   virtual ~Schema();
 
   SmartdbErr load(const char * const table_name);
