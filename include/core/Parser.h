@@ -26,7 +26,7 @@ public:
 private:
   const Ast::Root * parse();
 
-  const Ast::Root * root_ast;
+  const Ast::Root * ast_root;
 
   PREVENT_CLASS_DEFAULT_METHODS(Parser);
 };

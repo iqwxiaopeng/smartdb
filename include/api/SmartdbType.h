@@ -71,6 +71,7 @@ enum SmartdbErr {
   MEM_BUF_SHORTAGE,       // `Buffer` space is not enough
   IO_ERR,
   UNKNOWN_COLUMN,
+  NO_MORE_RECORD,
 
   ERR,
 };

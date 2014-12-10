@@ -15,14 +15,14 @@ namespace Smartdb {
 const char * Parser::sql = 0;
 
 Parser::Parser(const char* const sql)
-: root_ast(0)
+: ast_root(0)
 {
   Parser::sql = sql;
-  root_ast = parse();
+  ast_root = parse();
 }
 
 Parser::~Parser() {
-  if (root_ast) delete root_ast;  // each Node of Ast is deleted at a time
+  if (ast_root) delete ast_root;  // each Node of Ast is deleted at a time
 }
 
 const Ast::Root* Parser::parse() {
