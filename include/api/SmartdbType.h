@@ -15,6 +15,18 @@
 #include <unordered_map>
 #include "hack/Assert.h"
 
+namespace Smartdb {
+  class Schema;
+}
+
+typedef struct smartdb {
+  Smartdb::Schema * schema;
+} smartdb;
+
+typedef struct smartdb_stmt {
+  // [TODO] - everything
+} smartdb_stmt;
+
 //
 // embedded types of Smartdb
 enum SmartdbType {
@@ -59,6 +71,7 @@ enum SmartdbErr {
   MEM_BUF_SHORTAGE,       // `Buffer` space is not enough
   IO_ERR,
   UNKNOWN_COLUMN,
+  NO_MORE_RECORD,
 
   ERR,
 };

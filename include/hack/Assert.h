@@ -22,7 +22,7 @@ public:
 #define ASSERT(cond) \
   if (!(cond)) \
     throw SmartdbAssertionFailed( \
-      std::string("SmartdbAssertionFailed: ") + #cond);
+      std::string(__FILE__) + ":" + std::to_string(__LINE__) + " SmartdbAssertionFailed: " + #cond);
 
 #else /* SMARTDB_GTEST */
 #include <assert.h>
