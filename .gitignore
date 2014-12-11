@@ -68,4 +68,7 @@ storage/csv/contrib/csv_parser
 smartdb.build/
 
 # yacc files
+lib/parser/parser.cpp
+lib/parser/parser.hpp
+lib/parser/lexer.c
 lib/parser/*.output
