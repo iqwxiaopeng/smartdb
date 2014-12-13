@@ -34,7 +34,7 @@ TableReader::~TableReader() {
   unload_dlib_funcs();
 }
 
-SmartdbErr TableReader::run() {
+SmartdbErr TableReader::run(Scheduler * const scheduler) {
   return read();
 }
 

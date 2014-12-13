@@ -21,7 +21,7 @@ TEST_F(TableReaderTest, reads_from_csv) {
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
 
   TableReader op(coldefs, "csv", extra, 100);
-  EXPECT_EQ(NO_ERR, op.run());
+  EXPECT_EQ(NO_ERR, op.run(NULL));  // [TODO] - pass scheduler
   while (!op.out_q.finished()) {
     const Records *records = op.out_q.front();
     EXPECT_NE((Records *)NULL, records);
@@ -40,7 +40,7 @@ TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
 
   TableReader op(coldefs, "csv", extra, 1);
-  EXPECT_EQ(NO_ERR, op.run());
+  EXPECT_EQ(NO_ERR, op.run(NULL));  // [TODO] - pass scheduler
 
   size_t records_cnt = 0;
   while (!op.out_q.finished()) {
