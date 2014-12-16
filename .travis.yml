@@ -24,8 +24,10 @@ script:
   - cmake . && make VERBOSE=1 && sudo make install
   # build & install 1st-party storage engines
   - (cd storage/csv ; cmake . && make VERBOSE=1 && sudo make install)
-  # build & run test
+  # build & run unit test
   - (cd test/unit ; cmake . && make VERBOSE=1 && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_gtest)
+  # build & run integrated test
+  - (cd test/integrated ; cmake . && make VERBOSE=1 && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_gtest)
   # show core dump log on error
   - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_gtest core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;)
 
