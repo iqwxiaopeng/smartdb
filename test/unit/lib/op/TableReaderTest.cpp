@@ -18,7 +18,7 @@ TEST_F(TableReaderTest, reads_from_csv) {
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
 
-  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::unordered_map<std::string, std::string> extra = { {"path", "../fixture/storage_csv_normal.csv"} };
 
   TableReader op(coldefs, "csv", extra, 100);
   EXPECT_EQ(NO_ERR, op.run(NULL));  // [TODO] - pass scheduler
@@ -37,7 +37,7 @@ TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
 
-  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::unordered_map<std::string, std::string> extra = { {"path", "../fixture/storage_csv_normal.csv"} };
 
   TableReader op(coldefs, "csv", extra, 1);
   EXPECT_EQ(NO_ERR, op.run(NULL));  // [TODO] - pass scheduler
