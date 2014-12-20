@@ -2,6 +2,9 @@
 #include <unordered_map>
 #include "SmartdbTest.h"
 #include "op/TableReader.h"
+#include "op/NullOperator.h"
+#include "core/Executor.h"
+#include "core/Scheduler.h"
 #include "storageinterface/ColumnDef.h"
 #include "datastruct/RecordsQueue.h"
 #include "hack/Assert.h"
@@ -10,8 +13,16 @@ using namespace Smartdb;
 
 class TableReaderTest : public SmartdbTest {
 protected:
+  TableReaderTest()
+  : executor(1), root_op(), scheduler(executor, root_op)
+  {}
+
   virtual void SetUp() {
   }
+
+  Executor executor;
+  NullOperator root_op;
+  Scheduler scheduler;
 };
 
 TEST_F(TableReaderTest, reads_from_csv) {
@@ -21,7 +32,7 @@ TEST_F(TableReaderTest, reads_from_csv) {
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
 
   TableReader op(coldefs, "csv", extra, 100);
-  EXPECT_EQ(NO_ERR, op.run(NULL));  // [TODO] - pass scheduler
+  EXPECT_EQ(NO_ERR, op.run(scheduler));
   while (!op.out_q.finished()) {
     const Records *records = op.out_q.front();
     EXPECT_NE((Records *)NULL, records);
@@ -40,7 +51,7 @@ TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
 
   TableReader op(coldefs, "csv", extra, 1);
-  EXPECT_EQ(NO_ERR, op.run(NULL));  // [TODO] - pass scheduler
+  EXPECT_EQ(NO_ERR, op.run(scheduler));
 
   size_t records_cnt = 0;
   while (!op.out_q.finished()) {

@@ -20,17 +20,13 @@ public:
     size_t n_records_to_read);
   ~TableReader();
 
-  SmartdbErr run(Scheduler * const scheduler);
+  SmartdbErr run(const Scheduler & scheduler);
 
 private:
   SmartdbErr read();
   std::string dlib_name_without_suffix();
   void load_dlib_funcs();
   void unload_dlib_funcs();
-
-  // TableReader is always at least RUNNABLE.
-  // And no one call this function.
-  void got_input_records(const Operator * const child_op) {}
 
   const std::vector<const ColumnDef *> &coldefs;
   const std::unordered_map<std::string, std::string> &extra;
