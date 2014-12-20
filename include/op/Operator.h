@@ -10,6 +10,7 @@
 
 #include "datastruct/RecordsQueue.h"
 #include "hack/Assert.h"
+#include "hack/ForSchedulerMainThread.h"
 
 namespace Smartdb {
 
@@ -35,19 +36,19 @@ public:
   Operator();
   virtual ~Operator();
 
-  // Children operators call this function just after pushing records to out_q.
-  // this operator may change its state from WAITING to RUNNABLE in the function.
-  virtual void got_input_records(const Operator * const child_op) = 0;
+  /**
+   * Scheduler calls this function to make this operator RUNNING.
+   * In this function, scheduler's member function must be called following these rules:
+   * (1) call scheduler->on_records_output(): when Records are output
+   * (2) call scheduler->on_operator_finished(): when Operator finishes its execution
+   */
+  virtual SmartdbErr run(const Scheduler & scheduler) = 0;
 
-  // Scheduler calls this function to make this operator RUNNING.
-  // This function sends notification to scheduler after RUNNING state ends.
-  virtual SmartdbErr run(Scheduler * const scheduler) = 0;
-
-  RecordsQueue out_q;
-
-protected:
-  // Children operators, not the scheduler, call these state-transition functions
+  /**
+   * @note Called only from scheduler main thread.
+   */
   void to_waiting() {
+    FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNING);
     state = WAITING;
   }
@@ -56,13 +57,24 @@ protected:
     state = RUNNABLE;
   }
   void to_running() {
+    FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNABLE);
     state = RUNNING;
   }
   void to_finished() {
+    FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNING);
     state = FINISHED;
   }
+
+  bool is_finished() const {
+    FOR_SCHEDULER_MAIN_THREAD
+    return state == FINISHED;
+  }
+
+  RecordsQueue out_q;
+
+protected:
 
   SchedulingState state;
   OperationType op_type;
