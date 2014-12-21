@@ -25,10 +25,35 @@ enum SchedulingState {
 };
 
 enum OperationType {
-  BLOCK = 1,  // should get all the input records when starting calculation.
-              // e.g. simple sort, simple aggregation, etc...
-  STREAM,     // can process each record before getting all inputs.
-              // e.g. filter, projection, etc...
+  // Operator with single input
+  /**
+   * should get all the input records when starting calculation.
+   * @example simple sort, simple aggregation, etc...
+   */
+  BLOCK = 1,
+  /**
+   * can process each record before getting all inputs.
+   * @example filter, projection, etc...
+   */
+  STREAM,
+
+  // Operator with double inputs
+  /**
+   * should get all the input records from both children operators when starting calculation.
+   * @example UNION
+   */
+  BLOCK_BLOCK,
+  /**
+   * should get all the input records from one child operator.
+   * After that, each record from another child operator can be processed without waiting for all.
+   * @example INNER JOIN
+   */
+  BLOCK_STREAM,
+  /**
+   * can process each record from both children operators any time.
+   * @example UNION ALL
+   */
+  STREAM_STREAM,
 };
 
 class Operator {
