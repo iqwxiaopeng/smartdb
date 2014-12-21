@@ -9,9 +9,7 @@
 
 namespace Smartdb {
 
-BlockOperator::BlockOperator()
-{
-  op_type = BLOCK;
+BlockOperator::BlockOperator() {
 }
 
 BlockOperator::~BlockOperator() {

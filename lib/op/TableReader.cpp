@@ -28,6 +28,7 @@ TableReader::TableReader(
   n_records_to_read(n_records_to_read)
 {
   load_dlib_funcs();
+  state = RUNNABLE;  // TableReader is leaf node of plan-tree
 }
 
 TableReader::~TableReader() {

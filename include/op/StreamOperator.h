@@ -16,6 +16,8 @@ class StreamOperator : public Operator {
 public:
   StreamOperator();
   virtual ~StreamOperator();
+
+  static const OperationType op_type = STREAM;
 };
 
 } /* namespace Smartdb */

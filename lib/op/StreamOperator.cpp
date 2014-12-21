@@ -9,9 +9,7 @@
 
 namespace Smartdb {
 
-StreamOperator::StreamOperator()
-{
-  op_type = STREAM;
+StreamOperator::StreamOperator() {
 }
 
 StreamOperator::~StreamOperator() {

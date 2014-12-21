@@ -9,8 +9,10 @@
 
 namespace Smartdb {
 
+SchedulingState Operator::state = WAITING;
+
 Operator::Operator()
-: out_q(), state(WAITING)
+: out_q()
 {
   // TODO Auto-generated constructor stub
 

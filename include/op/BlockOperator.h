@@ -16,6 +16,8 @@ class BlockOperator : public Operator {
 public:
   BlockOperator();
   virtual ~BlockOperator();
+
+  static const OperationType op_type = BLOCK;
 };
 
 } /* namespace Smartdb */

@@ -8,6 +8,7 @@
 #ifndef INCLUDE_CORE_SCHEDULER_H_
 #define INCLUDE_CORE_SCHEDULER_H_
 
+#include <pthread.h>
 #include "hack/Class.h"
 
 namespace Smartdb {
@@ -30,6 +31,9 @@ public:
   void join();
 
 private:
+  static void * main_loop(Scheduler *_this);
+
+  pthread_t scheduler_main_thread_tid;
   Operator & root_op;
 
   PREVENT_CLASS_DEFAULT_METHODS(Scheduler);

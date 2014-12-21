@@ -17,6 +17,21 @@ namespace Smartdb {
 class RecordsQueue;
 class Scheduler;
 
+/**
+ * Each Operator takes 1 of the following states at a given time:
+ * WAITING: Child Operator does not even start outputting Records.
+ *   Initial state of non-leaf Operator.
+ * RUNNABLE: Child Operator already output at least a chunk of Records.
+ *   But no Operator's instance is run on any worker.
+ *   Initial state of leaf Operator.
+ * RUNNING: Only difference from RUNNABLE is RUNNING Operator has at least one instance run on any worker.
+ * FINISHED: Operator finished its execution.
+ *
+ * Possible state transition:
+ *   WAITING --> RUNNABLE <--> RUNNING --> FINISHED
+ *
+ * @note state is shared among all instances of each Operator.
+ */
 enum SchedulingState {
   WAITING = 1,
   RUNNABLE,
@@ -72,23 +87,15 @@ public:
   /**
    * @note Called only from scheduler main thread.
    */
-  void to_waiting() {
+  inline static void to_runnable() {
     FOR_SCHEDULER_MAIN_THREAD
-    ASSERT(state == RUNNING);
-    state = WAITING;
-  }
-  /**
-   * @note Called only from scheduler main thread.
-   */
-  void to_runnable() {
-    FOR_SCHEDULER_MAIN_THREAD
-    ASSERT(state == WAITING);
+    ASSERT(state == WAITING || state == RUNNING);
     state = RUNNABLE;
   }
   /**
    * @note Called only from scheduler main thread.
    */
-  void to_running() {
+  inline static void to_running() {
     FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNABLE);
     state = RUNNING;
@@ -96,7 +103,7 @@ public:
   /**
    * @note Called only from scheduler main thread.
    */
-  void to_finished() {
+  inline static void to_finished() {
     FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNING);
     state = FINISHED;
@@ -105,7 +112,7 @@ public:
   /**
    * @note Called only from scheduler main thread.
    */
-  bool is_finished() const {
+  inline static bool is_finished() {
     FOR_SCHEDULER_MAIN_THREAD
     return state == FINISHED;
   }
@@ -113,9 +120,7 @@ public:
   RecordsQueue out_q;
 
 protected:
-
-  SchedulingState state;
-  OperationType op_type;
+  static SchedulingState state;
 };
 
 }
