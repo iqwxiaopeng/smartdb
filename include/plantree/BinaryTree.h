@@ -10,12 +10,9 @@
 
 #include <list>
 #include <unordered_map>
-#include <utility>
 #include <algorithm>
 #include "hack/Class.h"
 #include "hack/Assert.h"
-
-#define NO_CHILDREN std::pair<T*, T*>(NULL, NULL)
 
 namespace Smartdb {
 
@@ -24,7 +21,8 @@ class BinaryTree {
 
 public:
   typedef struct node_t {
-    std::pair<T*, T*> children;
+    T* left_child;
+    T* right_child;
     T* parent;
   } node_t;
 
@@ -33,7 +31,7 @@ public:
   BinaryTree(T* const root)
   : root(NULL), leaves(0)
   {
-    nodes_map[root] = { NO_CHILDREN, NULL };
+    nodes_map[root] = { NULL, NULL, NULL };
 
     // cache
     this->root = root;
@@ -68,15 +66,15 @@ public:
 
   void add_left_child_of(T* const parent, T* const child) {
     node_t & parent_node = nodes_map[parent];
-    ASSERT(!parent_node.children.first);
+    ASSERT(!parent_node.left_child);
     _add_child_of(parent, child);
-    parent_node.children.first = child;
+    parent_node.left_child = child;
   }
   void add_right_child_of(T* const parent, T* const child) {
     node_t & parent_node = nodes_map[parent];
     _add_child_of(parent, child);
-    ASSERT(!parent_node.children.second);
-    parent_node.children.second = child;
+    ASSERT(!parent_node.right_child);
+    parent_node.right_child = child;
   }
 
 private:
@@ -99,24 +97,24 @@ private:
 
   void _add_child_of(T* const parent, T* const child) {
     node_t & parent_node = nodes_map[parent];
-    ASSERT(!parent_node.children.first || !parent_node.children.second);
+    ASSERT(!parent_node.left_child || !parent_node.right_child);
 
     // create child info
-    nodes_map[child] = { NO_CHILDREN, parent };
+    nodes_map[child] = { NULL, NULL, parent };
 
     // update leaves cache
-    if (!parent_node.children.first && !parent_node.children.second) {
+    if (!parent_node.left_child && !parent_node.right_child) {
       // parent becomes non-leaf, instead child becomes leaf.
       auto it = find_leaf_iter(parent);
       ASSERT(it != leaves_end());
       *it = child;
-    } else if (parent_node.children.first && !parent_node.children.second) {
+    } else if (parent_node.left_child && !parent_node.right_child) {
       // `child` is next leaf of left child
-      auto it = find_leaf_iter(parent_node.children.first);
+      auto it = find_leaf_iter(parent_node.left_child);
       leaves.insert(++it, child);
-    } else if (!parent_node.children.first && parent_node.children.second) {
+    } else if (!parent_node.left_child && parent_node.right_child) {
       // `child` is previous leaf of right child
-      auto it = find_leaf_iter(parent_node.children.second);
+      auto it = find_leaf_iter(parent_node.right_child);
       leaves.insert(it, child);
     }
   }

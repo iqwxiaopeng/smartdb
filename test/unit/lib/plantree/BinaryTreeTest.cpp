@@ -143,6 +143,6 @@ TEST_F(InbalancedTreeTest, leaves_of_inbalanced_tree) {
 TEST_F(InbalancedTreeTest, lookup_node) {
   BinaryTree<int>::node_t node4 = tree[&nodes[4]];
   EXPECT_EQ(&nodes[3], node4.parent);
-  EXPECT_EQ(&nodes[5], node4.children.first);
-  EXPECT_EQ(&nodes[7], node4.children.second);
+  EXPECT_EQ(&nodes[5], node4.left_child);
+  EXPECT_EQ(&nodes[7], node4.right_child);
 }
