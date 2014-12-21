@@ -52,21 +52,34 @@ public:
     ASSERT(state == RUNNING);
     state = WAITING;
   }
+  /**
+   * @note Called only from scheduler main thread.
+   */
   void to_runnable() {
+    FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == WAITING);
     state = RUNNABLE;
   }
+  /**
+   * @note Called only from scheduler main thread.
+   */
   void to_running() {
     FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNABLE);
     state = RUNNING;
   }
+  /**
+   * @note Called only from scheduler main thread.
+   */
   void to_finished() {
     FOR_SCHEDULER_MAIN_THREAD
     ASSERT(state == RUNNING);
     state = FINISHED;
   }
 
+  /**
+   * @note Called only from scheduler main thread.
+   */
   bool is_finished() const {
     FOR_SCHEDULER_MAIN_THREAD
     return state == FINISHED;
