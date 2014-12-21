@@ -146,3 +146,23 @@ TEST_F(InbalancedTreeTest, lookup_node) {
   EXPECT_EQ(&nodes[5], node4.left_child);
   EXPECT_EQ(&nodes[7], node4.right_child);
 }
+
+// Error cases
+
+TEST_F(BinaryTreeTest, error_on_duplicate_child_addition) {
+  char root_node[] = "root node";
+  char child_node[] = "child node";
+
+  BinaryTree<char> tree(root_node);
+  tree.add_left_child_of(root_node, child_node);
+  ASSERT_THROW(tree.add_left_child_of(root_node, child_node);, SmartdbAssertionFailed);
+}
+
+TEST_F(BinaryTreeTest, error_on_circular_nodes) {
+  char root_node[] = "root node";
+  char child_node[] = "child node";
+
+  BinaryTree<char> tree(root_node);
+  tree.add_left_child_of(root_node, child_node);
+  ASSERT_THROW(tree.add_left_child_of(child_node, root_node), SmartdbAssertionFailed);
+}

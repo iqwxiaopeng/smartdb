@@ -96,6 +96,8 @@ private:
   }
 
   void _add_child_of(T* const parent, T* const child) {
+    ASSERT(nodes_map.find(child) == nodes_map.end());  // prevent circular nodes
+
     node_t & parent_node = nodes_map[parent];
     ASSERT(!parent_node.left_child || !parent_node.right_child);
 
