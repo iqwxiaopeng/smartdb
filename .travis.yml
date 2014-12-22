@@ -29,7 +29,7 @@ script:
   # run unit test
   - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_unit_test)
   # run integrated test
-  #- (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_integrated_test)
+  - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_integrated_test)
   # show core dump log on error
   - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_gtest core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;)
 
