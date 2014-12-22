@@ -8,12 +8,12 @@
 #ifndef LIB_OP_NULLOPERATOR_H_
 #define LIB_OP_NULLOPERATOR_H_
 
-#include "op/StreamOperator.h"
+#include "op/Operator.h"
 #include "api/SmartdbType.h"
 
 namespace Smartdb {
 
-class NullOperator : public StreamOperator {
+class NullOperator : public Operator {
 public:
   NullOperator();
   virtual ~NullOperator();

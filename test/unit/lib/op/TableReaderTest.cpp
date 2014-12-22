@@ -2,7 +2,10 @@
 #include <unordered_map>
 #include "SmartdbTest.h"
 #include "op/TableReader.h"
-#include "op/NullOperator.h"
+
+#include "../../../../include/plantree/PlanNodeId.h"
+#include "op/OperatorParam.h"
+#include "plantree/PlanNode.h"
 #include "core/Executor.h"
 #include "core/Scheduler.h"
 #include "storageinterface/ColumnDef.h"
@@ -13,16 +16,16 @@ using namespace Smartdb;
 
 class TableReaderTest : public SmartdbTest {
 protected:
+  Executor dummy_executor;
+  PlanNode root_plan;
+  Scheduler dummy_scheduler;
+
   TableReaderTest()
-  : executor(1), root_op(), scheduler(executor, root_op)
+  : dummy_executor(1), root_plan(NULL_OPERATOR), dummy_scheduler(dummy_executor, root_plan)
   {}
 
   virtual void SetUp() {
   }
-
-  Executor executor;
-  NullOperator root_op;
-  Scheduler scheduler;
 };
 
 TEST_F(TableReaderTest, reads_from_csv) {
@@ -31,8 +34,9 @@ TEST_F(TableReaderTest, reads_from_csv) {
 
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
 
-  TableReader op(coldefs, "csv", extra, 100);
-  EXPECT_EQ(NO_ERR, op.run(scheduler));
+  TableReaderParam param(coldefs, "csv", extra, 100);
+  TableReader op(&param);
+  EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
   while (!op.out_q.finished()) {
     const Records *records = op.out_q.front();
     EXPECT_NE((Records *)NULL, records);
@@ -50,8 +54,9 @@ TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
 
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
 
-  TableReader op(coldefs, "csv", extra, 1);
-  EXPECT_EQ(NO_ERR, op.run(scheduler));
+  TableReaderParam param(coldefs, "csv", extra, 1);
+  TableReader op(&param);
+  EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
 
   size_t records_cnt = 0;
   while (!op.out_q.finished()) {

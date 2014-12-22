@@ -8,15 +8,14 @@
 #include <pthread.h>
 #include "core/Scheduler.h"
 #include "core/Executor.h"
-#include "op/Operator.h"
+#include "plantree/PlanNode.h"
 #include "hack/ForSchedulerMainThread.h"
 
 namespace Smartdb {
 
-Scheduler::Scheduler(const Executor & executor, Operator & root_op)
-: scheduler_main_thread_tid(0), root_op(root_op)
+Scheduler::Scheduler(const Executor & executor, const PlanNode & root_plan)
+: scheduler_main_thread_tid(0), root_plan(root_plan)
 {
-
 }
 
 Scheduler::~Scheduler() {
@@ -34,7 +33,7 @@ void * Scheduler::main_loop(Scheduler * _this) {
   set_scheduler_main_thread_tid(_this->scheduler_main_thread_tid);
   FOR_SCHEDULER_MAIN_THREAD
 
-  while (!_this->root_op.is_finished()) {
+  while (!_this->root_plan.is_finished()) {
     // update plan-tree status and run_q
 
 

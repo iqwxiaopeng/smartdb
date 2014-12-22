@@ -6,34 +6,28 @@
 #include <unordered_map>
 #include "storageinterface/ColumnDef.h"
 #include "api/SmartdbType.h"
-#include "op/StreamOperator.h"
+#include "op/Operator.h"
+#include "op/OperatorParam.h"
 #include "hack/Class.h"
 
 namespace Smartdb {
 
-class TableReader : public StreamOperator {
+class TableReader : public Operator {
 public:
-  TableReader(
-    const std::vector<const ColumnDef *> &coldefs,
-    const std::string& storage_engine_name,
-    const std::unordered_map<std::string, std::string> &extra,
-    size_t n_records_to_read);
+  TableReader(const OperatorParam * const param);
   ~TableReader();
 
   SmartdbErr run(const Scheduler & scheduler);
 
 private:
+  const TableReaderParam * const param;
+  lib_t dlib_handler;
+  storage_funcs_t storage_funcs;
+
   SmartdbErr read();
   std::string dlib_name_without_suffix();
   void load_dlib_funcs();
   void unload_dlib_funcs();
-
-  const std::vector<const ColumnDef *> &coldefs;
-  const std::unordered_map<std::string, std::string> &extra;
-  std::string storage_engine_name;
-  lib_t dlib_handler;
-  storage_funcs_t storage_funcs;
-  size_t n_records_to_read;
 
 PREVENT_CLASS_DEFAULT_METHODS(TableReader);
 };

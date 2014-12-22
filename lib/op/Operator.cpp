@@ -9,8 +9,6 @@
 
 namespace Smartdb {
 
-SchedulingState Operator::state = WAITING;
-
 Operator::Operator()
 : out_q()
 {

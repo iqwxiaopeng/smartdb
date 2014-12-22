@@ -18,17 +18,10 @@ namespace Smartdb {
 extern
 Logger *logger;
 
-TableReader::TableReader(
-  const std::vector<const ColumnDef *> &coldefs,
-  const std::string& storage_engine_name,
-  const std::unordered_map<std::string, std::string> &extra,
-  size_t n_records_to_read)
-: coldefs(coldefs), extra(extra),
-  storage_engine_name(storage_engine_name), dlib_handler(0),
-  n_records_to_read(n_records_to_read)
+TableReader::TableReader(const OperatorParam * const param)
+: param((TableReaderParam*)param), dlib_handler(0)
 {
   load_dlib_funcs();
-  state = RUNNABLE;  // TableReader is leaf node of plan-tree
 }
 
 TableReader::~TableReader() {
@@ -43,11 +36,11 @@ SmartdbErr TableReader::read() {
   uintptr_t ret;  // hack: functions loaded by dlsym() seem to return void *.
                   // void * => SmartdbErr is prohibited.
 
-  ret = (uintptr_t)storage_funcs.storage_init(logger, extra);
+  ret = (uintptr_t)storage_funcs.storage_init(logger, param->extra);
   if (ret != (uintptr_t)NO_ERR) return (SmartdbErr)ret;
 
-  std::vector<Buffer *> colbufs(coldefs.size(), NULL);
-  std::vector<size_t> colbuf_sizes(coldefs.size(), 0);
+  std::vector<Buffer *> colbufs(param->coldefs.size(), NULL);
+  std::vector<size_t> colbuf_sizes(param->coldefs.size(), 0);
 
   size_t read_records = 0;
   bool finished = false;
@@ -55,12 +48,12 @@ SmartdbErr TableReader::read() {
     // prepare for Records
     for (size_t i = 0; i < colbuf_sizes.size(); ++i) {
       // [TODO] - calculate average size of variable-sized column
-      colbuf_sizes[i] = coldefs[i]->size() * n_records_to_read;
+      colbuf_sizes[i] = param->coldefs[i]->size() * param->records_chunk_size;
     }
-    Records *records = new Records(coldefs, colbuf_sizes);
+    Records *records = new Records(param->coldefs, colbuf_sizes);
 
     ret = (uintptr_t)storage_funcs.storage_read_records(
-      *records, n_records_to_read, read_records, finished);
+      *records, param->records_chunk_size, read_records, finished);
     if (ret != (uintptr_t)NO_ERR) goto fin;
     ASSERT(read_records > 0);
     out_q.push(records);
@@ -74,7 +67,7 @@ fin:
 
 inline
 std::string TableReader::dlib_name_without_suffix() {
-  return std::string("lib") + storage_engine_name;
+  return std::string("lib") + param->storage_engine_name;
 }
 
 inline

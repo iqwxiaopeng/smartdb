@@ -14,11 +14,11 @@
 namespace Smartdb {
 
 class Executor;
-class Operator;
+class PlanNode;
 
 class Scheduler {
 public:
-  Scheduler(const Executor & executor, Operator & root_op);
+  Scheduler(const Executor & executor, const PlanNode & root_plan);
   virtual ~Scheduler();
 
   /**
@@ -34,7 +34,7 @@ private:
   static void * main_loop(Scheduler *_this);
 
   pthread_t scheduler_main_thread_tid;
-  Operator & root_op;
+  const PlanNode & root_plan;
 
   PREVENT_CLASS_DEFAULT_METHODS(Scheduler);
 };
