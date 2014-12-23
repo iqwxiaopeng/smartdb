@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['real',['REAL',['../parser_2_parser_8cpp.html#a4b654506f18b8bfd61ad2a29a7e38c25',1,'REAL():&#160;parser.cpp'],['../parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a053cb139f4b2333482449705c529b1e9',1,'REAL():&#160;parser.cpp']]],
+  ['records',['Records',['../class_smartdb_1_1_records.html',1,'Smartdb']]],
+  ['records',['Records',['../class_smartdb_1_1_records.html#a9fa64dba6eb1540dd37e74264c66ff20',1,'Smartdb::Records']]],
+  ['records_2eh',['Records.h',['../_records_8h.html',1,'']]],
+  ['records_5fchunk_5fsize',['records_chunk_size',['../struct_smartdb_1_1_table_reader_param.html#a7fbe5cde796bd83f51732297772fa790',1,'Smartdb::TableReaderParam']]],
+  ['recordsqueue',['RecordsQueue',['../class_smartdb_1_1_records_queue.html',1,'Smartdb']]],
+  ['recordsqueue',['RecordsQueue',['../class_smartdb_1_1_records_queue.html#af0cad8468600657b70bc7e8fbc7a848c',1,'Smartdb::RecordsQueue']]],
+  ['recordsqueue_2ecpp',['RecordsQueue.cpp',['../_records_queue_8cpp.html',1,'']]],
+  ['recordsqueue_2eh',['RecordsQueue.h',['../_records_queue_8h.html',1,'']]],
+  ['references',['REFERENCES',['../parser_2_parser_8cpp.html#aed5330ad8437b50175305535501a2c3b',1,'REFERENCES():&#160;parser.cpp'],['../parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a7c1239853edb2497bbb26449fac8e71b',1,'REFERENCES():&#160;parser.cpp']]],
+  ['right_5fchild',['right_child',['../struct_smartdb_1_1_binary_tree_1_1node__t.html#a21314f556cd73ebada36285c9296c7d2',1,'Smartdb::BinaryTree::node_t']]],
+  ['rollback',['ROLLBACK',['../parser_2_parser_8cpp.html#ab7b192ed1ff3aa60f36a013e70b74496',1,'ROLLBACK():&#160;parser.cpp'],['../parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a4cbb6eb1cc376e49a1c120dffacdba06',1,'ROLLBACK():&#160;parser.cpp']]],
+  ['root',['Root',['../class_smartdb_1_1_ast_1_1_root.html#a0df037f4fd6d311eca22858a69c93894',1,'Smartdb::Ast::Root']]],
+  ['root',['Root',['../class_smartdb_1_1_ast_1_1_root.html',1,'Smartdb::Ast']]],
+  ['root_2ecpp',['Root.cpp',['../_root_8cpp.html',1,'']]],
+  ['root_2eh',['Root.h',['../_root_8h.html',1,'']]],
+  ['root_5fnode',['root_node',['../class_smartdb_1_1_ast_1_1_root.html#a2ecb7539292eb4e3c22d806dc35f169f',1,'Smartdb::Ast::Root']]],
+  ['root_5ftype',['root_type',['../class_smartdb_1_1_ast_1_1_root.html#ad02ca184c3c95ea7250c50b01cfa33bd',1,'Smartdb::Ast::Root']]],
+  ['roottype',['RootType',['../namespace_smartdb_1_1_ast.html#aaf1b9b74d8b11ac1714f0b9bbe65867c',1,'Smartdb::Ast']]],
+  ['run',['run',['../class_smartdb_1_1_null_operator.html#ae12d77fb9f83237b3c13cb17e96294d9',1,'Smartdb::NullOperator::run()'],['../class_smartdb_1_1_operator.html#a2f3148cb1a22bb0a6e8dbb89d2a50600',1,'Smartdb::Operator::run()'],['../class_smartdb_1_1_table_reader.html#a71303897225462f91a7886d485e2afc2',1,'Smartdb::TableReader::run()']]],
+  ['runnable',['RUNNABLE',['../namespace_smartdb.html#aa0c571f9741bd6c0af92e836aab9d043ab1d44729f9ad54bf52b2796614efb663',1,'Smartdb']]],
+  ['running',['RUNNING',['../namespace_smartdb.html#aa0c571f9741bd6c0af92e836aab9d043ab77c920a7536e5131aaf55c4ec8ee380',1,'Smartdb']]]
+];
