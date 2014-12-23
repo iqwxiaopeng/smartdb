@@ -20,12 +20,18 @@ template <typename T>
 class BinaryTree {
 
 public:
+  /**
+   * Has pointer to parent node and children nodes.
+   */
   typedef struct node_t {
     T* left_child;
     T* right_child;
     T* parent;
   } node_t;
 
+  /**
+   * leaves_t::iterator is used to access leaves.
+   */
   typedef std::list<T*> leaves_t;
 
   BinaryTree(T* const root)
@@ -39,27 +45,41 @@ public:
   }
   ~BinaryTree() {}
 
+  /**
+   * Returns root node.
+   */
   T* get_root() const {
     return const_cast<T*>(root);
   }
 
+  /**
+   * Lookup a node in the tree at O(1).
+   */
   node_t & operator[] (T* node) {
     return nodes_map[node];
   }
 
   /**
-   * Returns iterator of leaves.  Leaves are ordered from left to right.
-   * @example
-   *   int root = 777;
-   *   BinaryTree<int> tree(&root);
+   * Returns iterator of leaves pointing to the first leaf.
+   * Leaves are ordered from left to right.
+   *
+   * @code
+   * int root = 777;
+   * BinaryTree<int> tree(&root);
+   * // ...
+   * for (auto it = tree.leaves_begin(); it != tree.leaves_end(); ++it) {
    *   // ...
-   *   for (auto it = tree.leaves_begin(); it != tree.leaves_end(); ++it) {
-   *     // ...
-   *   }
+   * }
+   * @endcode
    */
   typename leaves_t::iterator leaves_begin() {
     return leaves.begin();
   }
+
+  /**
+   * Returns iterator of leaves pointing to next of the last leaf.
+   * Leaves are ordered from left to right.
+   */
   typename leaves_t::iterator leaves_end() {
     return leaves.end();
   }
