@@ -9,8 +9,8 @@
 
 namespace Smartdb {
 
-PlanNode::PlanNode(PlanNodeId op_type, SchedulingState state)
-: plan_node_id(op_type), state(state)
+PlanNode::PlanNode(PlanNodeId op_type, const OperatorParam * const op_param, SchedulingState state)
+: plan_node_id(op_type), op_param(op_param), state(state)
 {
 }
 

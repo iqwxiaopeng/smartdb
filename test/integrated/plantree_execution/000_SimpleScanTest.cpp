@@ -1,5 +1,7 @@
 #include "gtest/gtest.h"
 #include "SmartdbTest.h"
+#include "plantree/PlanNode.h"
+#include "plantree/PlanNodeId.h"
 #include "op/TableReader.h"
 #include "op/OperatorParam.h"
 #include "core/Executor.h"
@@ -21,12 +23,12 @@ TEST_F(SimpleScanTest, scan_from_csv) {
 
   // Construct Plan Tree
   ColumnDef coldef("col1", SMARTDB_INT);
-  TableReaderParam table_reader_param(
-    std::vector<const ColumnDef *>(1, &coldef),
-    "csv",
-    { {"path", "fixture/storage_csv_normal.csv"} },
-    100);
-  //PlanNode(TABLE_READER, table_reader_param);
+  std::vector<const ColumnDef *> coldefs(1, &coldef);
+  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::string engine("csv");
+  size_t n_records_chunk = 100;
+  TableReaderParam table_reader_param(coldefs, engine, extra, n_records_chunk);
+  PlanNode(TABLE_READER, &table_reader_param, RUNNABLE);
 
   // Create scheduler
   //Scheduler scheduler(並列度とかコア数とか??);  <- ワーカ作るとかになると、スケジューラというかはexecutor??

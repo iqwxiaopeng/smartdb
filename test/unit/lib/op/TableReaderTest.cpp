@@ -21,7 +21,7 @@ protected:
   Scheduler dummy_scheduler;
 
   TableReaderTest()
-  : dummy_executor(1), root_plan(NULL_OPERATOR), dummy_scheduler(dummy_executor, root_plan)
+  : dummy_executor(1), root_plan(NULL_OPERATOR, NULL), dummy_scheduler(dummy_executor, root_plan)
   {}
 
   virtual void SetUp() {

@@ -9,6 +9,7 @@
 #define TEST_UNIT_LIB_PLANTREE_PLANNODE_H_
 
 #include "plantree/PlanNodeId.h"
+#include "op/OperatorParam.h"
 #include "hack/Assert.h"
 #include "hack/Class.h"
 #include "hack/ForSchedulerMainThread.h"
@@ -39,7 +40,7 @@ enum SchedulingState {
 
 class PlanNode {
 public:
-  PlanNode(PlanNodeId plan_node_id, SchedulingState state = WAITING);
+  PlanNode(PlanNodeId plan_node_id, const OperatorParam * const op_param, SchedulingState state = WAITING);
   ~PlanNode();
 
   /**
@@ -77,6 +78,7 @@ public:
 
 private:
   PlanNodeId plan_node_id;
+  const OperatorParam * const op_param;
   SchedulingState state;
 
   PREVENT_CLASS_DEFAULT_METHODS(PlanNode);
