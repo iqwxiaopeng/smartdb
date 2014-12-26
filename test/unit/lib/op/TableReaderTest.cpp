@@ -17,11 +17,12 @@ using namespace Smartdb;
 class TableReaderTest : public SmartdbTest {
 protected:
   Executor dummy_executor;
-  PlanNode root_plan;
+  PlanNode dummy_root_plan;
+  BinaryTree<PlanNode> dummy_plantree;
   Scheduler dummy_scheduler;
 
   TableReaderTest()
-  : dummy_executor(1), root_plan(NULL_OPERATOR, NULL), dummy_scheduler(dummy_executor, root_plan)
+  : dummy_executor(1), dummy_root_plan(NULL_OPERATOR, NULL), dummy_plantree(&dummy_root_plan), dummy_scheduler(dummy_executor, dummy_plantree)
   {}
 
   virtual void SetUp() {

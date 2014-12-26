@@ -13,8 +13,8 @@
 
 namespace Smartdb {
 
-Scheduler::Scheduler(const Executor & executor, const PlanNode & root_plan)
-: scheduler_main_thread_tid(0), root_plan(root_plan)
+Scheduler::Scheduler(const Executor & executor, BinaryTree<PlanNode> & plantree)
+: scheduler_main_thread_tid(0), plantree(plantree)
 {
 }
 
@@ -30,10 +30,12 @@ void Scheduler::join() {
 }
 
 void * Scheduler::main_loop(Scheduler * _this) {
-  set_scheduler_main_thread_tid(_this->scheduler_main_thread_tid);
+  set_scheduler_main_thread_tid(_this->scheduler_main_thread_tid);  // Necessary to use FOR_SCHEDULER_MAIN_THREAD
   FOR_SCHEDULER_MAIN_THREAD
 
-  while (!_this->root_plan.is_finished()) {
+  // Instantiate leaf operators (w/ 1 input Records)
+
+  while (!_this->plantree.get_root()->is_finished()) {
     // update plan-tree status and run_q
 
 

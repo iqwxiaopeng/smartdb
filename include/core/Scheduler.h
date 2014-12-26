@@ -9,6 +9,7 @@
 #define INCLUDE_CORE_SCHEDULER_H_
 
 #include <pthread.h>
+#include "plantree/BinaryTree.h"
 #include "hack/Class.h"
 
 namespace Smartdb {
@@ -18,7 +19,13 @@ class PlanNode;
 
 class Scheduler {
 public:
-  Scheduler(const Executor & executor, const PlanNode & root_plan);
+  /**
+   * Construct Scheduler.
+   * @param executor
+   * @param plantree
+   * @note Although plantree is not const, Scheduler never changes state of plantree.
+   */
+  Scheduler(const Executor & executor, BinaryTree<PlanNode> & plantree);
   virtual ~Scheduler();
 
   /**
@@ -31,10 +38,10 @@ public:
   void join();
 
 private:
-  static void * main_loop(Scheduler *_this);
-
   pthread_t scheduler_main_thread_tid;
-  const PlanNode & root_plan;
+  BinaryTree<PlanNode> & plantree;
+
+  static void * main_loop(Scheduler *_this);
 
   PREVENT_CLASS_DEFAULT_METHODS(Scheduler);
 };
