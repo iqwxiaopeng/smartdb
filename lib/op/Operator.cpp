@@ -9,13 +9,15 @@
 
 namespace Smartdb {
 
-Operator::Operator() {
-	// TODO Auto-generated constructor stub
+Operator::Operator()
+: out_q()
+{
+  // TODO Auto-generated constructor stub
 
 }
 
 Operator::~Operator() {
-	// TODO Auto-generated destructor stub
+  // TODO Auto-generated destructor stub
 }
 
 }

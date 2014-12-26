@@ -2,6 +2,12 @@
 #include <unordered_map>
 #include "SmartdbTest.h"
 #include "op/TableReader.h"
+
+#include "../../../../include/plantree/PlanNodeId.h"
+#include "op/OperatorParam.h"
+#include "plantree/PlanNode.h"
+#include "core/Executor.h"
+#include "core/Scheduler.h"
 #include "storageinterface/ColumnDef.h"
 #include "datastruct/RecordsQueue.h"
 #include "hack/Assert.h"
@@ -10,6 +16,15 @@ using namespace Smartdb;
 
 class TableReaderTest : public SmartdbTest {
 protected:
+  Executor dummy_executor;
+  PlanNode dummy_root_plan;
+  BinaryTree<PlanNode> dummy_plantree;
+  Scheduler dummy_scheduler;
+
+  TableReaderTest()
+  : dummy_executor(1), dummy_root_plan(NULL_OPERATOR, NULL), dummy_plantree(&dummy_root_plan), dummy_scheduler(dummy_executor, dummy_plantree)
+  {}
+
   virtual void SetUp() {
   }
 };
@@ -17,11 +32,12 @@ protected:
 TEST_F(TableReaderTest, reads_from_csv) {
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
-
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::string engine("csv");
 
-  TableReader op(coldefs, "csv", extra, 100);
-  EXPECT_EQ(NO_ERR, op.run());
+  TableReaderParam param(coldefs, engine, extra, 100);
+  TableReader op(&param);
+  EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
   while (!op.out_q.finished()) {
     const Records *records = op.out_q.front();
     EXPECT_NE((Records *)NULL, records);
@@ -36,11 +52,12 @@ TEST_F(TableReaderTest, reads_from_csv) {
 TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
-
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::string engine("csv");
 
-  TableReader op(coldefs, "csv", extra, 1);
-  EXPECT_EQ(NO_ERR, op.run());
+  TableReaderParam param(coldefs, engine, extra, 1);
+  TableReader op(&param);
+  EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
 
   size_t records_cnt = 0;
   while (!op.out_q.finished()) {
