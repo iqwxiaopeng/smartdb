@@ -34,7 +34,7 @@ TEST_F(CsvTest, reads_1record_from_CSV) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(1, records, read_records, finished));
 
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
@@ -58,7 +58,7 @@ TEST_F(CsvTest, reads_3records_from_CSV) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 3, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(3, records, read_records, finished));
 
   EXPECT_TRUE(finished);
   EXPECT_EQ(3, read_records);
@@ -88,7 +88,7 @@ TEST_F(CsvTest, requesting_more_records_than_in_CSV_is_ok) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 4, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(4, records, read_records, finished));
 
   EXPECT_TRUE(finished);
   EXPECT_EQ(3, read_records);
@@ -116,7 +116,7 @@ TEST_F(CsvTest, reads_1column_from_2columns) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(1, records, read_records, finished));
 
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
@@ -141,7 +141,7 @@ TEST_F(CsvTest, reads_twice) {
   bool finished;
 
   // 1st
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(1, records, read_records, finished));
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
   EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
@@ -150,7 +150,7 @@ TEST_F(CsvTest, reads_twice) {
   records.clear();
 
   // 2nd
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(1, records, read_records, finished));
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
   EXPECT_EQ(201, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
@@ -172,7 +172,7 @@ TEST_F(CsvTest, reads_double_value) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(1, records, read_records, finished));
 
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
@@ -194,7 +194,7 @@ TEST_F(CsvTest, column_not_found) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)UNKNOWN_COLUMN, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)UNKNOWN_COLUMN, storage_read_records(1, records, read_records, finished));
 }
 TEST_F(CsvTest, reads_from_same_column) {
   extra["path"] = "fixture/storage_csv_normal.csv";
@@ -212,7 +212,7 @@ TEST_F(CsvTest, reads_from_same_column) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 1, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(1, records, read_records, finished));
 
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
@@ -237,7 +237,7 @@ TEST_F(CsvTest, reads_too_many_records) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 2, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));
 
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
@@ -263,14 +263,14 @@ TEST_F(CsvTest, reread_after_reading_too_many_records) {
   size_t read_records;
   bool finished;
 
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 2, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
   EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
   EXPECT_EQ(102, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
 
   records.clear();
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(records, 2, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));
   EXPECT_FALSE(finished);
   EXPECT_EQ(1, read_records);
   EXPECT_EQ(201, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));

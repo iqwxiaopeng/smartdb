@@ -15,10 +15,10 @@ void *storage_init(
   Smartdb::Logger * const logger,
   const std::unordered_map<std::string, std::string> &extra);
 
-extern "C"
-void *storage_read_records(
+extern "C" void *storage_read_records(
+  size_t n_records_chunk,
+  /* out */
   Smartdb::Records &records,
-  size_t n_records,
   size_t& read_records,
   bool& finished);
 

@@ -69,8 +69,9 @@ void set_col_index() {
 
 
 void* storage_read_records(
+  size_t n_records_chunk,
+  /* out */
   Smartdb::Records& records,
-  size_t n_records,
   size_t& read_records,
   bool& finished)
 {
@@ -83,7 +84,7 @@ void* storage_read_records(
     row_not_added.clear();
   }
 
-  for ( ; read_records < n_records && parser.has_more_rows(); ++read_records) {
+  for ( ; read_records < n_records_chunk && parser.has_more_rows(); ++read_records) {
     csv_row row = parser.get_row();
     FILL_A_RECORD(row, records);
   }
