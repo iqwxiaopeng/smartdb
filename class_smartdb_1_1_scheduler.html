@@ -99,8 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a26c6a6264efb1491e842eb6287234523"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_scheduler.html#a26c6a6264efb1491e842eb6287234523">Scheduler</a> (const <a class="el" href="class_smartdb_1_1_executor.html">Executor</a> &amp;executor, const <a class="el" href="class_smartdb_1_1_plan_node.html">PlanNode</a> &amp;root_plan)</td></tr>
-<tr class="separator:a26c6a6264efb1491e842eb6287234523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab432f5d9aeaeefd9d5ce4ba1d51060bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_scheduler.html#ab432f5d9aeaeefd9d5ce4ba1d51060bf">Scheduler</a> (const <a class="el" href="class_smartdb_1_1_executor.html">Executor</a> &amp;executor, <a class="el" href="class_smartdb_1_1_binary_tree.html">BinaryTree</a>&lt; <a class="el" href="class_smartdb_1_1_plan_node.html">PlanNode</a> &gt; &amp;plantree)</td></tr>
+<tr class="memdesc:ab432f5d9aeaeefd9d5ce4ba1d51060bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="class_smartdb_1_1_scheduler.html">Scheduler</a>.  <a href="#ab432f5d9aeaeefd9d5ce4ba1d51060bf">More...</a><br /></td></tr>
+<tr class="separator:ab432f5d9aeaeefd9d5ce4ba1d51060bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4943e916730119428876ae75442ead8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_scheduler.html#aa4943e916730119428876ae75442ead8">~Scheduler</a> ()</td></tr>
 <tr class="separator:aa4943e916730119428876ae75442ead8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99098882a8acd6186a38f56ba33d6508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_scheduler.html#a99098882a8acd6186a38f56ba33d6508">execute</a> ()</td></tr>
@@ -111,7 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a92d475036aea66642cc0ba3873c1ef9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a26c6a6264efb1491e842eb6287234523"></a>
+<a class="anchor" id="ab432f5d9aeaeefd9d5ce4ba1d51060bf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -124,8 +125,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_smartdb_1_1_plan_node.html">PlanNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>root_plan</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_smartdb_1_1_binary_tree.html">BinaryTree</a>&lt; <a class="el" href="class_smartdb_1_1_plan_node.html">PlanNode</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>plantree</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -134,6 +135,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construct <a class="el" href="class_smartdb_1_1_scheduler.html">Scheduler</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">executor</td><td></td></tr>
+    <tr><td class="paramname">plantree</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Although plantree is not const, <a class="el" href="class_smartdb_1_1_scheduler.html">Scheduler</a> never changes state of plantree. </dd></dl>
 
 </div>
 </div>
@@ -202,7 +213,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 23 2014 10:18:26 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 29 2014 11:09:04 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
