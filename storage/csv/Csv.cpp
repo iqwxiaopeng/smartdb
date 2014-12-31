@@ -67,7 +67,13 @@ void set_col_index() {
     } \
   }
 
-
+/**
+ *
+ * @param[in] n_records_chunk
+ * @param[out] records
+ * @param[out] read_records
+ * @param[out] finished
+ */
 void* storage_read_records(
   size_t n_records_chunk,
   /* out */

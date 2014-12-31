@@ -53,7 +53,7 @@ SmartdbErr TableReader::read() {
     Records *records = new Records(param->coldefs, colbuf_sizes);
 
     ret = (uintptr_t)storage_funcs.storage_read_records(
-      *records, param->records_chunk_size, read_records, finished);
+      param->records_chunk_size, *records, read_records, finished);
     if (ret != (uintptr_t)NO_ERR) goto fin;
     ASSERT(read_records > 0);
     out_q.push(records);
