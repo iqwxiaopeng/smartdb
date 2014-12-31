@@ -1,10 +1,11 @@
-/*
- * Smartdb.h
+/**
+ * \mainpage Smartdb's reference manual
  *
- * To be included by storage engines.
+ * This page is a reference manual of Smartdb.
  *
- *  Created on: 2014/11/07
- *      Author: nakatani.sho
+ * @author Sho Nakatani
+ *
+ * \license TBD
  */
 
 #ifndef INCLUDE_API_SMARTDB_H_
