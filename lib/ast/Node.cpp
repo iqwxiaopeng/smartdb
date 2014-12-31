@@ -5,8 +5,8 @@
  *      Author: nakatani.sho
  */
 
-#include "ast/Node.h"
-#include "ast/Root.h"
+#include "ast/Node.hpp"
+#include "ast/Root.hpp"
 
 namespace Smartdb {
 namespace Ast {

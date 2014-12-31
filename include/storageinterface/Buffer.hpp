@@ -13,9 +13,9 @@
 #define BUFFER_ALLOCATE_THROW throw(std::bad_alloc)
 #endif // SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)
 
-#include "api/SmartdbType.h"
-#include "hack/Class.h"
-#include "hack/Assert.h"
+#include "api/SmartdbType.hpp"
+#include "hack/Class.hpp"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
 

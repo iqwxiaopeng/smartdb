@@ -9,8 +9,8 @@
 #define INCLUDE_CORE_SCHEDULER_H_
 
 #include <pthread.h>
-#include "plantree/BinaryTree.h"
-#include "hack/Class.h"
+#include "plantree/BinaryTree.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

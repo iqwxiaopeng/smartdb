@@ -10,6 +10,7 @@ before_install:
   # to show core dump log on error
   - sudo apt-get -y install gdb
 install:
+  # C++11 feature (e.g. std::unordered_map)
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8 ; export CXX="g++-4.8" ; fi
   # to show core dump log on error
   - ulimit -c
@@ -21,17 +22,23 @@ before_script:
   - ulimit -c unlimited -S
 script:
   # build & install libsmartdb
-  - cmake . && make VERBOSE=1 && sudo make install
+  - cmake . && make && sudo make install
+
   # build & install 1st-party storage engines
-  - (cd storage/csv ; cmake . && make VERBOSE=1 && sudo make install)
+  - (cd storage/csv ; cmake . && make && sudo make install)
+
   # build unit test & integrated test
-  - (cd test ; cmake . && make VERBOSE=1)
+  - (cd test ; cmake . && make)
+
   # run unit test
   - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_unit_test)
-  # run integrated test
-  #- (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_integrated_test)
   # show core dump log on error
-  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_gtest core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done;)
+  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_unit_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
+
+  # run integrated test
+  - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_integrated_test)
+  # show core dump log on error
+  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_integrated_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
 
 notifications:
   email:

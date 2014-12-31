@@ -10,6 +10,7 @@
 
 #ifdef SMARTDB_GTEST
 #include <stdexcept>
+#include <sstream>
 #include <string>
 
 class SmartdbAssertionFailed : public std::runtime_error {
@@ -20,12 +21,14 @@ public:
 };
 
 #define ASSERT(cond) \
-  if (!(cond)) \
-    throw SmartdbAssertionFailed( \
-      std::string(__FILE__) + ":" + std::to_string(__LINE__) + " SmartdbAssertionFailed: " + #cond);
+  if (!(cond)) { \
+    std::ostringstream ss; \
+    ss << __FILE__ << ":" << __LINE__ << " (in " << __FUNCTION__ << "())" << " SmartdbAssertionFailed: " << #cond; \
+    throw SmartdbAssertionFailed(ss.str()); \
+  }
 
 #else /* SMARTDB_GTEST */
-#include <assert.h>
+#include <cassert>
 
 #define ASSERT(cond) \
   assert(cond);

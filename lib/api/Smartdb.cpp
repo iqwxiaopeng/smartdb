@@ -5,14 +5,14 @@
  *      Author: nakatani.sho
  */
 
-#include <stdlib.h>
-#include "api/Smartdb.h"
-#include "ast/Root.h"
-#include "ast/SelectStatement.h"
-#include "core/Parser.h"
-#include "datastruct/Schema.h"
-#include "log/Logger.h"
-#include "log/StderrLogger.h"
+#include <cstdlib>
+#include "api/Smartdb.hpp"
+#include "ast/Root.hpp"
+#include "ast/SelectStatement.hpp"
+#include "core/Parser.hpp"
+#include "datastruct/Schema.hpp"
+#include "log/Logger.hpp"
+#include "log/StderrLogger.hpp"
 
 namespace Smartdb {
 
@@ -38,7 +38,7 @@ SmartdbErr smartdb_open(
   /* out */
   smartdb** db)
 {
-  *db = (smartdb *)malloc(sizeof(smartdb));
+  *db = (smartdb *)std::malloc(sizeof(smartdb));
   if (!(*db)) return PHYSICAL_MEM_SHORTAGE;
 
   (*db)->schema = new Smartdb::Schema(db_file);
@@ -48,7 +48,7 @@ SmartdbErr smartdb_open(
 extern "C"
 void smartdb_close(smartdb* db) {
   delete db->schema;
-  free(db);
+  std::free(db);
 }
 
 extern "C"

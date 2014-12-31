@@ -5,9 +5,9 @@
  *      Author: nakatani.sho
  */
 
-#include "storageinterface/Records.h"
-#include "storageinterface/FixedLengthColumn.h"
-#include "hack/Assert.h"
+#include "storageinterface/Records.hpp"
+#include "storageinterface/FixedLengthColumn.hpp"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
 

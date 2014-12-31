@@ -8,7 +8,7 @@
 #ifndef INCLUDE_CORE_PARSER_H_
 #define INCLUDE_CORE_PARSER_H_
 
-#include "hack/Class.h"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

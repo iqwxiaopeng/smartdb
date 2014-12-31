@@ -1,15 +1,15 @@
-#include <stdlib.h>
-#include <stdint.h>
-#include "op/TableReader.h"
-#include "storageinterface/Records.h"
-#include "hack/DynamicLib.h"
-#include "log/Logger.h"
+#include <cstdlib>
+#include <cstdint>
+#include "op/TableReader.hpp"
+#include "storageinterface/Records.hpp"
+#include "hack/DynamicLib.hpp"
+#include "log/Logger.hpp"
 
 #define LOAD_FUNC(func_name) \
   if (!(storage_funcs.func_name = \
         (func_name ## _t)load_func(dlib_handler, #func_name))) { \
     logger->error(::dlerror()); \
-    abort(); \
+    std::abort(); \
   }
 
 
@@ -78,7 +78,7 @@ void TableReader::load_dlib_funcs() {
     logger->info(::dlerror());
   if (!dlib_handler) {
     logger->error((std::string("Could not load ") + dlib_name_without_suffix() + ". Check if it is in correct library path. e.g. /usr/lib/").c_str());
-    abort();
+    std::abort();
   }
 
   LOAD_FUNC(storage_init);

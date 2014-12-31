@@ -5,9 +5,9 @@
  *      Author: nakatani.sho
  */
 
-#include "storageinterface/FixedLengthColumn.h"
-#include "api/SmartdbType.h"
-#include "hack/Assert.h"
+#include "storageinterface/FixedLengthColumn.hpp"
+#include "api/SmartdbType.hpp"
+#include "hack/Assert.hpp"
 
 #define ADD_TO_BUF(type) \
 { \

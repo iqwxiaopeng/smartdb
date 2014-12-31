@@ -8,8 +8,8 @@
 #ifndef LIB_CORE_EXECUTOR_H_
 #define LIB_CORE_EXECUTOR_H_
 
-#include "api/SmartdbType.h"
-#include "hack/Class.h"
+#include "api/SmartdbType.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

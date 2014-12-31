@@ -9,7 +9,7 @@
 #define TEST_UNIT_SMARTDBTEST_H_
 
 #include "gtest/gtest.h"
-#include "api/Smartdb.h"
+#include "api/Smartdb.hpp"
 
 namespace Smartdb {
 

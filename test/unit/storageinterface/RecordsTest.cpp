@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
 #include <vector>
-#include "storageinterface/Records.h"
-#include "api/SmartdbType.h"
-#include "hack/Assert.h"
+#include "storageinterface/Records.hpp"
+#include "api/SmartdbType.hpp"
+#include "hack/Assert.hpp"
 
 using namespace Smartdb;
 

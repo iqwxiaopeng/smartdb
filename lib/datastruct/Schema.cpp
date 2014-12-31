@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "datastruct/Schema.h"
+#include "datastruct/Schema.hpp"
 
 namespace Smartdb {
 

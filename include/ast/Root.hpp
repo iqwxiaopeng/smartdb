@@ -9,8 +9,8 @@
 #define INCLUDE_AST_ROOT_H_
 
 #include <list>
-#include "ast/Node.h"
-#include "hack/Class.h"
+#include "ast/Node.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 namespace Ast {

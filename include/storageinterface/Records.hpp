@@ -9,10 +9,10 @@
 #define LIB_DATASTRUCT_RECORDS_H_
 
 #include <vector>
-#include "storageinterface/ColumnDef.h"
-#include "storageinterface/Column.h"
-#include "storageinterface/Buffer.h"
-#include "hack/Class.h"
+#include "storageinterface/ColumnDef.hpp"
+#include "storageinterface/Column.hpp"
+#include "storageinterface/Buffer.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

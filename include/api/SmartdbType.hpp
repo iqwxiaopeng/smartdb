@@ -8,12 +8,12 @@
 #ifndef INCLUDE_API_SMARTDBTYPE_H_
 #define INCLUDE_API_SMARTDBTYPE_H_
 
-#include <stddef.h>
-#include <stdint.h>
-#include <stdlib.h>
 #include <string>
 #include <unordered_map>
-#include "hack/Assert.h"
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
   class Schema;
@@ -51,10 +51,10 @@ SmartdbValue str_to_SmartdbValue(const std::string &str, SmartdbType type) {
 
   switch (type) {
   case SMARTDB_INT:
-    val.v_SmartdbInt = atoi(str.c_str());
+    val.v_SmartdbInt = std::atoi(str.c_str());
     break;
   case SMARTDB_DOUBLE:
-    val.v_SmartdbDouble = atof(str.c_str());
+    val.v_SmartdbDouble = std::atof(str.c_str());
     break;
   default:
     ASSERT(false);

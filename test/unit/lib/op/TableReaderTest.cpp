@@ -1,16 +1,16 @@
 #include <vector>
 #include <unordered_map>
-#include "SmartdbTest.h"
-#include "op/TableReader.h"
+#include "SmartdbTest.hpp"
+#include "op/TableReader.hpp"
 
-#include "../../../../include/plantree/PlanNodeId.h"
-#include "op/OperatorParam.h"
-#include "plantree/PlanNode.h"
-#include "core/Executor.h"
-#include "core/Scheduler.h"
-#include "storageinterface/ColumnDef.h"
-#include "datastruct/RecordsQueue.h"
-#include "hack/Assert.h"
+#include "../../../../include/plantree/PlanNodeId.hpp"
+#include "op/OperatorParam.hpp"
+#include "plantree/PlanNode.hpp"
+#include "core/Executor.hpp"
+#include "core/Scheduler.hpp"
+#include "storageinterface/ColumnDef.hpp"
+#include "datastruct/RecordsQueue.hpp"
+#include "hack/Assert.hpp"
 
 using namespace Smartdb;
 

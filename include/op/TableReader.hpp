@@ -4,11 +4,11 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "storageinterface/ColumnDef.h"
-#include "api/SmartdbType.h"
-#include "op/Operator.h"
-#include "op/OperatorParam.h"
-#include "hack/Class.h"
+#include "storageinterface/ColumnDef.hpp"
+#include "api/SmartdbType.hpp"
+#include "op/Operator.hpp"
+#include "op/OperatorParam.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

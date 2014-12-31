@@ -6,7 +6,7 @@
  */
 
 #include <iostream>
-#include "log/StderrLogger.h"
+#include "log/StderrLogger.hpp"
 
 namespace Smartdb {
 

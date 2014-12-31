@@ -8,8 +8,8 @@
 #ifndef LIB_DATASTRUCT_COLUMN_H_
 #define LIB_DATASTRUCT_COLUMN_H_
 
-#include "ColumnDef.h"
-#include "hack/Assert.h"
+#include "ColumnDef.hpp"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
 

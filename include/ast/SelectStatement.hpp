@@ -10,8 +10,8 @@
 
 #include <string>
 #include <vector>
-#include "Node.h"
-#include "hack/Assert.h"
+#include "Node.hpp"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
 namespace Ast {

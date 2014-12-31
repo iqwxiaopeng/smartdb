@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "op/Operator.h"
+#include "op/Operator.hpp"
 
 namespace Smartdb {
 

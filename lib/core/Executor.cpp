@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "core/Executor.h"
+#include "core/Executor.hpp"
 
 namespace Smartdb {
 

@@ -8,7 +8,7 @@
 #ifndef STORAGE_CSV_H_
 #define STORAGE_CSV_H_
 
-#include "api/SmartdbStorage.h"
+#include "api/SmartdbStorage.hpp"
 
 extern "C"
 void *storage_init(
