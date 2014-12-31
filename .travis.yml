@@ -10,6 +10,7 @@ before_install:
   # to show core dump log on error
   - sudo apt-get -y install gdb
 install:
+  # C++11 feature (e.g. std::unordered_map)
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8 ; export CXX="g++-4.8" ; fi
   # to show core dump log on error
   - ulimit -c

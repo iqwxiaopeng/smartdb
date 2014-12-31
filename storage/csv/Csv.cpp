@@ -1,4 +1,4 @@
-/*
+s/*
  * Csv.cpp
  *
  *  Created on: 2014/11/04
@@ -69,8 +69,9 @@ void set_col_index() {
 
 
 void* storage_read_records(
+  size_t n_records_chunk,
+  /* out */
   Smartdb::Records& records,
-  size_t n_records,
   size_t& read_records,
   bool& finished)
 {
