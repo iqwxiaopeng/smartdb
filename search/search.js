@@ -16,7 +16,8 @@ var indexSectionsWithContent =
   6: "lnosty",
   7: "oprsy",
   8: "_abcdefghiklmnoprstuvw",
-  9: "_abcdefghiklmnoprstuvwy"
+  9: "_abcdefghiklmnoprstuvwy",
+  10: "s"
 };
 
 var indexSectionNames =
@@ -30,7 +31,8 @@ var indexSectionNames =
   6: "typedefs",
   7: "enums",
   8: "enumvalues",
-  9: "defines"
+  9: "defines",
+  10: "pages"
 };
 
 function convertToId(search)

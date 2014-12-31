@@ -1,6 +1,7 @@
 var searchData=
 [
   ['ast',['Ast',['../namespace_smartdb_1_1_ast.html',1,'Smartdb']]],
+  ['smartdb_27s_20reference_20manual',['Smartdb&apos;s reference manual',['../index.html',1,'']]],
   ['scheduler',['Scheduler',['../class_smartdb_1_1_scheduler.html',1,'Smartdb']]],
   ['scheduler',['Scheduler',['../class_smartdb_1_1_scheduler.html#ab432f5d9aeaeefd9d5ce4ba1d51060bf',1,'Smartdb::Scheduler']]],
   ['scheduler_2ecpp',['Scheduler.cpp',['../_scheduler_8cpp.html',1,'']]],
