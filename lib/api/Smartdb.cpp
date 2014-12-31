@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include <stdlib.h>
+#include <cstdlib>
 #include "api/Smartdb.hpp"
 #include "ast/Root.hpp"
 #include "ast/SelectStatement.hpp"
@@ -38,7 +38,7 @@ SmartdbErr smartdb_open(
   /* out */
   smartdb** db)
 {
-  *db = (smartdb *)malloc(sizeof(smartdb));
+  *db = (smartdb *)std::malloc(sizeof(smartdb));
   if (!(*db)) return PHYSICAL_MEM_SHORTAGE;
 
   (*db)->schema = new Smartdb::Schema(db_file);
@@ -48,7 +48,7 @@ SmartdbErr smartdb_open(
 extern "C"
 void smartdb_close(smartdb* db) {
   delete db->schema;
-  free(db);
+  std::free(db);
 }
 
 extern "C"

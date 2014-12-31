@@ -28,7 +28,7 @@ public:
   }
 
 #else /* SMARTDB_GTEST */
-#include <assert.h>
+#include <cassert>
 
 #define ASSERT(cond) \
   assert(cond);
