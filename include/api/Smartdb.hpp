@@ -13,8 +13,8 @@
 
 //
 // includes
-#include "api/SmartdbType.h"
-#include "log/Logger.h"
+#include "api/SmartdbType.hpp"
+#include "log/Logger.hpp"
 
 void smartdb_init();
 void smartdb_finish();

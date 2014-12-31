@@ -8,7 +8,7 @@
 #ifndef LIB_HACK_DYNAMICLIB_H_
 #define LIB_HACK_DYNAMICLIB_H_
 
-#include "api/SmartdbType.h"
+#include "api/SmartdbType.hpp"
 
 #ifdef _WIN32
 static const char *dlerror(void)

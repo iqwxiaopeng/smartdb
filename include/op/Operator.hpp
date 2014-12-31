@@ -8,8 +8,8 @@
 #ifndef INCLUDE_OP_OPERATOR_H_
 #define INCLUDE_OP_OPERATOR_H_
 
-#include "datastruct/RecordsQueue.h"
-#include "hack/Assert.h"
+#include "datastruct/RecordsQueue.hpp"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
 

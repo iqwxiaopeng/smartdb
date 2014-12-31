@@ -11,8 +11,8 @@
 #include <list>
 #include <unordered_map>
 #include <algorithm>
-#include "hack/Class.h"
-#include "hack/Assert.h"
+#include "hack/Class.hpp"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
 

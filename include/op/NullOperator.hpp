@@ -8,8 +8,8 @@
 #ifndef LIB_OP_NULLOPERATOR_H_
 #define LIB_OP_NULLOPERATOR_H_
 
-#include "op/Operator.h"
-#include "api/SmartdbType.h"
+#include "op/Operator.hpp"
+#include "api/SmartdbType.hpp"
 
 namespace Smartdb {
 

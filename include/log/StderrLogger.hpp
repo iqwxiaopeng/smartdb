@@ -8,8 +8,8 @@
 #ifndef LIB_LOG_STDERRLOGGER_H_
 #define LIB_LOG_STDERRLOGGER_H_
 
-#include "Logger.h"
-#include "hack/Class.h"
+#include "Logger.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

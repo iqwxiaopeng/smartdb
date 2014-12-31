@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "parser/Interface.h"
+#include "parser/Interface.hpp"
 
 extern int yyparse();
 extern "C" void * yy_scan_string(const char *);

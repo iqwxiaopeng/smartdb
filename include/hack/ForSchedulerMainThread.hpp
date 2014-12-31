@@ -9,7 +9,7 @@
 #define INCLUDE_HACK_FORSCHEDULERMAINTHREAD_H_
 
 #include <pthread.h>
-#include "hack/Assert.h"
+#include "hack/Assert.hpp"
 
 #define _SCHEDULER_MAIN_THREAD_ID_INITIAL_VAL 0
 

@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "ast/SelectStatement.h"
+#include "ast/SelectStatement.hpp"
 
 namespace Smartdb {
 namespace Ast {

@@ -6,9 +6,9 @@
  */
 
 #include "gtest/gtest.h"
-#include "core/Parser.h"
-#include "ast/Root.h"
-#include "ast/SelectStatement.h"
+#include "core/Parser.hpp"
+#include "ast/Root.hpp"
+#include "ast/SelectStatement.hpp"
 
 #define ast_root Ast::Root::ast_root
 

@@ -9,8 +9,8 @@
 #define LIB_DATASTRUCT_COLUMNDEF_H_
 
 #include <string>
-#include "api/SmartdbType.h"
-#include "hack/Class.h"
+#include "api/SmartdbType.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

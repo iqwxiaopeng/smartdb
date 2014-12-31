@@ -5,10 +5,10 @@
  *      Author: nakatani.sho
  */
 
-#include "core/Parser.h"
-#include "ast/Root.h"
-#include "parser/Interface.h"
-#include "err/ParseError.h"
+#include "core/Parser.hpp"
+#include "ast/Root.hpp"
+#include "parser/Interface.hpp"
+#include "err/ParseError.hpp"
 
 namespace Smartdb {
 

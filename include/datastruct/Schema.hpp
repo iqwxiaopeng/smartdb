@@ -10,8 +10,8 @@
 
 #include <string>
 #include <unordered_map>
-#include "api/SmartdbType.h"
-#include "hack/Class.h"
+#include "api/SmartdbType.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

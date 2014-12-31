@@ -8,7 +8,7 @@
 #ifndef INCLUDE_LOG_ERRMSG_H_
 #define INCLUDE_LOG_ERRMSG_H_
 
-#include "hack/Assert.h"
+#include "hack/Assert.hpp"
 
 extern "C"
 const char * smartdb_errmsg(SmartdbErr err) {

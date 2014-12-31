@@ -6,13 +6,13 @@
  */
 
 #include <stdlib.h>
-#include "api/Smartdb.h"
-#include "ast/Root.h"
-#include "ast/SelectStatement.h"
-#include "core/Parser.h"
-#include "datastruct/Schema.h"
-#include "log/Logger.h"
-#include "log/StderrLogger.h"
+#include "api/Smartdb.hpp"
+#include "ast/Root.hpp"
+#include "ast/SelectStatement.hpp"
+#include "core/Parser.hpp"
+#include "datastruct/Schema.hpp"
+#include "log/Logger.hpp"
+#include "log/StderrLogger.hpp"
 
 namespace Smartdb {
 

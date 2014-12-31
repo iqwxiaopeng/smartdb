@@ -8,11 +8,11 @@
 #ifndef LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 #define LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 
-#include "Column.h"
-#include "api/SmartdbType.h"
-#include "ColumnDef.h"
-#include "storageinterface/Buffer.h"
-#include "hack/Class.h"
+#include "Column.hpp"
+#include "api/SmartdbType.hpp"
+#include "ColumnDef.hpp"
+#include "storageinterface/Buffer.hpp"
+#include "hack/Class.hpp"
 
 namespace Smartdb {
 

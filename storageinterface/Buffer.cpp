@@ -5,9 +5,9 @@
  *      Author: nakatani.sho
  */
 
-#include "storageinterface/Buffer.h"
-#include "hack/Assert.h"
-#include "api/SmartdbType.h"
+#include "storageinterface/Buffer.hpp"
+#include "hack/Assert.hpp"
+#include "api/SmartdbType.hpp"
 
 namespace Smartdb {
 

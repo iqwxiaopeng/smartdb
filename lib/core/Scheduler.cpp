@@ -6,10 +6,10 @@
  */
 
 #include <pthread.h>
-#include "core/Scheduler.h"
-#include "core/Executor.h"
-#include "plantree/PlanNode.h"
-#include "hack/ForSchedulerMainThread.h"
+#include "core/Scheduler.hpp"
+#include "core/Executor.hpp"
+#include "plantree/PlanNode.hpp"
+#include "hack/ForSchedulerMainThread.hpp"
 
 namespace Smartdb {
 

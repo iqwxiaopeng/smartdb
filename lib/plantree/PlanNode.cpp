@@ -5,7 +5,7 @@
  *      Author: nakatani.sho
  */
 
-#include "plantree/PlanNode.h"
+#include "plantree/PlanNode.hpp"
 
 namespace Smartdb {
 

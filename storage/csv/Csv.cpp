@@ -10,8 +10,8 @@
 #include <errno.h>
 #include <unordered_map>
 #include <csv_parser/csv_parser.hpp>
-#include "Csv.h"
-#include "hack/Assert.h"
+#include "Csv.hpp"
+#include "hack/Assert.hpp"
 
 // [TODO] - use thread local storage
 Smartdb::Logger * logger = 0;

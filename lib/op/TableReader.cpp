@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdint.h>
-#include "op/TableReader.h"
-#include "storageinterface/Records.h"
-#include "hack/DynamicLib.h"
-#include "log/Logger.h"
+#include "op/TableReader.hpp"
+#include "storageinterface/Records.hpp"
+#include "hack/DynamicLib.hpp"
+#include "log/Logger.hpp"
 
 #define LOAD_FUNC(func_name) \
   if (!(storage_funcs.func_name = \

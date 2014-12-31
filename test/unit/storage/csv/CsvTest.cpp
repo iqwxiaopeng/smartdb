@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
 #include <unordered_map>
-#include "csv/Csv.h"
-#include "log/StderrLogger.h"
-#include "hack/Assert.h"
+#include "csv/Csv.hpp"
+#include "log/StderrLogger.hpp"
+#include "hack/Assert.hpp"
 
 using namespace Smartdb;
 

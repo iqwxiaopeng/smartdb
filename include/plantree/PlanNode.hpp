@@ -8,11 +8,11 @@
 #ifndef TEST_UNIT_LIB_PLANTREE_PLANNODE_H_
 #define TEST_UNIT_LIB_PLANTREE_PLANNODE_H_
 
-#include "plantree/PlanNodeId.h"
-#include "op/OperatorParam.h"
-#include "hack/Assert.h"
-#include "hack/Class.h"
-#include "hack/ForSchedulerMainThread.h"
+#include "plantree/PlanNodeId.hpp"
+#include "op/OperatorParam.hpp"
+#include "hack/Assert.hpp"
+#include "hack/Class.hpp"
+#include "hack/ForSchedulerMainThread.hpp"
 
 namespace Smartdb {
 

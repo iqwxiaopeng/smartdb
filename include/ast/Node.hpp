@@ -8,7 +8,7 @@
 #ifndef LIB_AST_NODE_H_
 #define LIB_AST_NODE_H_
 
-#include "api/SmartdbType.h"
+#include "api/SmartdbType.hpp"
 
 namespace Smartdb {
 namespace Ast {

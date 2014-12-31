@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
-#include "datastruct/RecordsQueue.h"
-#include "api/SmartdbType.h"
-#include "hack/Assert.h"
+#include "datastruct/RecordsQueue.hpp"
+#include "api/SmartdbType.hpp"
+#include "hack/Assert.hpp"
 
 using namespace Smartdb;
 

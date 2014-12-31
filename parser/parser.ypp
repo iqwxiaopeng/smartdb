@@ -2,8 +2,8 @@
 extern "C" int yylex();
 extern "C" void yyerror(const char *s);
 
-#include "ast/Root.h"
-#include "ast/SelectStatement.h"
+#include "ast/Root.hpp"
+#include "ast/SelectStatement.hpp"
 using namespace Smartdb::Ast;
 
 %}

@@ -1,6 +1,6 @@
 #include <vector>
-#include "SmartdbTest.h"
-#include "plantree/BinaryTree.h"
+#include "SmartdbTest.hpp"
+#include "plantree/BinaryTree.hpp"
 
 using namespace Smartdb;
 

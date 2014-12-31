@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string>
 #include <unordered_map>
-#include "hack/Assert.h"
+#include "hack/Assert.hpp"
 
 namespace Smartdb {
   class Schema;
