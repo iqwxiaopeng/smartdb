@@ -28,7 +28,7 @@ script:
   - (cd storage/csv ; cmake . && make && sudo make install)
 
   # build unit test & integrated test
-  - (cd test ; cmake . && make VERBOSE=1)
+  - (cd test ; cmake . && make)
 
   # run unit test
   - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_unit_test)
