@@ -69,6 +69,9 @@ storage/csv/contrib/csv_parser
 !**/*.xcodeproj/default.*
 smartdb.build/
 
+# p4merge files
+*.orig
+
 # yacc files
 lib/parser/parser.cpp
 lib/parser/parser.hpp
