@@ -22,10 +22,10 @@ before_script:
   - ulimit -c unlimited -S
 script:
   # build & install libsmartdb
-  - cmake . && make VERBOSE=1 && sudo make install
+  - cmake . && make && sudo make install
 
   # build & install 1st-party storage engines
-  - (cd storage/csv ; cmake . && make VERBOSE=1 && sudo make install)
+  - (cd storage/csv ; cmake . && make && sudo make install)
 
   # build unit test & integrated test
   - (cd test ; cmake . && make VERBOSE=1)
