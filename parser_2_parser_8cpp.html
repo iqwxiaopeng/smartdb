@@ -97,8 +97,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">parser.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_root_8h_source.html">ast/Root.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_select_statement_8h_source.html">ast/SelectStatement.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_root_8hpp_source.html">ast/Root.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_select_statement_8hpp_source.html">ast/SelectStatement.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -550,7 +550,124 @@ Enumerations</h2></td></tr>
 <a class="el" href="parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a902dee77b16b62107c83e08af8201373">PLI</a> = 349, 
 <br />
 &#160;&#160;<a class="el" href="parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a739ce3f516592d245d16fd8a3893472c">C</a> = 350, 
-<a class="el" href="parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1f265b4b08a422f599a4575d7df3c755">ADA</a> = 351
+<a class="el" href="parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1f265b4b08a422f599a4575d7df3c755">ADA</a> = 351, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807">IDENTIFIER</a> = 258, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921">STRING</a> = 259, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a54d5b7fb416cdc71eb7fcde882aedeb4">INTNUM</a> = 260, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1decfe0cc7ac9a74b0b62f17e22acc98">APPROXNUM</a> = 261, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a96727447c0ad447987df1c6415aef074">OR</a> = 262, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a865555c9f2e0458a7078486aa1b3254f">AND</a> = 263, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a0378ebc895849163b249d0b330257dd6">NOT</a> = 264, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a195d45c0c030939920d8a2aad646216e">COMPARISON</a> = 265, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1547315a0271bfc281fb75946da5f3d9">UMINUS</a> = 266, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ab1d5eac4b1dca480c8056eaea7663b7a">ALL</a> = 267, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a34b17d37e377575ef8eb7c3b13548223">AMMSC</a> = 268, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa00374190265e7b6447db44977a7dff1">ANY</a> = 269, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a0b84664ffa026b1a5f43c051cd6fe69f">AS</a> = 270, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a6ec9ae46a1e5c631ae04fc9c4c2d63bc">ASC</a> = 271, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a84b2f0841dfbc85788eb1b7d502c6e0f">AUTHORIZATION</a> = 272, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a8a86033ada1240a0576a1ce24d8d307b">BETWEEN</a> = 273, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a8a7f2ff9fd0ff128eb1a14b98d95b4e6">BY</a> = 274, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a762041e95dc7b081aaf6b0019dca8586">CHARACTER</a> = 275, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aed65b7dfe470f4e500b15f7074bb7fa2">CHECK</a> = 276, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a685f73194ad125cbc784c3210cdb3449">CLOSE</a> = 277, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1ae3399502bd66af21b15736d4fae1a1">COMMIT</a> = 278, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a49959dd441dcda75d6898cf2c68fb374">CONTINUE</a> = 279, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a> = 280, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a7770173898835c0954853cb16e8d284a">CURRENT</a> = 281, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a63cd5d9b665699b0b17c898a414c63d5">CURSOR</a> = 282, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9af08a543d5a1549321682e12569d0fbd6">DECIMAL</a> = 283, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aaac03d545f909cdcde12ee6a7ae08cec">DECLARE</a> = 284, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a88ec7d5086d2469ba843c7fcceade8a6">DEFAULT</a> = 285, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a9d61e82a9a12752f10aece1b22183913">DELETE</a> = 286, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ac09f77dd64a2d5dedf24b5835d9eaa5a">DESC</a> = 287, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa23a9880eca693f679c969556249925f">DISTINCT</a> = 288, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a33465d1d419b1074fb259ef444609e92">DOUBLE</a> = 289, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a0a311695a4f6c56869245418bebeb33d">ESCAPE</a> = 290, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a3197625a1bb2264943f5a95f236d9973">EXISTS</a> = 291, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a3431726ea599b45a86b0849ca2a303ff">FETCH</a> = 292, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</a> = 293, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa809654855caa62449850d9122fd77a8">FOR</a> = 294, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a433514d8b3d288c74ba1f05a4831798a">FOREIGN</a> = 295, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a3fe5ffe68b10eb48b4a8b17eefe60154">FOUND</a> = 296, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a60efb85363b2afd235602dc0aee155f0">FROM</a> = 297, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9adf1256e4198172eedfbf12c770d11589">GOTO</a> = 298, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a8104d53d065fdf289549328c28425489">GRANT</a> = 299, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa080685d80f04dc0f10c028c686ea221">GROUP</a> = 300, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a676aa1a12d99de7b8eede877acf0c644">HAVING</a> = 301, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9af3180515f5867a29932df1dc207b31ad">IN</a> = 302, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ae2f8f45584a86648af676d90b1fe969d">INDICATOR</a> = 303, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa15c451953b2d2a93403afe786930d0f">INSERT</a> = 304, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a5a063e265d2ac903b6808e9f6e73ec46">INTEGER</a> = 305, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aab0fb930b459cfb52c8929bc8f048c4f">INTO</a> = 306, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a6cc1972e6d9d37556d516f78205a682b">IS</a> = 307, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a147e71049e3285d642d0d5268dba260f">KEY</a> = 308, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ab0814cb9deac69bea037955cecf9b2c4">LANGUAGE</a> = 309, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa2d2e0af4765444f49b02f373dbf09df">LIKE</a> = 310, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a89e95e5d1ee3b8077a76005fb143771c">MODULE</a> = 311, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa6275bc3017fcb06cd9d5097fb43ba91">NULLX</a> = 312, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a8036f3be5700d4eb67d27fab554d5e0c">NUMERIC</a> = 313, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a721d4f1eaa4a30661aaef3353e5305e2">OF</a> = 314, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a977d478dacaae531f95695750d1e9d03">ON</a> = 315, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a0e0143636c29971736eab47415868eae">OPEN</a> = 316, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa90a72437604db645f335d571993dade">OPTION</a> = 317, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9af3010c5c73212ce2ce652d3c18a681ad">ORDER</a> = 318, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a6ba1f8c0b9c702d0f3c1815326ddceef">PRECISION</a> = 319, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a5ce2e4adeaefc771566d91471561dba4">PRIMARY</a> = 320, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9acd038dd3c41d4a442a57e9143753878f">PRIVILEGES</a> = 321, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ad95bbb705a560daadfaa6c72329fbd61">PROCEDURE</a> = 322, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ae81e3f79af4b80e22c6b86d63ea397bf">PUBLIC</a> = 323, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a053cb139f4b2333482449705c529b1e9">REAL</a> = 324, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a7c1239853edb2497bbb26449fac8e71b">REFERENCES</a> = 325, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a4cbb6eb1cc376e49a1c120dffacdba06">ROLLBACK</a> = 326, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a5db56c34e2b8380acfa2cf1e6104583c">SCHEMA</a> = 327, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1697a91b22c2369eb2ba427c2d193329">SELECT</a> = 328, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ab44c8101cc294c074709ec1b14211792">SET</a> = 329, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a4ab12fb74c4f328646d8fcdaea1af180">SMALLINT</a> = 330, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9aa42d49730c9a6a55b13eb63aa67cd307">SOME</a> = 331, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a3cabf506abab253507f3a2e92cd4bfe9">SQLCODE</a> = 332, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a2d641aace5c700c1856cf649da8e3ece">SQLERROR</a> = 333, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a2e160f29fc076de5496a2b9968be9cc1">TABLE</a> = 334, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a7a745bf8e4299d36823f18d0c317cee8">TO</a> = 335, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a4cf5e96eb7880eb38df303a6e5759afd">UNION</a> = 336, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9adb4644796932d416d849b8911dcbaffd">UNIQUE</a> = 337, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a3912ed627c0090ccc7fa1b03fef04202">UPDATE</a> = 338, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9ae2d30a195cee6b2961cc2c23ea4b520b">USER</a> = 339, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a91a9a6a83761d5dd2b34344be9dc8000">VALUES</a> = 340, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a577616539ca6eda467d3b4b6e6a551d5">VIEW</a> = 341, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a64de34f695b78e2864114b0fb9cae519">WHENEVER</a> = 342, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a0116b78582fbf1fd6e069fde8dd308c4">WHERE</a> = 343, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9afc0abef5dec817fb5354b11c58bdbbc1">WITH</a> = 344, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a08b8829a0c9899440c48b2c2affc79af">WORK</a> = 345, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a90dd848d5a0d15dd6a7bcbc2baf3af65">COBOL</a> = 346, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a56efea5df1ab339d6b5e2491bd0a1018">FORTRAN</a> = 347, 
+<br />
+&#160;&#160;<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1e98738051c2ed39496f55cdcbc99a81">PASCAL</a> = 348, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a902dee77b16b62107c83e08af8201373">PLI</a> = 349, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a739ce3f516592d245d16fd8a3893472c">C</a> = 350, 
+<a class="el" href="lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a1f265b4b08a422f599a4575d7df3c755">ADA</a> = 351
 <br />
  }</td></tr>
 <tr class="separator:a15c9f7bd2f0e9686df5d9df4f3314aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2950,6 +3067,194 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1f265b4b08a422f599a4575d7df3c755"></a>ADA&#160;</td><td class="fielddoc">
 </td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807"></a>IDENTIFIER&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921"></a>STRING&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a54d5b7fb416cdc71eb7fcde882aedeb4"></a>INTNUM&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1decfe0cc7ac9a74b0b62f17e22acc98"></a>APPROXNUM&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a96727447c0ad447987df1c6415aef074"></a>OR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a865555c9f2e0458a7078486aa1b3254f"></a>AND&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a0378ebc895849163b249d0b330257dd6"></a>NOT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a195d45c0c030939920d8a2aad646216e"></a>COMPARISON&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1547315a0271bfc281fb75946da5f3d9"></a>UMINUS&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ab1d5eac4b1dca480c8056eaea7663b7a"></a>ALL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a34b17d37e377575ef8eb7c3b13548223"></a>AMMSC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa00374190265e7b6447db44977a7dff1"></a>ANY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a0b84664ffa026b1a5f43c051cd6fe69f"></a>AS&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a6ec9ae46a1e5c631ae04fc9c4c2d63bc"></a>ASC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a84b2f0841dfbc85788eb1b7d502c6e0f"></a>AUTHORIZATION&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a8a86033ada1240a0576a1ce24d8d307b"></a>BETWEEN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a8a7f2ff9fd0ff128eb1a14b98d95b4e6"></a>BY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a762041e95dc7b081aaf6b0019dca8586"></a>CHARACTER&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aed65b7dfe470f4e500b15f7074bb7fa2"></a>CHECK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a685f73194ad125cbc784c3210cdb3449"></a>CLOSE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1ae3399502bd66af21b15736d4fae1a1"></a>COMMIT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a49959dd441dcda75d6898cf2c68fb374"></a>CONTINUE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a473b49382a20dcc5b0ee10ddbc6338b4"></a>CREATE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a7770173898835c0954853cb16e8d284a"></a>CURRENT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a63cd5d9b665699b0b17c898a414c63d5"></a>CURSOR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9af08a543d5a1549321682e12569d0fbd6"></a>DECIMAL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aaac03d545f909cdcde12ee6a7ae08cec"></a>DECLARE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a88ec7d5086d2469ba843c7fcceade8a6"></a>DEFAULT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a9d61e82a9a12752f10aece1b22183913"></a>DELETE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ac09f77dd64a2d5dedf24b5835d9eaa5a"></a>DESC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa23a9880eca693f679c969556249925f"></a>DISTINCT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a33465d1d419b1074fb259ef444609e92"></a>DOUBLE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a0a311695a4f6c56869245418bebeb33d"></a>ESCAPE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a3197625a1bb2264943f5a95f236d9973"></a>EXISTS&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a3431726ea599b45a86b0849ca2a303ff"></a>FETCH&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a9cf4a0866224b0bb4a7a895da27c9c4c"></a>FLOAT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa809654855caa62449850d9122fd77a8"></a>FOR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a433514d8b3d288c74ba1f05a4831798a"></a>FOREIGN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a3fe5ffe68b10eb48b4a8b17eefe60154"></a>FOUND&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a60efb85363b2afd235602dc0aee155f0"></a>FROM&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9adf1256e4198172eedfbf12c770d11589"></a>GOTO&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a8104d53d065fdf289549328c28425489"></a>GRANT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa080685d80f04dc0f10c028c686ea221"></a>GROUP&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a676aa1a12d99de7b8eede877acf0c644"></a>HAVING&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9af3180515f5867a29932df1dc207b31ad"></a>IN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ae2f8f45584a86648af676d90b1fe969d"></a>INDICATOR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa15c451953b2d2a93403afe786930d0f"></a>INSERT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a5a063e265d2ac903b6808e9f6e73ec46"></a>INTEGER&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aab0fb930b459cfb52c8929bc8f048c4f"></a>INTO&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a6cc1972e6d9d37556d516f78205a682b"></a>IS&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a147e71049e3285d642d0d5268dba260f"></a>KEY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ab0814cb9deac69bea037955cecf9b2c4"></a>LANGUAGE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa2d2e0af4765444f49b02f373dbf09df"></a>LIKE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a89e95e5d1ee3b8077a76005fb143771c"></a>MODULE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa6275bc3017fcb06cd9d5097fb43ba91"></a>NULLX&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a8036f3be5700d4eb67d27fab554d5e0c"></a>NUMERIC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a721d4f1eaa4a30661aaef3353e5305e2"></a>OF&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a977d478dacaae531f95695750d1e9d03"></a>ON&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a0e0143636c29971736eab47415868eae"></a>OPEN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa90a72437604db645f335d571993dade"></a>OPTION&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9af3010c5c73212ce2ce652d3c18a681ad"></a>ORDER&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a6ba1f8c0b9c702d0f3c1815326ddceef"></a>PRECISION&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a5ce2e4adeaefc771566d91471561dba4"></a>PRIMARY&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9acd038dd3c41d4a442a57e9143753878f"></a>PRIVILEGES&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ad95bbb705a560daadfaa6c72329fbd61"></a>PROCEDURE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ae81e3f79af4b80e22c6b86d63ea397bf"></a>PUBLIC&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a053cb139f4b2333482449705c529b1e9"></a>REAL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a7c1239853edb2497bbb26449fac8e71b"></a>REFERENCES&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a4cbb6eb1cc376e49a1c120dffacdba06"></a>ROLLBACK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a5db56c34e2b8380acfa2cf1e6104583c"></a>SCHEMA&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1697a91b22c2369eb2ba427c2d193329"></a>SELECT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ab44c8101cc294c074709ec1b14211792"></a>SET&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a4ab12fb74c4f328646d8fcdaea1af180"></a>SMALLINT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9aa42d49730c9a6a55b13eb63aa67cd307"></a>SOME&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a3cabf506abab253507f3a2e92cd4bfe9"></a>SQLCODE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a2d641aace5c700c1856cf649da8e3ece"></a>SQLERROR&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a2e160f29fc076de5496a2b9968be9cc1"></a>TABLE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a7a745bf8e4299d36823f18d0c317cee8"></a>TO&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a4cf5e96eb7880eb38df303a6e5759afd"></a>UNION&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9adb4644796932d416d849b8911dcbaffd"></a>UNIQUE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a3912ed627c0090ccc7fa1b03fef04202"></a>UPDATE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9ae2d30a195cee6b2961cc2c23ea4b520b"></a>USER&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a91a9a6a83761d5dd2b34344be9dc8000"></a>VALUES&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a577616539ca6eda467d3b4b6e6a551d5"></a>VIEW&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a64de34f695b78e2864114b0fb9cae519"></a>WHENEVER&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a0116b78582fbf1fd6e069fde8dd308c4"></a>WHERE&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9afc0abef5dec817fb5354b11c58bdbbc1"></a>WITH&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a08b8829a0c9899440c48b2c2affc79af"></a>WORK&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a90dd848d5a0d15dd6a7bcbc2baf3af65"></a>COBOL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a56efea5df1ab339d6b5e2491bd0a1018"></a>FORTRAN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1e98738051c2ed39496f55cdcbc99a81"></a>PASCAL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a902dee77b16b62107c83e08af8201373"></a>PLI&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a739ce3f516592d245d16fd8a3893472c"></a>C&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15c9f7bd2f0e9686df5d9df4f3314aa9a1f265b4b08a422f599a4575d7df3c755"></a>ADA&#160;</td><td class="fielddoc">
+</td></tr>
 </table>
 
 </div>
@@ -3483,7 +3788,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 12:34:10 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

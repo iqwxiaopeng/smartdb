@@ -93,12 +93,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TableReader.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="_table_reader_8h_source.html">op/TableReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_records_8h_source.html">storageinterface/Records.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_dynamic_lib_8h_source.html">hack/DynamicLib.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_logger_8h_source.html">log/Logger.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &quot;<a class="el" href="_table_reader_8hpp_source.html">op/TableReader.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_records_8hpp_source.html">storageinterface/Records.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_dynamic_lib_8hpp_source.html">hack/DynamicLib.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logger_8hpp_source.html">log/Logger.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -127,10 +127,10 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span> (!(storage_funcs.func_name = \</div>
 <div class="line">        (func_name ## _t)<a class="code" href="namespace_smartdb.html#a7205fa3c75ab5e605a09f0d72d9b8036">load_func</a>(dlib_handler, #func_name))) { <a class="code" href="namespace_smartdb.html#a332a424e489daa58e77f155ec2566cc2">\</a></div>
 <div class="line"><a class="code" href="namespace_smartdb.html#a332a424e489daa58e77f155ec2566cc2">    logger</a>-&gt;<a class="code" href="class_smartdb_1_1_logger.html#ac1993f9440c70d8aba8555529969b488">error</a>(::dlerror()); \</div>
-<div class="line">    abort(); \</div>
+<div class="line">    std::abort(); \</div>
 <div class="line">  }</div>
 <div class="ttc" id="namespace_smartdb_html_a332a424e489daa58e77f155ec2566cc2"><div class="ttname"><a href="namespace_smartdb.html#a332a424e489daa58e77f155ec2566cc2">Smartdb::logger</a></div><div class="ttdeci">Logger * logger</div><div class="ttdef"><b>Definition:</b> Smartdb.cpp:19</div></div>
-<div class="ttc" id="namespace_smartdb_html_a7205fa3c75ab5e605a09f0d72d9b8036"><div class="ttname"><a href="namespace_smartdb.html#a7205fa3c75ab5e605a09f0d72d9b8036">Smartdb::load_func</a></div><div class="ttdeci">void * load_func(lib_t lib_handler, const char *func_name)</div><div class="ttdef"><b>Definition:</b> DynamicLib.h:43</div></div>
+<div class="ttc" id="namespace_smartdb_html_a7205fa3c75ab5e605a09f0d72d9b8036"><div class="ttname"><a href="namespace_smartdb.html#a7205fa3c75ab5e605a09f0d72d9b8036">Smartdb::load_func</a></div><div class="ttdeci">void * load_func(lib_t lib_handler, const char *func_name)</div><div class="ttdef"><b>Definition:</b> DynamicLib.hpp:43</div></div>
 <div class="ttc" id="class_smartdb_1_1_logger_html_ac1993f9440c70d8aba8555529969b488"><div class="ttname"><a href="class_smartdb_1_1_logger.html#ac1993f9440c70d8aba8555529969b488">Smartdb::Logger::error</a></div><div class="ttdeci">virtual void error(const char *const msg)=0</div></div>
 </div><!-- fragment -->
 </div>
@@ -138,7 +138,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 12:34:10 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

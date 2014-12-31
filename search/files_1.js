@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['binarytree_2eh',['BinaryTree.h',['../_binary_tree_8h.html',1,'']]],
-  ['buffer_2eh',['Buffer.h',['../_buffer_8h.html',1,'']]]
+  ['binarytree_2ehpp',['BinaryTree.hpp',['../_binary_tree_8hpp.html',1,'']]],
+  ['buffer_2ehpp',['Buffer.hpp',['../_buffer_8hpp.html',1,'']]]
 ];
