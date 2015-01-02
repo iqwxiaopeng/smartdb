@@ -100,23 +100,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_buffer_8hpp.html">storageinterface/Buffer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_column_def_8hpp.html">storageinterface/ColumnDef.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="_smartdb_storage_8hpp.html#a5c0449084736f6b78721871f6a252a9f">smartdb_errmsg</a>(<a class="code" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> err);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// storage engine functions</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespace_smartdb.html">   13</a></span>&#160;<span class="keyword">namespace </span>Smartdb {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">class </span><a class="code" href="class_smartdb_1_1_records.html">Records</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">class </span><a class="code" href="class_smartdb_1_1_logger.html">Logger</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_smartdb_storage_8hpp.html#a5e20cf90c3623cc097cba685bf95c713">   18</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*storage_init_t)(<a class="code" href="class_smartdb_1_1_logger.html">Smartdb::Logger</a> * <span class="keyword">const</span>, <span class="keyword">const</span> std::unordered_map&lt;std::string, std::string&gt; &amp;);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// When storage_read_records() returns NO_ERR, read_records must be more than 0.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="_smartdb_storage_8hpp.html#a9af330e0e55990e0d5c2d4bfd84d8305">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*storage_read_records_t)(size_t, <a class="code" href="class_smartdb_1_1_records.html">Smartdb::Records</a>&amp;, <span class="keywordtype">size_t</span>&amp;, <span class="keywordtype">bool</span>&amp;);</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="_smartdb_storage_8hpp.html#adc02f9932e7d1b4f6640cf1998ac828e">   21</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*storage_finish_t)();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structstorage__funcs__t.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structstorage__funcs__t.html">storage_funcs_t</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structstorage__funcs__t.html#abd82217e67c7101ae12129e591c45e05">   24</a></span>&#160;  <a class="code" href="_smartdb_storage_8hpp.html#a5e20cf90c3623cc097cba685bf95c713">storage_init_t</a> <a class="code" href="structstorage__funcs__t.html#abd82217e67c7101ae12129e591c45e05">storage_init</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structstorage__funcs__t.html#a53224787602085fc17b9b7e0143e1b48">   25</a></span>&#160;  <a class="code" href="_smartdb_storage_8hpp.html#a9af330e0e55990e0d5c2d4bfd84d8305">storage_read_records_t</a> <a class="code" href="structstorage__funcs__t.html#a53224787602085fc17b9b7e0143e1b48">storage_read_records</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structstorage__funcs__t.html#a885b3f95e1a0a798329b65ac855fde1e">   26</a></span>&#160;  <a class="code" href="_smartdb_storage_8hpp.html#adc02f9932e7d1b4f6640cf1998ac828e">storage_finish_t</a> <a class="code" href="structstorage__funcs__t.html#a885b3f95e1a0a798329b65ac855fde1e">storage_finish</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <a class="code" href="_smartdb_storage_8hpp.html#aaca3d9e5d8c5ec54f704b0321fc7733c">storage_funcs_t</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_smartdb_storage_8hpp_html_adc02f9932e7d1b4f6640cf1998ac828e"><div class="ttname"><a href="_smartdb_storage_8hpp.html#adc02f9932e7d1b4f6640cf1998ac828e">storage_finish_t</a></div><div class="ttdeci">void *(* storage_finish_t)()</div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:21</div></div>
 <div class="ttc" id="_records_8hpp_html"><div class="ttname"><a href="_records_8hpp.html">Records.hpp</a></div></div>
-<div class="ttc" id="_smartdb_type_8hpp_html_a9f092e23c9742dc93c8afaa72b55599e"><div class="ttname"><a href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a></div><div class="ttdeci">SmartdbErr</div><div class="ttdoc">Error types. </div><div class="ttdef"><b>Definition:</b> SmartdbType.hpp:69</div></div>
+<div class="ttc" id="structstorage__funcs__t_html_abd82217e67c7101ae12129e591c45e05"><div class="ttname"><a href="structstorage__funcs__t.html#abd82217e67c7101ae12129e591c45e05">storage_funcs_t::storage_init</a></div><div class="ttdeci">storage_init_t storage_init</div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:24</div></div>
+<div class="ttc" id="class_smartdb_1_1_logger_html"><div class="ttname"><a href="class_smartdb_1_1_logger.html">Smartdb::Logger</a></div><div class="ttdef"><b>Definition:</b> Logger.hpp:13</div></div>
+<div class="ttc" id="_smartdb_storage_8hpp_html_aaca3d9e5d8c5ec54f704b0321fc7733c"><div class="ttname"><a href="_smartdb_storage_8hpp.html#aaca3d9e5d8c5ec54f704b0321fc7733c">storage_funcs_t</a></div><div class="ttdeci">struct storage_funcs_t storage_funcs_t</div></div>
+<div class="ttc" id="_smartdb_storage_8hpp_html_a9af330e0e55990e0d5c2d4bfd84d8305"><div class="ttname"><a href="_smartdb_storage_8hpp.html#a9af330e0e55990e0d5c2d4bfd84d8305">storage_read_records_t</a></div><div class="ttdeci">void *(* storage_read_records_t)(size_t, Smartdb::Records &amp;, size_t &amp;, bool &amp;)</div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:20</div></div>
+<div class="ttc" id="_smartdb_storage_8hpp_html_a5e20cf90c3623cc097cba685bf95c713"><div class="ttname"><a href="_smartdb_storage_8hpp.html#a5e20cf90c3623cc097cba685bf95c713">storage_init_t</a></div><div class="ttdeci">void *(* storage_init_t)(Smartdb::Logger *const, const std::unordered_map&lt; std::string, std::string &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:18</div></div>
+<div class="ttc" id="class_smartdb_1_1_records_html"><div class="ttname"><a href="class_smartdb_1_1_records.html">Smartdb::Records</a></div><div class="ttdef"><b>Definition:</b> Records.hpp:20</div></div>
 <div class="ttc" id="_errmsg_8hpp_html"><div class="ttname"><a href="_errmsg_8hpp.html">Errmsg.hpp</a></div></div>
-<div class="ttc" id="_smartdb_storage_8hpp_html_a5c0449084736f6b78721871f6a252a9f"><div class="ttname"><a href="_smartdb_storage_8hpp.html#a5c0449084736f6b78721871f6a252a9f">smartdb_errmsg</a></div><div class="ttdeci">const char * smartdb_errmsg(SmartdbErr err)</div><div class="ttdef"><b>Definition:</b> Errmsg.hpp:14</div></div>
+<div class="ttc" id="structstorage__funcs__t_html_a53224787602085fc17b9b7e0143e1b48"><div class="ttname"><a href="structstorage__funcs__t.html#a53224787602085fc17b9b7e0143e1b48">storage_funcs_t::storage_read_records</a></div><div class="ttdeci">storage_read_records_t storage_read_records</div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:25</div></div>
 <div class="ttc" id="_smartdb_type_8hpp_html"><div class="ttname"><a href="_smartdb_type_8hpp.html">SmartdbType.hpp</a></div></div>
 <div class="ttc" id="_logger_8hpp_html"><div class="ttname"><a href="_logger_8hpp.html">Logger.hpp</a></div></div>
+<div class="ttc" id="structstorage__funcs__t_html_a885b3f95e1a0a798329b65ac855fde1e"><div class="ttname"><a href="structstorage__funcs__t.html#a885b3f95e1a0a798329b65ac855fde1e">storage_funcs_t::storage_finish</a></div><div class="ttdeci">storage_finish_t storage_finish</div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:26</div></div>
 <div class="ttc" id="_column_def_8hpp_html"><div class="ttname"><a href="_column_def_8hpp.html">ColumnDef.hpp</a></div></div>
+<div class="ttc" id="structstorage__funcs__t_html"><div class="ttname"><a href="structstorage__funcs__t.html">storage_funcs_t</a></div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:23</div></div>
 <div class="ttc" id="_buffer_8hpp_html"><div class="ttname"><a href="_buffer_8hpp.html">Buffer.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 3 2015 01:40:28 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 02:20:40 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

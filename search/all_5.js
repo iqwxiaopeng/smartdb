@@ -1,6 +1,7 @@
 var searchData=
 [
   ['err',['ERR',['../_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599ea0f886785b600b91048fcdc434c6b4a8e',1,'SmartdbType.hpp']]],
+  ['errmsg_2ecpp',['Errmsg.cpp',['../_errmsg_8cpp.html',1,'']]],
   ['errmsg_2ehpp',['Errmsg.hpp',['../_errmsg_8hpp.html',1,'']]],
   ['error',['error',['../class_smartdb_1_1_logger.html#ac1993f9440c70d8aba8555529969b488',1,'Smartdb::Logger::error()'],['../class_smartdb_1_1_stderr_logger.html#a4e32a8eb0f0bb65947a59c2af6caa345',1,'Smartdb::StderrLogger::error()']]],
   ['error_2ehpp',['Error.hpp',['../_error_8hpp.html',1,'']]],

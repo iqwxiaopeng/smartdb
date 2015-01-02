@@ -97,56 +97,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_column_def_8hpp.html">storageinterface/ColumnDef.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_smartdb_type_8hpp.html">api/SmartdbType.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_smartdb_storage_8hpp.html">api/SmartdbStorage.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_operator_8hpp.html">op/Operator.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_operator_param_8hpp.html">op/OperatorParam.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_class_8hpp.html">hack/Class.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>Smartdb {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_table_reader.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_smartdb_1_1_table_reader.html">TableReader</a> : <span class="keyword">public</span> <a class="code" href="class_smartdb_1_1_operator.html">Operator</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_smartdb_1_1_table_reader.html#a78c89a3afd470c38edd504ecfb9fe557">TableReader</a>(<span class="keyword">const</span> <a class="code" href="struct_smartdb_1_1_operator_param.html">OperatorParam</a> * <span class="keyword">const</span> param);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_smartdb_1_1_table_reader.html#af5c914e1962950a236e32dcb17733297">~TableReader</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> <a class="code" href="class_smartdb_1_1_table_reader.html#a71303897225462f91a7886d485e2afc2">run</a>(<span class="keyword">const</span> <a class="code" href="class_smartdb_1_1_scheduler.html">Scheduler</a> &amp; scheduler);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_smartdb_1_1_table_reader_param.html">TableReaderParam</a> * <span class="keyword">const</span> param;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="_smartdb_type_8hpp.html#a65be3f160a2506530ad146c50e182ffe">lib_t</a> dlib_handler;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="structstorage__funcs__t.html">storage_funcs_t</a> storage_funcs;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> read();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  std::string dlib_name_without_suffix();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">void</span> load_dlib_funcs();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> unload_dlib_funcs();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;PREVENT_CLASS_DEFAULT_METHODS(<a class="code" href="class_smartdb_1_1_table_reader.html">TableReader</a>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INCLUDE_OP_TABLE_READER_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_dynamic_lib_8hpp.html">hack/DynamicLib.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>Smartdb {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_table_reader.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_smartdb_1_1_table_reader.html">TableReader</a> : <span class="keyword">public</span> <a class="code" href="class_smartdb_1_1_operator.html">Operator</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_smartdb_1_1_table_reader.html#a78c89a3afd470c38edd504ecfb9fe557">TableReader</a>(<span class="keyword">const</span> <a class="code" href="struct_smartdb_1_1_operator_param.html">OperatorParam</a> * <span class="keyword">const</span> param);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="class_smartdb_1_1_table_reader.html#af5c914e1962950a236e32dcb17733297">~TableReader</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> <a class="code" href="class_smartdb_1_1_table_reader.html#a71303897225462f91a7886d485e2afc2">run</a>(<span class="keyword">const</span> <a class="code" href="class_smartdb_1_1_scheduler.html">Scheduler</a> &amp; scheduler);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_smartdb_1_1_table_reader_param.html">TableReaderParam</a> * <span class="keyword">const</span> param;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="_dynamic_lib_8hpp.html#a65be3f160a2506530ad146c50e182ffe">lib_t</a> dlib_handler;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="structstorage__funcs__t.html">storage_funcs_t</a> storage_funcs;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> read();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  std::string dlib_name_without_suffix();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> load_dlib_funcs();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">void</span> unload_dlib_funcs();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;PREVENT_CLASS_DEFAULT_METHODS(<a class="code" href="class_smartdb_1_1_table_reader.html">TableReader</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INCLUDE_OP_TABLE_READER_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="struct_smartdb_1_1_operator_param_html"><div class="ttname"><a href="struct_smartdb_1_1_operator_param.html">Smartdb::OperatorParam</a></div><div class="ttdef"><b>Definition:</b> OperatorParam.hpp:19</div></div>
-<div class="ttc" id="_smartdb_type_8hpp_html_a9f092e23c9742dc93c8afaa72b55599e"><div class="ttname"><a href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a></div><div class="ttdeci">SmartdbErr</div><div class="ttdoc">Error types. </div><div class="ttdef"><b>Definition:</b> SmartdbType.hpp:69</div></div>
+<div class="ttc" id="_smartdb_type_8hpp_html_a9f092e23c9742dc93c8afaa72b55599e"><div class="ttname"><a href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a></div><div class="ttdeci">SmartdbErr</div><div class="ttdoc">Error types. </div><div class="ttdef"><b>Definition:</b> SmartdbType.hpp:76</div></div>
 <div class="ttc" id="class_smartdb_1_1_table_reader_html_a71303897225462f91a7886d485e2afc2"><div class="ttname"><a href="class_smartdb_1_1_table_reader.html#a71303897225462f91a7886d485e2afc2">Smartdb::TableReader::run</a></div><div class="ttdeci">SmartdbErr run(const Scheduler &amp;scheduler)</div><div class="ttdoc">Scheduler calls this function to make this operator RUNNING. </div><div class="ttdef"><b>Definition:</b> TableReader.cpp:31</div></div>
+<div class="ttc" id="_dynamic_lib_8hpp_html"><div class="ttname"><a href="_dynamic_lib_8hpp.html">DynamicLib.hpp</a></div></div>
+<div class="ttc" id="_dynamic_lib_8hpp_html_a65be3f160a2506530ad146c50e182ffe"><div class="ttname"><a href="_dynamic_lib_8hpp.html#a65be3f160a2506530ad146c50e182ffe">lib_t</a></div><div class="ttdeci">void * lib_t</div><div class="ttdef"><b>Definition:</b> DynamicLib.hpp:18</div></div>
 <div class="ttc" id="_class_8hpp_html"><div class="ttname"><a href="_class_8hpp.html">Class.hpp</a></div></div>
 <div class="ttc" id="class_smartdb_1_1_scheduler_html"><div class="ttname"><a href="class_smartdb_1_1_scheduler.html">Smartdb::Scheduler</a></div><div class="ttdef"><b>Definition:</b> Scheduler.hpp:20</div></div>
 <div class="ttc" id="class_smartdb_1_1_table_reader_html_af5c914e1962950a236e32dcb17733297"><div class="ttname"><a href="class_smartdb_1_1_table_reader.html#af5c914e1962950a236e32dcb17733297">Smartdb::TableReader::~TableReader</a></div><div class="ttdeci">~TableReader()</div><div class="ttdef"><b>Definition:</b> TableReader.cpp:27</div></div>
+<div class="ttc" id="_smartdb_storage_8hpp_html"><div class="ttname"><a href="_smartdb_storage_8hpp.html">SmartdbStorage.hpp</a></div></div>
 <div class="ttc" id="struct_smartdb_1_1_table_reader_param_html"><div class="ttname"><a href="struct_smartdb_1_1_table_reader_param.html">Smartdb::TableReaderParam</a></div><div class="ttdef"><b>Definition:</b> OperatorParam.hpp:21</div></div>
 <div class="ttc" id="_operator_param_8hpp_html"><div class="ttname"><a href="_operator_param_8hpp.html">OperatorParam.hpp</a></div></div>
 <div class="ttc" id="class_smartdb_1_1_table_reader_html_a78c89a3afd470c38edd504ecfb9fe557"><div class="ttname"><a href="class_smartdb_1_1_table_reader.html#a78c89a3afd470c38edd504ecfb9fe557">Smartdb::TableReader::TableReader</a></div><div class="ttdeci">TableReader(const OperatorParam *const param)</div><div class="ttdef"><b>Definition:</b> TableReader.cpp:21</div></div>
-<div class="ttc" id="_smartdb_type_8hpp_html"><div class="ttname"><a href="_smartdb_type_8hpp.html">SmartdbType.hpp</a></div></div>
 <div class="ttc" id="_column_def_8hpp_html"><div class="ttname"><a href="_column_def_8hpp.html">ColumnDef.hpp</a></div></div>
-<div class="ttc" id="_smartdb_type_8hpp_html_a65be3f160a2506530ad146c50e182ffe"><div class="ttname"><a href="_smartdb_type_8hpp.html#a65be3f160a2506530ad146c50e182ffe">lib_t</a></div><div class="ttdeci">void * lib_t</div><div class="ttdef"><b>Definition:</b> SmartdbType.hpp:86</div></div>
-<div class="ttc" id="structstorage__funcs__t_html"><div class="ttname"><a href="structstorage__funcs__t.html">storage_funcs_t</a></div><div class="ttdef"><b>Definition:</b> SmartdbType.hpp:101</div></div>
+<div class="ttc" id="structstorage__funcs__t_html"><div class="ttname"><a href="structstorage__funcs__t.html">storage_funcs_t</a></div><div class="ttdef"><b>Definition:</b> SmartdbStorage.hpp:23</div></div>
 <div class="ttc" id="_operator_8hpp_html"><div class="ttname"><a href="_operator_8hpp.html">Operator.hpp</a></div></div>
 <div class="ttc" id="class_smartdb_1_1_operator_html"><div class="ttname"><a href="class_smartdb_1_1_operator.html">Smartdb::Operator</a></div><div class="ttdef"><b>Definition:</b> Operator.hpp:19</div></div>
-<div class="ttc" id="class_smartdb_1_1_table_reader_html"><div class="ttname"><a href="class_smartdb_1_1_table_reader.html">Smartdb::TableReader</a></div><div class="ttdef"><b>Definition:</b> TableReader.hpp:15</div></div>
+<div class="ttc" id="class_smartdb_1_1_table_reader_html"><div class="ttname"><a href="class_smartdb_1_1_table_reader.html">Smartdb::TableReader</a></div><div class="ttdef"><b>Definition:</b> TableReader.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 3 2015 01:40:28 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 02:20:40 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
