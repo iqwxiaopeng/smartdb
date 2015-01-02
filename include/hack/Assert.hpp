@@ -8,6 +8,8 @@
 #ifndef LIB_HACK_ASSERT_H_
 #define LIB_HACK_ASSERT_H_
 
+#include "hack/stacktrace.h"
+
 #ifdef SMARTDB_GTEST
 #include <stdexcept>
 #include <sstream>
@@ -22,6 +24,7 @@ public:
 
 #define ASSERT(cond) \
   if (!(cond)) { \
+    print_stacktrace(); \
     std::ostringstream ss; \
     ss << __FILE__ << ":" << __LINE__ << " (in " << __FUNCTION__ << "())" << " SmartdbAssertionFailed: " << #cond; \
     throw SmartdbAssertionFailed(ss.str()); \
@@ -31,7 +34,10 @@ public:
 #include <cassert>
 
 #define ASSERT(cond) \
-  assert(cond);
+  { \
+    if (!(cond)) print_stacktrace(); \
+    assert(cond); \
+  }
 
 #endif /* SMARTDB_GTEST */
 
