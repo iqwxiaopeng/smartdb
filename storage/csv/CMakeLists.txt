@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 CMAKE_POLICY(SET CMP0003 NEW)
 
-PROJECT(csv)
+PROJECT(smartdb_engine_csv)
 
 #
 # setting variables
@@ -19,10 +19,10 @@ SET(LIB_SOURCE_FILES
     Csv.cpp
 )
 
-ADD_LIBRARY(csv SHARED ${LIB_SOURCE_FILES})
+ADD_LIBRARY(smartdb_engine_csv SHARED ${LIB_SOURCE_FILES})
 
 #
 # Link external libraries (both dynamic & static)
-TARGET_LINK_LIBRARIES(csv smartdb_storageinterface)
+TARGET_LINK_LIBRARIES(smartdb_engine_csv smartdb_storageinterface)
 
-INSTALL(TARGETS csv LIBRARY DESTINATION lib)
+INSTALL(TARGETS smartdb_engine_csv LIBRARY DESTINATION lib)

@@ -68,9 +68,8 @@ fin:
   return (SmartdbErr)ret;
 }
 
-inline
-std::string TableReader::dlib_name_without_suffix() {
-  return std::string("lib") + param->storage_engine_name;
+inline std::string TableReader::dlib_name_without_suffix() {
+  return std::string("libsmartdb_engine_") + param->storage_engine_name;
 }
 
 inline
