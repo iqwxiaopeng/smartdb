@@ -16,7 +16,9 @@
 
 namespace Smartdb {
 
-// FixedLengthColumn represents partial column (not including all records)
+/**
+ * FixedLengthColumn represents partial column (not including all records)
+ */
 class FixedLengthColumn : public Column {
 public:
   FixedLengthColumn(const ColumnDef &coldef, Buffer &buf);

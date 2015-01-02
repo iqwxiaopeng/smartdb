@@ -12,19 +12,6 @@ $ unzip gtest-1.7.0.zip
 $ mv gtest-1.7.0 /path/to/smartdb/contrib/gtest
 ```
 
-### Getting csv-parser-cplusplus
-
-CSV storage engine depends on [csv-parser-cplusplus](https://code.google.com/p/csv-parser-cplusplus).
-
-```bash
-$ wget https://csv-parser-cplusplus.googlecode.com/files/libcsv_parser%2B%2B-1.0.0.tar.bz2
-$ tar xvf libcsv_parser++-1.0.0.tar.bz2
-$ cd libcsv_parser++-1.0.0/
-$ ./configure && make
-$ cp .libs/libcsv_parser.a /path/to/smartdb/storage/csv/contrib/csv_parser/
-$ cp include/csv_parser/csv_parser.hpp /path/to/smartdb/storage/csv/contrib/csv_parser/
-```
-
 ### Running via shell
 
 ```bash

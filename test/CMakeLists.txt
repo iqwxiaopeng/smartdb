@@ -79,7 +79,6 @@ SET(UNIT_TEST_SOURCE_FILES
 
 ADD_EXECUTABLE(run_unit_test ${UNIT_TEST_SOURCE_FILES})
 TARGET_LINK_LIBRARIES(run_unit_test csv)
-TARGET_LINK_LIBRARIES(run_unit_test csv_parser)
 TARGET_LINK_LIBRARIES(run_unit_test dl)  # for using dlopen()
 TARGET_LINK_LIBRARIES(run_unit_test pthread)
 
@@ -101,6 +100,5 @@ SET(INTEGRATED_TEST_SOURCE_FILES
 
 ADD_EXECUTABLE(run_integrated_test ${INTEGRATED_TEST_SOURCE_FILES})
 TARGET_LINK_LIBRARIES(run_integrated_test csv)
-TARGET_LINK_LIBRARIES(run_integrated_test csv_parser)
 TARGET_LINK_LIBRARIES(run_integrated_test dl)  # for using dlopen()
 TARGET_LINK_LIBRARIES(run_integrated_test pthread)

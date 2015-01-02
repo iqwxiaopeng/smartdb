@@ -47,9 +47,6 @@ test/run_unit_test
 test/run_integrated_test
 contrib/gtest/
 
-# csv-parser-cplusplus
-storage/csv/contrib/csv_parser
-
 # Editor files
 *~
 

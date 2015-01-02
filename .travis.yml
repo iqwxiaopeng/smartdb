@@ -17,7 +17,6 @@ install:
 
 before_script:
   - wget https://googletest.googlecode.com/files/gtest-1.7.0.zip && unzip gtest-1.7.0.zip && mv gtest-1.7.0 contrib/gtest
-  - wget https://csv-parser-cplusplus.googlecode.com/files/libcsv_parser%2B%2B-1.0.0.tar.bz2 && tar xvf libcsv_parser++-1.0.0.tar.bz2 && (cd libcsv_parser++-1.0.0/ ; ./configure && make && sudo make install)
   # to show core dump log on error
   - ulimit -c unlimited -S
 script:

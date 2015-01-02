@@ -36,13 +36,14 @@ SmartdbErr TableReader::read() {
   uintptr_t ret;  // hack: functions loaded by dlsym() seem to return void *.
                   // void * => SmartdbErr is prohibited.
 
+  // [TODO] - storage_init() should not be called from each instance of TableReader.
   ret = (uintptr_t)storage_funcs.storage_init(logger, param->extra);
   if (ret != (uintptr_t)NO_ERR) return (SmartdbErr)ret;
 
   std::vector<Buffer *> colbufs(param->coldefs.size(), NULL);
   std::vector<size_t> colbuf_sizes(param->coldefs.size(), 0);
 
-  size_t read_records = 0;
+  size_t n_read_records = 0;
   bool finished = false;
   while (!finished) {
     // prepare for Records
@@ -50,18 +51,20 @@ SmartdbErr TableReader::read() {
       // [TODO] - calculate average size of variable-sized column
       colbuf_sizes[i] = param->coldefs[i]->size() * param->records_chunk_size;
     }
-    Records *records = new Records(param->coldefs, colbuf_sizes);
+    Records *records = new Records(param->coldefs, colbuf_sizes);  // [FIXME] - delete
 
     ret = (uintptr_t)storage_funcs.storage_read_records(
-      param->records_chunk_size, *records, read_records, finished);
+      param->records_chunk_size, *records, n_read_records, finished);
     if (ret != (uintptr_t)NO_ERR) goto fin;
-    ASSERT(read_records > 0);
-    out_q.push(records);
+    ASSERT(finished || n_read_records > 0);
+    if (n_read_records > 0) out_q.push(records);
   }
 
   out_q.finish();
   ret = (uintptr_t)NO_ERR;
+
 fin:
+  storage_funcs.storage_finish();
   return (SmartdbErr)ret;
 }
 
