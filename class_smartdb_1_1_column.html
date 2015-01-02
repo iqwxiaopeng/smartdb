@@ -103,7 +103,7 @@ Inheritance diagram for Smartdb::Column:</div>
  <div class="center">
   <img src="class_smartdb_1_1_column.png" usemap="#Smartdb::Column_map" alt=""/>
   <map id="Smartdb::Column_map" name="Smartdb::Column_map">
-<area href="class_smartdb_1_1_fixed_length_column.html" alt="Smartdb::FixedLengthColumn" shape="rect" coords="0,56,175,80"/>
+<area href="class_smartdb_1_1_fixed_length_column.html" title="FixedLengthColumn represents partial column (not including all records) " alt="Smartdb::FixedLengthColumn" shape="rect" coords="0,56,175,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -111,12 +111,12 @@ Inheritance diagram for Smartdb::Column:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a385b84d38f561c5066a1005e77d49912"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#a385b84d38f561c5066a1005e77d49912">~Column</a> ()</td></tr>
 <tr class="separator:a385b84d38f561c5066a1005e77d49912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a703e9b7c889aa9958075ba92020b89fc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#a703e9b7c889aa9958075ba92020b89fc">add</a> (const <a class="el" href="union_smartdb_value.html">SmartdbValue</a> &amp;val)=0</td></tr>
-<tr class="separator:a703e9b7c889aa9958075ba92020b89fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29de576917869291b79349d319101938"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#a29de576917869291b79349d319101938">add</a> (const <a class="el" href="union_smartdb_value.html">SmartdbValue</a> &amp;val)=0</td></tr>
+<tr class="separator:a29de576917869291b79349d319101938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f40331af0cd6d1fbbec735ea74835f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="union_smartdb_value.html">SmartdbValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#a95f40331af0cd6d1fbbec735ea74835f">get</a> (size_t row_index) const =0</td></tr>
 <tr class="separator:a95f40331af0cd6d1fbbec735ea74835f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9d9253f3f24377bf684e2f100b2f6a"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#abf9d9253f3f24377bf684e2f100b2f6a">size</a> () const =0</td></tr>
-<tr class="separator:abf9d9253f3f24377bf684e2f100b2f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0afe2558eee4dc258b31020b1b02b2f1"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#a0afe2558eee4dc258b31020b1b02b2f1">get_n_filled_row</a> () const =0</td></tr>
+<tr class="separator:a0afe2558eee4dc258b31020b1b02b2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2a277dcbb993d3b535963f92de71528"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_column.html#aa2a277dcbb993d3b535963f92de71528">clear</a> ()=0</td></tr>
 <tr class="separator:aa2a277dcbb993d3b535963f92de71528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -145,7 +145,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a703e9b7c889aa9958075ba92020b89fc"></a>
+<a class="anchor" id="a29de576917869291b79349d319101938"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -153,7 +153,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> Smartdb::Column::add </td>
+          <td class="memname">virtual void Smartdb::Column::add </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="union_smartdb_value.html">SmartdbValue</a> &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -167,7 +167,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_smartdb_1_1_fixed_length_column.html#a0a9a46c9cf76f32aa1c227607c576c04">Smartdb::FixedLengthColumn</a>.</p>
+<p>Implemented in <a class="el" href="class_smartdb_1_1_fixed_length_column.html#ac57bbb40b6a7746ae5f002aea9abf53a">Smartdb::FixedLengthColumn</a>.</p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abf9d9253f3f24377bf684e2f100b2f6a"></a>
+<a class="anchor" id="a0afe2558eee4dc258b31020b1b02b2f1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -230,7 +230,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual size_t Smartdb::Column::size </td>
+          <td class="memname">virtual size_t Smartdb::Column::get_n_filled_row </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -243,7 +243,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_smartdb_1_1_fixed_length_column.html#aaedb8003cd2e7e978c16dc36c326524c">Smartdb::FixedLengthColumn</a>.</p>
+<p>Implemented in <a class="el" href="class_smartdb_1_1_fixed_length_column.html#a3387070a060b1bd32110a27bb09225f2">Smartdb::FixedLengthColumn</a>.</p>
 
 </div>
 </div>
@@ -253,7 +253,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -144,10 +144,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:a9b75f5c732cdeb9773af11a5bfa3a0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65be3f160a2506530ad146c50e182ffe"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#a65be3f160a2506530ad146c50e182ffe">lib_t</a></td></tr>
 <tr class="separator:a65be3f160a2506530ad146c50e182ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77c99fcc31409be4cbd07960d813b1a6"><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#a77c99fcc31409be4cbd07960d813b1a6">storage_init_t</a> )(<a class="el" href="class_smartdb_1_1_logger.html">Smartdb::Logger</a> *const logger, const std::unordered_map&lt; std::string, std::string &gt; &amp;extra)</td></tr>
-<tr class="separator:a77c99fcc31409be4cbd07960d813b1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afad37ef03051dba46c7deae3bdefbd88"><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#afad37ef03051dba46c7deae3bdefbd88">storage_read_records_t</a> )(<a class="el" href="class_smartdb_1_1_records.html">Smartdb::Records</a> &amp;records, size_t n_records, size_t &amp;read_records, bool &amp;finished)</td></tr>
-<tr class="separator:afad37ef03051dba46c7deae3bdefbd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e20cf90c3623cc097cba685bf95c713"><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#a5e20cf90c3623cc097cba685bf95c713">storage_init_t</a> )(<a class="el" href="class_smartdb_1_1_logger.html">Smartdb::Logger</a> *const, const std::unordered_map&lt; std::string, std::string &gt; &amp;)</td></tr>
+<tr class="separator:a5e20cf90c3623cc097cba685bf95c713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af330e0e55990e0d5c2d4bfd84d8305"><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#a9af330e0e55990e0d5c2d4bfd84d8305">storage_read_records_t</a> )(size_t, <a class="el" href="class_smartdb_1_1_records.html">Smartdb::Records</a> &amp;, size_t &amp;, bool &amp;)</td></tr>
+<tr class="separator:a9af330e0e55990e0d5c2d4bfd84d8305"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc02f9932e7d1b4f6640cf1998ac828e"><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#adc02f9932e7d1b4f6640cf1998ac828e">storage_finish_t</a> )()</td></tr>
 <tr class="separator:adc02f9932e7d1b4f6640cf1998ac828e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaca3d9e5d8c5ec54f704b0321fc7733c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structstorage__funcs__t.html">storage_funcs_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#aaca3d9e5d8c5ec54f704b0321fc7733c">storage_funcs_t</a></td></tr>
@@ -162,14 +162,14 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a9f092e23c9742dc93c8afaa72b55599e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">SmartdbErr</a> { <br />
 &#160;&#160;<a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599ea996b5f0bbad38a985dd3b62337879919">NO_ERR</a> = 0, 
 <a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599ea73e87b870c25729390c2be7c2ed3c66f">PHYSICAL_MEM_SHORTAGE</a>, 
-<a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599ea4c38098654e154a8cfe2388c7d26cf30">MEM_BUF_SHORTAGE</a>, 
 <a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599ea797c479165a055a4dc7775b8b6e8630a">IO_ERR</a>, 
+<a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599eaabaf19e60a3277798a0a2d4be9d479e1">UNKNOWN_COLUMN</a>, 
 <br />
-&#160;&#160;<a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599eaabaf19e60a3277798a0a2d4be9d479e1">UNKNOWN_COLUMN</a>, 
-<a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599eabe91d934e3e86557bfc3f1d5014cb438">NO_MORE_RECORD</a>, 
+&#160;&#160;<a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599eabe91d934e3e86557bfc3f1d5014cb438">NO_MORE_RECORD</a>, 
 <a class="el" href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599ea0f886785b600b91048fcdc434c6b4a8e">ERR</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a9f092e23c9742dc93c8afaa72b55599e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error types.  <a href="_smartdb_type_8hpp.html#a9f092e23c9742dc93c8afaa72b55599e">More...</a><br /></td></tr>
 <tr class="separator:a9f092e23c9742dc93c8afaa72b55599e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -333,24 +333,24 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a77c99fcc31409be4cbd07960d813b1a6"></a>
+<a class="anchor" id="a5e20cf90c3623cc097cba685bf95c713"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void*(* storage_init_t)(<a class="el" href="class_smartdb_1_1_logger.html">Smartdb::Logger</a> *const logger, const std::unordered_map&lt; std::string, std::string &gt; &amp;extra)</td>
+          <td class="memname">typedef void*(* storage_init_t)(<a class="el" href="class_smartdb_1_1_logger.html">Smartdb::Logger</a> *const, const std::unordered_map&lt; std::string, std::string &gt; &amp;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="afad37ef03051dba46c7deae3bdefbd88"></a>
+<a class="anchor" id="a9af330e0e55990e0d5c2d4bfd84d8305"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void*(* storage_read_records_t)(<a class="el" href="class_smartdb_1_1_records.html">Smartdb::Records</a> &amp;records, size_t n_records, size_t &amp;read_records, bool &amp;finished)</td>
+          <td class="memname">typedef void*(* storage_read_records_t)(size_t, <a class="el" href="class_smartdb_1_1_records.html">Smartdb::Records</a> &amp;, size_t &amp;, bool &amp;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -367,20 +367,26 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Error types. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599ea996b5f0bbad38a985dd3b62337879919"></a>NO_ERR&#160;</td><td class="fielddoc">
+<p>NO_ERR. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599ea73e87b870c25729390c2be7c2ed3c66f"></a>PHYSICAL_MEM_SHORTAGE&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599ea4c38098654e154a8cfe2388c7d26cf30"></a>MEM_BUF_SHORTAGE&#160;</td><td class="fielddoc">
+<p>PHYSICAL_MEM_SHORTAGE Cannot allocate memory. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599ea797c479165a055a4dc7775b8b6e8630a"></a>IO_ERR&#160;</td><td class="fielddoc">
+<p>IO_ERR. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599eaabaf19e60a3277798a0a2d4be9d479e1"></a>UNKNOWN_COLUMN&#160;</td><td class="fielddoc">
+<p>UNKNOWN_COLUMN. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599eabe91d934e3e86557bfc3f1d5014cb438"></a>NO_MORE_RECORD&#160;</td><td class="fielddoc">
+<p>NO_MORE_RECORD. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a9f092e23c9742dc93c8afaa72b55599ea0f886785b600b91048fcdc434c6b4a8e"></a>ERR&#160;</td><td class="fielddoc">
+<p>ERR. </p>
 </td></tr>
 </table>
 
@@ -442,7 +448,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

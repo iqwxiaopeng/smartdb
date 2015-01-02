@@ -92,13 +92,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Assert.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &quot;hack/stacktrace.h&quot;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 </div>
 <p><a href="_assert_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0966b817b229d48e5ffc7feab19a0be6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(cond)&#160;&#160;&#160;assert(cond);</td></tr>
+<tr class="memitem:a0966b817b229d48e5ffc7feab19a0be6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(cond)</td></tr>
 <tr class="separator:a0966b817b229d48e5ffc7feab19a0be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -111,17 +112,22 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">cond</td><td>)</td>
-          <td>&#160;&#160;&#160;assert(cond);</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">{ <a class="code" href="parser_2_parser_8cpp.html#ab3454b1e7e7c4c0b732dfeb74a0c040f">\</a></div>
+<div class="line"><a class="code" href="parser_2_parser_8cpp.html#ab3454b1e7e7c4c0b732dfeb74a0c040f">    if</a> (!(cond)) print_stacktrace(); \</div>
+<div class="line">    assert(cond); \</div>
+<div class="line">  }</div>
+<div class="ttc" id="parser_2_parser_8cpp_html_ab3454b1e7e7c4c0b732dfeb74a0c040f"><div class="ttname"><a href="parser_2_parser_8cpp.html#ab3454b1e7e7c4c0b732dfeb74a0c040f">if</a></div><div class="ttdeci">if(!yymsg) yymsg</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

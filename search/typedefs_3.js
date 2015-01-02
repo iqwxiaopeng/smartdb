@@ -7,6 +7,6 @@ var searchData=
   ['smartdbvalue',['SmartdbValue',['../_smartdb_type_8hpp.html#a9b75f5c732cdeb9773af11a5bfa3a0ba',1,'SmartdbType.hpp']]],
   ['storage_5ffinish_5ft',['storage_finish_t',['../_smartdb_type_8hpp.html#adc02f9932e7d1b4f6640cf1998ac828e',1,'SmartdbType.hpp']]],
   ['storage_5ffuncs_5ft',['storage_funcs_t',['../_smartdb_type_8hpp.html#aaca3d9e5d8c5ec54f704b0321fc7733c',1,'SmartdbType.hpp']]],
-  ['storage_5finit_5ft',['storage_init_t',['../_smartdb_type_8hpp.html#a77c99fcc31409be4cbd07960d813b1a6',1,'SmartdbType.hpp']]],
-  ['storage_5fread_5frecords_5ft',['storage_read_records_t',['../_smartdb_type_8hpp.html#afad37ef03051dba46c7deae3bdefbd88',1,'SmartdbType.hpp']]]
+  ['storage_5finit_5ft',['storage_init_t',['../_smartdb_type_8hpp.html#a5e20cf90c3623cc097cba685bf95c713',1,'SmartdbType.hpp']]],
+  ['storage_5fread_5frecords_5ft',['storage_read_records_t',['../_smartdb_type_8hpp.html#a9af330e0e55990e0d5c2d4bfd84d8305',1,'SmartdbType.hpp']]]
 ];

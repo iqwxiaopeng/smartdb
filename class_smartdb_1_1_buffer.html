@@ -96,20 +96,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Memory manager.  
+ <a href="class_smartdb_1_1_buffer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_buffer_8hpp_source.html">Buffer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af4222c316e698de2050bd09e6df53396"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_buffer.html#af4222c316e698de2050bd09e6df53396">Buffer</a> (size_t <a class="el" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">size</a>)</td></tr>
+<tr class="memdesc:af4222c316e698de2050bd09e6df53396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#af4222c316e698de2050bd09e6df53396">More...</a><br /></td></tr>
 <tr class="separator:af4222c316e698de2050bd09e6df53396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ada7ce8a39d1cac71be488df1c89492"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_buffer.html#a5ada7ce8a39d1cac71be488df1c89492">~Buffer</a> ()</td></tr>
-<tr class="separator:a5ada7ce8a39d1cac71be488df1c89492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed309a5beb1a6059d3577533b613283"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_buffer.html#a2ed309a5beb1a6059d3577533b613283">~Buffer</a> ()</td></tr>
+<tr class="separator:a2ed309a5beb1a6059d3577533b613283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606fdae8aa5e44737df101b01c215dfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_buffer.html#a606fdae8aa5e44737df101b01c215dfc">extend</a> (size_t ratio=2)  throw (AllocError)</td></tr>
+<tr class="memdesc:a606fdae8aa5e44737df101b01c215dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend memory size <code>ratio</code> times.  <a href="#a606fdae8aa5e44737df101b01c215dfc">More...</a><br /></td></tr>
+<tr class="separator:a606fdae8aa5e44737df101b01c215dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4ccf15496b09bb3af4263db23a26627"><td class="memItemLeft" align="right" valign="top">char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">ptr</a> () const </td></tr>
 <tr class="separator:ab4ccf15496b09bb3af4263db23a26627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89111c6912d5ac131b7349511c146ce8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">size</a> () const </td></tr>
 <tr class="separator:a89111c6912d5ac131b7349511c146ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Memory manager. </p>
+<dl class="section note"><dt>Note</dt><dd>Not thread-safe. </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="af4222c316e698de2050bd09e6df53396"></a>
 <div class="memitem">
 <div class="memproto">
@@ -124,32 +134,62 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Initial buffer size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a class="anchor" id="a5ada7ce8a39d1cac71be488df1c89492"></a>
+<a class="anchor" id="a2ed309a5beb1a6059d3577533b613283"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual Smartdb::Buffer::~Buffer </td>
+          <td class="memname">Smartdb::Buffer::~Buffer </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a606fdae8aa5e44737df101b01c215dfc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Smartdb::Buffer::extend </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ratio</em> = <code>2</code></td><td>)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2"><a class="el" href="class_smartdb_1_1_alloc_error.html">AllocError</a></td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extend memory size <code>ratio</code> times. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ratio</td><td>Should be greater than 1. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ab4ccf15496b09bb3af4263db23a26627"></a>
 <div class="memitem">
 <div class="memproto">
@@ -202,7 +242,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

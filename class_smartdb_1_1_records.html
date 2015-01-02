@@ -101,8 +101,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9fa64dba6eb1540dd37e74264c66ff20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_records.html#a9fa64dba6eb1540dd37e74264c66ff20">Records</a> (const std::vector&lt; const <a class="el" href="class_smartdb_1_1_column_def.html">ColumnDef</a> * &gt; &amp;<a class="el" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">coldefs</a>, const std::vector&lt; size_t &gt; &amp;colbuf_sizes)</td></tr>
-<tr class="separator:a9fa64dba6eb1540dd37e74264c66ff20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbbf55bce4a5a2090a7f474bf983eb18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_records.html#abbbf55bce4a5a2090a7f474bf983eb18">Records</a> (const std::vector&lt; const <a class="el" href="class_smartdb_1_1_column_def.html">ColumnDef</a> * &gt; &amp;<a class="el" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">coldefs</a>, const std::vector&lt; size_t &gt; &amp;min_colbuf_sizes)</td></tr>
+<tr class="memdesc:abbbf55bce4a5a2090a7f474bf983eb18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct records, which is sets of <a class="el" href="class_smartdb_1_1_column.html">Column</a>.  <a href="#abbbf55bce4a5a2090a7f474bf983eb18">More...</a><br /></td></tr>
+<tr class="separator:abbbf55bce4a5a2090a7f474bf983eb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefc94018990f4c9e47cfa5ca02bfc23c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_records.html#aefc94018990f4c9e47cfa5ca02bfc23c">~Records</a> ()</td></tr>
 <tr class="separator:aefc94018990f4c9e47cfa5ca02bfc23c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37ff7e5bc48cc15256b4be9c6cac879d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">size</a> () const </td></tr>
@@ -119,7 +120,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a5681f4581d15fd011e5b204d5f3d88d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9fa64dba6eb1540dd37e74264c66ff20"></a>
+<a class="anchor" id="abbbf55bce4a5a2090a7f474bf983eb18"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -133,7 +134,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::vector&lt; size_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>colbuf_sizes</em>&#160;</td>
+          <td class="paramname"><em>min_colbuf_sizes</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -142,6 +143,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construct records, which is sets of <a class="el" href="class_smartdb_1_1_column.html">Column</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coldefs</td><td></td></tr>
+    <tr><td class="paramname">min_colbuf_sizes</td><td>Minimum size of each column's buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -238,7 +248,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

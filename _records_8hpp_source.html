@@ -111,50 +111,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Records are set of Column</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_smartdb_1_1_records.html">Records</a> {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="class_smartdb_1_1_records.html#a9fa64dba6eb1540dd37e74264c66ff20">Records</a>(<span class="keyword">const</span> std::vector&lt;const ColumnDef *&gt;&amp; <a class="code" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">coldefs</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;          <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; colbuf_sizes);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="class_smartdb_1_1_records.html#aefc94018990f4c9e47cfa5ca02bfc23c">~Records</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">size</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">clear</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">   29</a></span>&#160;  <span class="keyword">const</span> std::vector&lt;const ColumnDef *&gt; &amp;<a class="code" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">coldefs</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">   30</a></span>&#160;  std::vector&lt;Column *&gt; <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::vector&lt;Buffer *&gt; colbufs;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="_class_8hpp.html#aa85937d2df9b8f617841e2aa68a7753f">PREVENT_CLASS_DEFAULT_METHODS</a>(<a class="code" href="class_smartdb_1_1_records.html">Records</a>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">   40</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">Records::size</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(<a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>.size() &gt; 0);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">size_t</span> _size = <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>[0]-&gt;size();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>.size(); ++i)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(<a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>[i]-&gt;<a class="code" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">size</a>() == _size)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> _size;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">Records::clear</a>() {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>.size(); ++i) <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>[i]-&gt;<a class="code" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">clear</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">/* namespace Smartdb */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="class_smartdb_1_1_records.html#abbbf55bce4a5a2090a7f474bf983eb18">Records</a>(<span class="keyword">const</span> std::vector&lt;const ColumnDef *&gt;&amp; <a class="code" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">coldefs</a>,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;          <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; min_colbuf_sizes);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_smartdb_1_1_records.html#aefc94018990f4c9e47cfa5ca02bfc23c">~Records</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">clear</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">   34</a></span>&#160;  <span class="keyword">const</span> std::vector&lt;const ColumnDef *&gt; &amp;<a class="code" href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">coldefs</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">   35</a></span>&#160;  std::vector&lt;Column *&gt; <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="_class_8hpp.html#aa85937d2df9b8f617841e2aa68a7753f">PREVENT_CLASS_DEFAULT_METHODS</a>(<a class="code" href="class_smartdb_1_1_records.html">Records</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">   42</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">Records::size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(<a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>.size() &gt; 0);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">size_t</span> _size = <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>[0]-&gt;get_n_filled_row();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>.size(); ++i)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(<a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>[i]-&gt;get_n_filled_row() == _size)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">return</span> _size;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">Records::clear</a>() {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>.size(); ++i) <a class="code" href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">columns</a>[i]-&gt;<a class="code" href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">clear</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LIB_DATASTRUCT_RECORDS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_smartdb_1_1_records_html_a328ab5917d37ab315bfcf1cac84a8ce1"><div class="ttname"><a href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">Smartdb::Records::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> Records.hpp:50</div></div>
-<div class="ttc" id="class_smartdb_1_1_records_html_a72130c79e9894f1ca491c535a85164d3"><div class="ttname"><a href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">Smartdb::Records::coldefs</a></div><div class="ttdeci">const std::vector&lt; const ColumnDef * &gt; &amp; coldefs</div><div class="ttdef"><b>Definition:</b> Records.hpp:29</div></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">/* namespace Smartdb */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LIB_DATASTRUCT_RECORDS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_smartdb_1_1_records_html_a328ab5917d37ab315bfcf1cac84a8ce1"><div class="ttname"><a href="class_smartdb_1_1_records.html#a328ab5917d37ab315bfcf1cac84a8ce1">Smartdb::Records::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> Records.hpp:52</div></div>
+<div class="ttc" id="class_smartdb_1_1_records_html_a72130c79e9894f1ca491c535a85164d3"><div class="ttname"><a href="class_smartdb_1_1_records.html#a72130c79e9894f1ca491c535a85164d3">Smartdb::Records::coldefs</a></div><div class="ttdeci">const std::vector&lt; const ColumnDef * &gt; &amp; coldefs</div><div class="ttdef"><b>Definition:</b> Records.hpp:34</div></div>
 <div class="ttc" id="_class_8hpp_html"><div class="ttname"><a href="_class_8hpp.html">Class.hpp</a></div></div>
-<div class="ttc" id="class_smartdb_1_1_records_html_a9fa64dba6eb1540dd37e74264c66ff20"><div class="ttname"><a href="class_smartdb_1_1_records.html#a9fa64dba6eb1540dd37e74264c66ff20">Smartdb::Records::Records</a></div><div class="ttdeci">Records(const std::vector&lt; const ColumnDef * &gt; &amp;coldefs, const std::vector&lt; size_t &gt; &amp;colbuf_sizes)</div></div>
 <div class="ttc" id="_column_8hpp_html"><div class="ttname"><a href="_column_8hpp.html">Column.hpp</a></div></div>
 <div class="ttc" id="class_smartdb_1_1_records_html"><div class="ttname"><a href="class_smartdb_1_1_records.html">Smartdb::Records</a></div><div class="ttdef"><b>Definition:</b> Records.hpp:20</div></div>
-<div class="ttc" id="class_smartdb_1_1_records_html_a37ff7e5bc48cc15256b4be9c6cac879d"><div class="ttname"><a href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">Smartdb::Records::size</a></div><div class="ttdeci">size_t size() const </div><div class="ttdef"><b>Definition:</b> Records.hpp:40</div></div>
-<div class="ttc" id="_assert_8hpp_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdef"><b>Definition:</b> Assert.hpp:33</div></div>
-<div class="ttc" id="class_smartdb_1_1_records_html_a5681f4581d15fd011e5b204d5f3d88d9"><div class="ttname"><a href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">Smartdb::Records::columns</a></div><div class="ttdeci">std::vector&lt; Column * &gt; columns</div><div class="ttdef"><b>Definition:</b> Records.hpp:30</div></div>
+<div class="ttc" id="class_smartdb_1_1_records_html_a37ff7e5bc48cc15256b4be9c6cac879d"><div class="ttname"><a href="class_smartdb_1_1_records.html#a37ff7e5bc48cc15256b4be9c6cac879d">Smartdb::Records::size</a></div><div class="ttdeci">size_t size() const </div><div class="ttdef"><b>Definition:</b> Records.hpp:42</div></div>
+<div class="ttc" id="_assert_8hpp_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdef"><b>Definition:</b> Assert.hpp:36</div></div>
+<div class="ttc" id="class_smartdb_1_1_records_html_a5681f4581d15fd011e5b204d5f3d88d9"><div class="ttname"><a href="class_smartdb_1_1_records.html#a5681f4581d15fd011e5b204d5f3d88d9">Smartdb::Records::columns</a></div><div class="ttdeci">std::vector&lt; Column * &gt; columns</div><div class="ttdef"><b>Definition:</b> Records.hpp:35</div></div>
+<div class="ttc" id="class_smartdb_1_1_records_html_abbbf55bce4a5a2090a7f474bf983eb18"><div class="ttname"><a href="class_smartdb_1_1_records.html#abbbf55bce4a5a2090a7f474bf983eb18">Smartdb::Records::Records</a></div><div class="ttdeci">Records(const std::vector&lt; const ColumnDef * &gt; &amp;coldefs, const std::vector&lt; size_t &gt; &amp;min_colbuf_sizes)</div><div class="ttdoc">Construct records, which is sets of Column. </div></div>
 <div class="ttc" id="_class_8hpp_html_aa85937d2df9b8f617841e2aa68a7753f"><div class="ttname"><a href="_class_8hpp.html#aa85937d2df9b8f617841e2aa68a7753f">PREVENT_CLASS_DEFAULT_METHODS</a></div><div class="ttdeci">#define PREVENT_CLASS_DEFAULT_METHODS(klass)</div><div class="ttdef"><b>Definition:</b> Class.hpp:17</div></div>
 <div class="ttc" id="_column_def_8hpp_html"><div class="ttname"><a href="_column_def_8hpp.html">ColumnDef.hpp</a></div></div>
 <div class="ttc" id="class_smartdb_1_1_records_html_aefc94018990f4c9e47cfa5ca02bfc23c"><div class="ttname"><a href="class_smartdb_1_1_records.html#aefc94018990f4c9e47cfa5ca02bfc23c">Smartdb::Records::~Records</a></div><div class="ttdeci">~Records()</div></div>
@@ -162,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

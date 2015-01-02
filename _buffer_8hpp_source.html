@@ -100,68 +100,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef LIB_DATASTRUCT_BUFFER_H_</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define LIB_DATASTRUCT_BUFFER_H_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;new&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_buffer_8hpp.html#a58b4ce9049ddf26f23c6b6dcd808de7d">   13</a></span>&#160;<span class="preprocessor">#define BUFFER_ALLOCATE_THROW throw(std::bad_alloc)</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif // SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_smartdb_type_8hpp.html">api/SmartdbType.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_class_8hpp.html">hack/Class.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_assert_8hpp.html">hack/Assert.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>Smartdb {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_buffer.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_smartdb_1_1_buffer.html">Buffer</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="class_smartdb_1_1_buffer.html#af4222c316e698de2050bd09e6df53396">Buffer</a>(<span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">size</a>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="class_smartdb_1_1_buffer.html#a5ada7ce8a39d1cac71be488df1c89492">~Buffer</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">void</span> allocate() <a class="code" href="_buffer_8hpp.html#a58b4ce9049ddf26f23c6b6dcd808de7d">BUFFER_ALLOCATE_THROW</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">void</span> deallocate();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">char</span> * <span class="keyword">const</span> <a class="code" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">ptr</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">size</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">char</span> *_ptr;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">size_t</span> _size;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;PREVENT_CLASS_DEFAULT_METHODS(<a class="code" href="class_smartdb_1_1_buffer.html">Buffer</a>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">   44</a></span>&#160;<span class="keywordtype">char</span> * <span class="keyword">const</span> <a class="code" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">Buffer::ptr</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(_ptr);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> _ptr;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">   50</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">Buffer::size</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(_ptr);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> _size;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_alloc_error_8hpp.html">err/AllocError.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_smartdb_type_8hpp.html">api/SmartdbType.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_class_8hpp.html">hack/Class.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_assert_8hpp.html">hack/Assert.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Smartdb {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_buffer.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_smartdb_1_1_buffer.html">Buffer</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_smartdb_1_1_buffer.html#af4222c316e698de2050bd09e6df53396">Buffer</a>(<span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">size</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="class_smartdb_1_1_buffer.html#a2ed309a5beb1a6059d3577533b613283">~Buffer</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_smartdb_1_1_buffer.html#a606fdae8aa5e44737df101b01c215dfc">extend</a>(<span class="keywordtype">size_t</span> ratio = 2) <span class="keywordflow">throw</span>(<a class="code" href="class_smartdb_1_1_alloc_error.html">AllocError</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">char</span> * <span class="keyword">const</span> <a class="code" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">ptr</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> allocate() <span class="keywordflow">throw</span>(<a class="code" href="class_smartdb_1_1_alloc_error.html">AllocError</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> reallocate(<span class="keywordtype">size_t</span> new_size) <span class="keywordflow">throw</span>(<a class="code" href="class_smartdb_1_1_alloc_error.html">AllocError</a>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">void</span> deallocate();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">char</span> *_ptr;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">size_t</span> _size;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">/* namespace Smartdb */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;PREVENT_CLASS_DEFAULT_METHODS(<a class="code" href="class_smartdb_1_1_buffer.html">Buffer</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LIB_DATASTRUCT_BUFFER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_smartdb_1_1_buffer_html_af4222c316e698de2050bd09e6df53396"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#af4222c316e698de2050bd09e6df53396">Smartdb::Buffer::Buffer</a></div><div class="ttdeci">Buffer(size_t size)</div></div>
-<div class="ttc" id="class_smartdb_1_1_buffer_html_ab4ccf15496b09bb3af4263db23a26627"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">Smartdb::Buffer::ptr</a></div><div class="ttdeci">char *const ptr() const </div><div class="ttdef"><b>Definition:</b> Buffer.hpp:44</div></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">   60</a></span>&#160;<span class="keywordtype">char</span> * <span class="keyword">const</span> <a class="code" href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">Buffer::ptr</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(_ptr);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">return</span> _ptr;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">   66</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">Buffer::size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(_ptr);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordflow">return</span> _size;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;} <span class="comment">/* namespace Smartdb */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LIB_DATASTRUCT_BUFFER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_smartdb_1_1_buffer_html_a606fdae8aa5e44737df101b01c215dfc"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#a606fdae8aa5e44737df101b01c215dfc">Smartdb::Buffer::extend</a></div><div class="ttdeci">void extend(size_t ratio=2)</div><div class="ttdoc">Extend memory size ratio times. </div></div>
+<div class="ttc" id="class_smartdb_1_1_buffer_html_af4222c316e698de2050bd09e6df53396"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#af4222c316e698de2050bd09e6df53396">Smartdb::Buffer::Buffer</a></div><div class="ttdeci">Buffer(size_t size)</div><div class="ttdoc">Constructor. </div></div>
+<div class="ttc" id="class_smartdb_1_1_buffer_html_ab4ccf15496b09bb3af4263db23a26627"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#ab4ccf15496b09bb3af4263db23a26627">Smartdb::Buffer::ptr</a></div><div class="ttdeci">char *const ptr() const </div><div class="ttdef"><b>Definition:</b> Buffer.hpp:60</div></div>
 <div class="ttc" id="_class_8hpp_html"><div class="ttname"><a href="_class_8hpp.html">Class.hpp</a></div></div>
-<div class="ttc" id="_assert_8hpp_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdef"><b>Definition:</b> Assert.hpp:33</div></div>
+<div class="ttc" id="class_smartdb_1_1_alloc_error_html"><div class="ttname"><a href="class_smartdb_1_1_alloc_error.html">Smartdb::AllocError</a></div><div class="ttdef"><b>Definition:</b> AllocError.hpp:16</div></div>
+<div class="ttc" id="_assert_8hpp_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="_assert_8hpp.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdef"><b>Definition:</b> Assert.hpp:36</div></div>
+<div class="ttc" id="_alloc_error_8hpp_html"><div class="ttname"><a href="_alloc_error_8hpp.html">AllocError.hpp</a></div></div>
 <div class="ttc" id="_assert_8hpp_html"><div class="ttname"><a href="_assert_8hpp.html">Assert.hpp</a></div></div>
 <div class="ttc" id="_smartdb_type_8hpp_html"><div class="ttname"><a href="_smartdb_type_8hpp.html">SmartdbType.hpp</a></div></div>
-<div class="ttc" id="class_smartdb_1_1_buffer_html_a5ada7ce8a39d1cac71be488df1c89492"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#a5ada7ce8a39d1cac71be488df1c89492">Smartdb::Buffer::~Buffer</a></div><div class="ttdeci">virtual ~Buffer()</div></div>
-<div class="ttc" id="_buffer_8hpp_html_a58b4ce9049ddf26f23c6b6dcd808de7d"><div class="ttname"><a href="_buffer_8hpp.html#a58b4ce9049ddf26f23c6b6dcd808de7d">BUFFER_ALLOCATE_THROW</a></div><div class="ttdeci">#define BUFFER_ALLOCATE_THROW</div><div class="ttdef"><b>Definition:</b> Buffer.hpp:13</div></div>
-<div class="ttc" id="class_smartdb_1_1_buffer_html"><div class="ttname"><a href="class_smartdb_1_1_buffer.html">Smartdb::Buffer</a></div><div class="ttdef"><b>Definition:</b> Buffer.hpp:22</div></div>
-<div class="ttc" id="class_smartdb_1_1_buffer_html_a89111c6912d5ac131b7349511c146ce8"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">Smartdb::Buffer::size</a></div><div class="ttdeci">size_t size() const </div><div class="ttdef"><b>Definition:</b> Buffer.hpp:50</div></div>
+<div class="ttc" id="class_smartdb_1_1_buffer_html_a2ed309a5beb1a6059d3577533b613283"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#a2ed309a5beb1a6059d3577533b613283">Smartdb::Buffer::~Buffer</a></div><div class="ttdeci">~Buffer()</div></div>
+<div class="ttc" id="class_smartdb_1_1_buffer_html"><div class="ttname"><a href="class_smartdb_1_1_buffer.html">Smartdb::Buffer</a></div><div class="ttdoc">Memory manager. </div><div class="ttdef"><b>Definition:</b> Buffer.hpp:23</div></div>
+<div class="ttc" id="class_smartdb_1_1_buffer_html_a89111c6912d5ac131b7349511c146ce8"><div class="ttname"><a href="class_smartdb_1_1_buffer.html#a89111c6912d5ac131b7349511c146ce8">Smartdb::Buffer::size</a></div><div class="ttdeci">size_t size() const </div><div class="ttdef"><b>Definition:</b> Buffer.hpp:66</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 31 2014 13:13:35 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 3 2015 01:38:02 for Smartdb by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

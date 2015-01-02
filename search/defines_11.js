@@ -8,5 +8,6 @@ var searchData=
   ['some',['SOME',['../parser_2_parser_8cpp.html#a9049af7971bdca5e135faa40d42f2010',1,'SOME():&#160;parser.cpp'],['../lib_2parser_2_parser_8hpp.html#a9049af7971bdca5e135faa40d42f2010',1,'SOME():&#160;parser.hpp']]],
   ['sqlcode',['SQLCODE',['../parser_2_parser_8cpp.html#a1a0321369e9a55d5371f1f0fa786a248',1,'SQLCODE():&#160;parser.cpp'],['../lib_2parser_2_parser_8hpp.html#a1a0321369e9a55d5371f1f0fa786a248',1,'SQLCODE():&#160;parser.hpp']]],
   ['sqlerror',['SQLERROR',['../parser_2_parser_8cpp.html#a15d3ff5b7acb3037a3c5f6373b68695f',1,'SQLERROR():&#160;parser.cpp'],['../lib_2parser_2_parser_8hpp.html#a15d3ff5b7acb3037a3c5f6373b68695f',1,'SQLERROR():&#160;parser.hpp']]],
+  ['strerror_5fthrow',['STRERROR_THROW',['../_error_8hpp.html#ab6e1fa2f30bd919dd586759e4bf770be',1,'Error.hpp']]],
   ['string',['STRING',['../parser_2_parser_8cpp.html#a0f4d394a3ab4e09bff60f714c66dc5ee',1,'STRING():&#160;parser.cpp'],['../lib_2parser_2_parser_8hpp.html#a0f4d394a3ab4e09bff60f714c66dc5ee',1,'STRING():&#160;parser.hpp']]]
 ];

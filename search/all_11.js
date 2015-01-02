@@ -2,7 +2,7 @@ var searchData=
 [
   ['real',['REAL',['../parser_2_parser_8cpp.html#a4b654506f18b8bfd61ad2a29a7e38c25',1,'REAL():&#160;parser.cpp'],['../lib_2parser_2_parser_8hpp.html#a4b654506f18b8bfd61ad2a29a7e38c25',1,'REAL():&#160;parser.hpp'],['../parser_2_parser_8cpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a053cb139f4b2333482449705c529b1e9',1,'REAL():&#160;parser.cpp'],['../lib_2parser_2_parser_8hpp.html#a15c9f7bd2f0e9686df5d9df4f3314aa9a053cb139f4b2333482449705c529b1e9',1,'REAL():&#160;parser.hpp']]],
   ['records',['Records',['../class_smartdb_1_1_records.html',1,'Smartdb']]],
-  ['records',['Records',['../class_smartdb_1_1_records.html#a9fa64dba6eb1540dd37e74264c66ff20',1,'Smartdb::Records']]],
+  ['records',['Records',['../class_smartdb_1_1_records.html#abbbf55bce4a5a2090a7f474bf983eb18',1,'Smartdb::Records']]],
   ['records_2ehpp',['Records.hpp',['../_records_8hpp.html',1,'']]],
   ['records_5fchunk_5fsize',['records_chunk_size',['../struct_smartdb_1_1_table_reader_param.html#a7fbe5cde796bd83f51732297772fa790',1,'Smartdb::TableReaderParam']]],
   ['recordsqueue',['RecordsQueue',['../class_smartdb_1_1_records_queue.html',1,'Smartdb']]],

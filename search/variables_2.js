@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buf',['buf',['../class_smartdb_1_1_fixed_length_column.html#aa01520e58d475906fe56cf0943219c99',1,'Smartdb::FixedLengthColumn']]]
+  ['buf',['buf',['../class_smartdb_1_1_fixed_length_column.html#a7a90eb9fc5bf075d666c652cde576eb1',1,'Smartdb::FixedLengthColumn']]]
 ];

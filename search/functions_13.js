@@ -1,7 +1,8 @@
 var searchData=
 [
+  ['_7eallocerror',['~AllocError',['../class_smartdb_1_1_alloc_error.html#af1e96d968da4e6856be988a1c9b88413',1,'Smartdb::AllocError']]],
   ['_7ebinarytree',['~BinaryTree',['../class_smartdb_1_1_binary_tree.html#aaef7b24d222da5f40d7b43d952f2bab9',1,'Smartdb::BinaryTree']]],
-  ['_7ebuffer',['~Buffer',['../class_smartdb_1_1_buffer.html#a5ada7ce8a39d1cac71be488df1c89492',1,'Smartdb::Buffer']]],
+  ['_7ebuffer',['~Buffer',['../class_smartdb_1_1_buffer.html#a2ed309a5beb1a6059d3577533b613283',1,'Smartdb::Buffer']]],
   ['_7ecolumn',['~Column',['../class_smartdb_1_1_column.html#a385b84d38f561c5066a1005e77d49912',1,'Smartdb::Column']]],
   ['_7ecolumndef',['~ColumnDef',['../class_smartdb_1_1_column_def.html#a1c8db2bf4f275d8ae6723a35f88332f7',1,'Smartdb::ColumnDef']]],
   ['_7eexecutor',['~Executor',['../class_smartdb_1_1_executor.html#a28c8280cc1d909c7c20c560f888e0aa0',1,'Smartdb::Executor']]],
