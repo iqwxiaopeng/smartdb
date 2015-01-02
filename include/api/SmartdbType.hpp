@@ -67,13 +67,13 @@ SmartdbValue str_to_SmartdbValue(const std::string &str, SmartdbType type) {
  * Error types
  */
 enum SmartdbErr {
-  NO_ERR = 0,    //!< NO_ERR
-  PHYSICAL_MEM_SHORTAGE,  //!< PHYSICAL_MEM_SHORTAGE Cannot allocate memory
-  IO_ERR,        //!< IO_ERR
-  UNKNOWN_COLUMN,//!< UNKNOWN_COLUMN
-  NO_MORE_RECORD,//!< NO_MORE_RECORD
+  NO_ERR = 0,  //!<
+  PHYSICAL_MEM_SHORTAGE,  //!< Cannot allocate memory
+  IO_ERR,        //!< Error caused by disk I/O error
+  UNKNOWN_COLUMN,//!< Accesses to column with unknown name
+  NO_MORE_RECORD,//!<
 
-  ERR,           //!< ERR
+  ERR,           //!< Other error
 };
 
 //
