@@ -18,8 +18,12 @@
 namespace Smartdb {
 
 /**
- * FixedLengthColumn represents partial column (not including all records)
+ * FixedLengthColumn represents partial column (not including all records).
+ *
+ * All elements have the same type, which has fixed-length (4-byte, 8-byte, ...).
+ * @tparam T
  */
+//template <typename T>
 class FixedLengthColumn : public Column {
 public:
   /**

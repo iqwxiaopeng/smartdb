@@ -8,7 +8,15 @@
 #ifndef LIB_HACK_DYNAMICLIB_H_
 #define LIB_HACK_DYNAMICLIB_H_
 
-#include "api/SmartdbType.hpp"
+//
+// dynamic library treatment
+#ifdef _WIN32
+#include <windows.h>
+typedef HANDLE lib_t;
+#else
+#include <dlfcn.h>
+typedef void* lib_t;
+#endif
 
 #ifdef _WIN32
 static const char *dlerror(void)
@@ -24,7 +32,7 @@ static const char *dlerror(void)
 
 namespace Smartdb {
 
-lib_t load_dlib(const char* dlib_path) {
+inline lib_t load_dlib(const char* dlib_path) {
 #ifdef _WIN32
   return ::LoadLibraryA(dlib_path);
 #else //_WIN32
@@ -32,7 +40,7 @@ lib_t load_dlib(const char* dlib_path) {
 #endif //_WIN32
 }
 
-int unload_dlib(lib_t lib_handler) {
+inline int unload_dlib(lib_t lib_handler) {
 #ifdef _WIN32
   return ::FreeLibrary(lib_handler);
 #else //_WIN32
@@ -40,7 +48,7 @@ int unload_dlib(lib_t lib_handler) {
 #endif //_WIN32
 }
 
-void* load_func(lib_t lib_handler, const char* func_name) {
+inline void* load_func(lib_t lib_handler, const char* func_name) {
 #ifdef _WIN32
   return ::GetProcAddress(lib_handler, func_name);
 #else //_WIN32

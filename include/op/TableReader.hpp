@@ -5,10 +5,11 @@
 #include <vector>
 #include <unordered_map>
 #include "storageinterface/ColumnDef.hpp"
-#include "api/SmartdbType.hpp"
+#include "api/SmartdbStorage.hpp"
 #include "op/Operator.hpp"
 #include "op/OperatorParam.hpp"
 #include "hack/Class.hpp"
+#include "hack/DynamicLib.hpp"
 
 namespace Smartdb {
 
