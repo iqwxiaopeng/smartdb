@@ -1,0 +1,61 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+
+before_install:
+  # C++11 feature (e.g. std::unordered_map)
+  - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test ; fi
+  - sudo apt-get update -qq
+  # to show core dump log on error
+  - sudo apt-get -y install gdb
+install:
+  # C++11 feature (e.g. std::unordered_map)
+  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8 ; export CXX="g++-4.8" ; fi
+  # to show core dump log on error
+  - ulimit -c
+
+before_script:
+  - wget https://googletest.googlecode.com/files/gtest-1.7.0.zip && unzip gtest-1.7.0.zip && mv gtest-1.7.0 contrib/gtest
+  # to show core dump log on error
+  - ulimit -c unlimited -S
+script:
+  # build unit test & integrated test
+  - (cd test ; cmake . && make VERBOSE=1)
+
+  # run unit test
+  - (cd test ; ./run_unit_test)
+  # show core dump log on error
+  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_unit_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
+
+  # run integrated test
+  - (cd test ; ./run_integrated_test)
+  # show core dump log on error
+  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_integrated_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
+
+  # build examples
+  - (cd example ; cmake . && make VERBOSE=1)
+  # execute examples
+  - pwd
+  - (cd example ; for exe in $(find . -maxdepth 1 -type f -executable); do echo $exe ; ./$exe || exit ; done)
+
+  # build benchmarks
+  - (cd benchmark ; cmake . && make VERBOSE=1)
+  # generate small dataset
+  - ./script/generate-benchmark-data.sh 1
+  # run light-weight benchmarks
+  - (cd benchmark ; time ./PartialCsvParser_bench -p 2 -c 10000 -f csv/10000col.csv)
+  - (cd benchmark ; time ./csv_parser_cplusplus_bench -c 10000 -f csv/10000col.csv)
+
+notifications:
+  email:
+    recipients:
+      - lay.sakura@gmail.com
+    on_success: change
+    on_failure: always
+env:
+  - LANG="en_US.UTF-8"
+os:
+  - linux
+  - osx
+osx_image: xcode61
