@@ -63,17 +63,17 @@ SmartdbValue str_to_SmartdbValue(const std::string &str, SmartdbType type) {
   return val;
 }
 
-//
-// error types
+/**
+ * Error types
+ */
 enum SmartdbErr {
-  NO_ERR = 0,
-  PHYSICAL_MEM_SHORTAGE,  // Cannot allocate memory
-  MEM_BUF_SHORTAGE,       // `Buffer` space is not enough
-  IO_ERR,
-  UNKNOWN_COLUMN,
-  NO_MORE_RECORD,
+  NO_ERR = 0,    //!< NO_ERR
+  PHYSICAL_MEM_SHORTAGE,  //!< PHYSICAL_MEM_SHORTAGE Cannot allocate memory
+  IO_ERR,        //!< IO_ERR
+  UNKNOWN_COLUMN,//!< UNKNOWN_COLUMN
+  NO_MORE_RECORD,//!< NO_MORE_RECORD
 
-  ERR,
+  ERR,           //!< ERR
 };
 
 //

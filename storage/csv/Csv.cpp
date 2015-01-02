@@ -72,11 +72,7 @@ void* storage_finish() {
     std::string &column_s = row[col_index_in_csv]; \
     \
     SmartdbValue column_v = str_to_SmartdbValue(column_s, coldef->type); \
-    SmartdbErr ret = col->add(column_v); \
-    if (ret != NO_ERR) { \
-      logger->error((std::string("Column::add() returned error: ") + smartdb_errmsg(ret)).c_str()); \
-      return (void *)ret; \
-    } \
+    col->add(column_v); \
   }
 
 /**

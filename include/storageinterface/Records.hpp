@@ -19,8 +19,13 @@ namespace Smartdb {
 // Records are set of Column
 class Records {
 public:
+  /**
+   * Construct records, which is sets of Column.
+   * @param coldefs
+   * @param min_colbuf_sizes Minimum size of each column's buffer.
+   */
   Records(const std::vector<const ColumnDef *>& coldefs,
-          const std::vector<size_t>& colbuf_sizes);
+          const std::vector<size_t>& min_colbuf_sizes);
   ~Records();
 
   size_t size() const;
@@ -29,9 +34,6 @@ public:
   const std::vector<const ColumnDef *> &coldefs;
   std::vector<Column *> columns;
 
-private:
-  std::vector<Buffer *> colbufs;
-
   PREVENT_CLASS_DEFAULT_METHODS(Records)
 };
 
@@ -39,9 +41,9 @@ private:
 inline
 size_t Records::size() const {
   ASSERT(columns.size() > 0);
-  size_t _size = columns[0]->size();
+  size_t _size = columns[0]->get_n_filled_row();
   for (size_t i = 1; i < columns.size(); ++i)
-    ASSERT(columns[i]->size() == _size)
+    ASSERT(columns[i]->get_n_filled_row() == _size)
 
   return _size;
 }

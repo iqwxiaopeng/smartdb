@@ -8,10 +8,7 @@
 #ifndef LIB_DATASTRUCT_BUFFER_H_
 #define LIB_DATASTRUCT_BUFFER_H_
 
-#if SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)
-#include <new>
-#define BUFFER_ALLOCATE_THROW throw(std::bad_alloc)
-#endif // SMARTDB_MEM_MANAGER == Default || !defined(SMARTDB_MEM_MANAGER)
+#include "err/AllocError.hpp"
 
 #include "api/SmartdbType.hpp"
 #include "hack/Class.hpp"
@@ -19,18 +16,37 @@
 
 namespace Smartdb {
 
+/**
+ * Memory manager.
+ * @note Not thread-safe.
+ */
 class Buffer {
 public:
+  /**
+   * Constructor.
+   * @param size Initial buffer size.
+   */
   Buffer(size_t size);
-  virtual ~Buffer();
+  ~Buffer();
 
-private:
-  void allocate() BUFFER_ALLOCATE_THROW;
-  void deallocate();
+  /**
+   * Extend memory size \p ratio times.
+   * @param ratio Should be greater than 1.
+   */
+  void extend(size_t ratio = 2) throw(AllocError);
 
-public:
   char * const ptr() const;
   size_t size() const;
+
+private:
+  void allocate() throw(AllocError);
+
+  /**
+   * Reallocate memory.
+   * @param new_size \p new_size must be greater than previous \p _size.
+   */
+  void reallocate(size_t new_size) throw(AllocError);
+  void deallocate();
 
 private:
   char *_ptr;
