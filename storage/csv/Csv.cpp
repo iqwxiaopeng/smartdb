@@ -46,43 +46,12 @@ void* storage_init(
   return (void *)NO_ERR;
 }
 
-
-/**
- * @note storage_finish() is reentrant function.
- */
 void* storage_finish() {
   if (csv_config) delete csv_config;
   if (parser) delete parser;
   return (void *)NO_ERR;
 }
 
-/**
- * Push a \p row to \p records.
- * @param[in] row
- * @param[out] records
- */
-#define FILL_A_ROW(row, records) \
-  for (size_t col_i = 0; col_i < records.coldefs.size(); ++col_i) { \
-    const Smartdb::ColumnDef *coldef = records.coldefs[col_i]; \
-    Smartdb::Column *col = records.columns[col_i]; \
-    \
-    std::unordered_map<std::string, size_t>::const_iterator kv; \
-    kv = col_index.find(coldef->name); \
-    if (kv == col_index.end()) return (void *)UNKNOWN_COLUMN; \
-    size_t col_index_in_csv = kv->second; \
-    std::string &column_s = row[col_index_in_csv]; \
-    \
-    col->add(str_to_SmartdbValue(column_s, coldef->type)); \
-  }
-
-/**
- * Reads up to \p n_records_chunk from CSV file and push the them into \p records.
- * @param[in] n_records_chunk Maximum number of records to read within this invocation.
- * @param[out] records
- * @param[out] n_read_records Number of records read. Can take 0 ~ \p n_records_chunk
- * @param[out] finished
- * @return SmartdbErr casted to (void *).
- */
 void* storage_read_records(
   size_t n_records_chunk,
   /* out */
@@ -101,10 +70,28 @@ void* storage_read_records(
       finished = true;
       break;
     }
-    FILL_A_ROW(row, records);
+    SmartdbErr ret;
+    if ((ret = _fill_a_row(row, records)) != NO_ERR) return (void *)ret;
   }
 
   ASSERT(0 <= n_read_records);
   ASSERT(n_read_records <= n_records_chunk);
   return (void *)NO_ERR;
+}
+
+static inline SmartdbErr _fill_a_row(const std::vector<std::string> & row, Smartdb::Records & records) {
+  for (size_t col_i = 0; col_i < records.coldefs.size(); ++col_i) {
+    const Smartdb::ColumnDef *coldef = records.coldefs[col_i];
+    Smartdb::Column *col = records.columns[col_i];
+
+    std::unordered_map<std::string, size_t>::const_iterator kv;
+    kv = col_index.find(coldef->name);
+    if (kv == col_index.end()) return UNKNOWN_COLUMN;
+
+    size_t col_index_in_csv = kv->second;
+    const std::string &column_s = row[col_index_in_csv];
+
+    col->add(str_to_SmartdbValue(column_s, coldef->type));
+  }
+  return NO_ERR;
 }
