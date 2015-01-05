@@ -225,7 +225,6 @@ TEST_F(CsvTest, reads_from_same_column) {
   EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
 }
 
-/* コンストラクタに min_gurantee を渡して、それよりも多いレコードを詰めても大丈夫、というテストにする
 TEST_F(CsvTest, reads_too_many_records) {
   extra["path"] = "fixture/storage_csv_normal.csv";
   EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
@@ -243,48 +242,13 @@ TEST_F(CsvTest, reads_too_many_records) {
 
   size_t read_records;
   bool finished;
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));
+  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));  // buffer is extended internally
 
   EXPECT_FALSE(finished);
-  EXPECT_EQ(1, read_records);
+  EXPECT_EQ(2, read_records);
 
   EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
   EXPECT_EQ(102, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
+  EXPECT_EQ(201, GET_SMARTDB_VALUE(records.columns[0]->get(1), SmartdbInt));
+  EXPECT_EQ(202, GET_SMARTDB_VALUE(records.columns[1]->get(1), SmartdbInt));
 }
-
-TEST_F(CsvTest, reread_after_reading_too_many_records) {
-  extra["path"] = "fixture/storage_csv_normal.csv";
-  EXPECT_EQ((void *)NO_ERR, storage_init(&logger, extra));
-
-  std::vector<size_t> buf_sizes(2, 1024);
-  buf_sizes[0] = 4;  // not enough for reading 2 columns
-
-  const ColumnDef coldef1("col1", SMARTDB_INT);
-  const ColumnDef coldef2("col2", SMARTDB_INT);
-  std::vector<const ColumnDef *> coldefs(2, NULL);
-  coldefs[0] = &coldef1;
-  coldefs[1] = &coldef2;
-
-  Records records(coldefs, buf_sizes);
-
-  size_t read_records;
-  bool finished;
-
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));
-  EXPECT_FALSE(finished);
-  EXPECT_EQ(1, read_records);
-  EXPECT_EQ(101, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
-  EXPECT_EQ(102, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
-
-  records.clear();
-  EXPECT_EQ((void *)NO_ERR, storage_read_records(2, records, read_records, finished));
-  EXPECT_FALSE(finished);
-  EXPECT_EQ(1, read_records);
-  EXPECT_EQ(201, GET_SMARTDB_VALUE(records.columns[0]->get(0), SmartdbInt));
-  EXPECT_EQ(202, GET_SMARTDB_VALUE(records.columns[1]->get(0), SmartdbInt));
-}
-TEST_F(CsvTest, csv_file_not_found) {
-  extra["path"] = "fixture/storage_csv_normal.csv............exe";
-  EXPECT_EQ((void *)IO_ERR, storage_init(&logger, extra));
-}
-*/
