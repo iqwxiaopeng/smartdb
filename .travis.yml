@@ -32,12 +32,12 @@ script:
   # run unit test
   - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_unit_test)
   # show core dump log on error
-  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_unit_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
+  - (cd test ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_unit_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
 
   # run integrated test
   - (cd test ; LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ./run_integrated_test)
   # show core dump log on error
-  - (cd test/unit ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_integrated_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
+  - (cd test ; for i in $(find ./ -name 'core*' -print); do gdb $(pwd)/run_integrated_test core* -ex "thread apply all bt" -ex "set pagination 0" -batch; done; rm -f core*)
 
 notifications:
   email:
