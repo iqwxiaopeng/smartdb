@@ -68,6 +68,7 @@ void* storage_finish() {
     \
     std::unordered_map<std::string, size_t>::const_iterator kv; \
     kv = col_index.find(coldef->name); \
+    for (auto it = col_index.begin(); it != col_index.end(); ++it) printf("coldef->name = %s ; col_index[%s] = %u\n", coldef->name.c_str(), it->first.c_str(), it->second); \
     if (kv == col_index.end()) return (void *)UNKNOWN_COLUMN; \
     size_t col_index_in_csv = kv->second; \
     std::string &column_s = row[col_index_in_csv]; \
@@ -97,10 +98,12 @@ void* storage_read_records(
   std::vector<std::string> row;
 
   for ( ; n_read_records < n_records_chunk; ++n_read_records) {
-    if ((row = parser->get_row()).empty()) break;
+    if ((row = parser->get_row()).empty()) {
+      finished = true;
+      break;
+    }
     FILL_A_ROW(row, records);
   }
-  if (row.empty()) finished = true;
 
   ASSERT(0 <= n_read_records);
   ASSERT(n_read_records <= n_records_chunk);
