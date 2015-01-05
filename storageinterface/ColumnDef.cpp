@@ -9,7 +9,7 @@
 
 namespace Smartdb {
 
-ColumnDef::ColumnDef(const std::string & name, SmartdbType type)
+ColumnDef::ColumnDef(std::string name, SmartdbType type)
 : name(name), type(type)
 {
 }

@@ -16,10 +16,10 @@ namespace Smartdb {
 
 class ColumnDef {
 public:
-  ColumnDef(const std::string & name, SmartdbType type);
+  ColumnDef(std::string name, SmartdbType type);
   virtual ~ColumnDef();
 
-  const std::string & name;
+  std::string name;
   SmartdbType type;
 
   PREVENT_CLASS_DEFAULT_METHODS(ColumnDef);
