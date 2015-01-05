@@ -68,7 +68,6 @@ void* storage_finish() {
     \
     std::unordered_map<std::string, size_t>::const_iterator kv; \
     kv = col_index.find(coldef->name); \
-    for (auto it = col_index.begin(); it != col_index.end(); ++it) printf("coldef->name = %s ; col_index[%s] = %u\n", coldef->name.c_str(), it->first.c_str(), it->second); \
     if (kv == col_index.end()) return (void *)UNKNOWN_COLUMN; \
     size_t col_index_in_csv = kv->second; \
     std::string &column_s = row[col_index_in_csv]; \
