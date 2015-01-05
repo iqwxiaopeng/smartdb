@@ -30,9 +30,10 @@ protected:
 };
 
 TEST_F(TableReaderTest, reads_from_csv) {
-  ColumnDef coldef("col1", SMARTDB_INT);
+  const char * colname = "col1", * path = "path";
+  ColumnDef coldef(colname, SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
-  std::unordered_map<std::string, std::string> extra = { {"pathhhh", "fixture/storage_csv_normal.csv"} };
+  std::unordered_map<std::string, std::string> extra = { {path, "fixture/storage_csv_normal.csv"} };
   std::string engine("csv");
 
   TableReaderParam param(coldefs, engine, extra, 100);
