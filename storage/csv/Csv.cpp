@@ -25,7 +25,7 @@ void* storage_init(
   Smartdb::Logger* const _logger,
   const std::unordered_map<std::string, std::string> &extra) {
   logger = _logger;
-  csv_path = extra.at("path");
+  csv_path = extra.at("pathhhh");
 
   // instantiate CsvConfig
   try {
