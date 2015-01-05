@@ -8,10 +8,9 @@
 #ifndef LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 #define LIB_DATASTRUCT_FIXEDLENGTHCOLUMN_H_
 
-#include "Column.hpp"
+#include "storageinterface/Column.hpp"
 #include "api/SmartdbType.hpp"
 #include "err/AllocError.hpp"
-#include "storageinterface/ColumnDef.hpp"
 #include "storageinterface/Buffer.hpp"
 #include "hack/Class.hpp"
 
@@ -21,19 +20,18 @@ namespace Smartdb {
  * FixedLengthColumn represents partial column (not including all records).
  *
  * All elements have the same type, which has fixed-length (4-byte, 8-byte, ...).
- * @tparam T
  */
-//template <typename T>
 class FixedLengthColumn : public Column {
 public:
   /**
    * Constructor.
-   * @param coldef Column definition.
+   * @param coldef
    * @param min_n_rows At least \p min_n_rows * \p coldef.size() bytes are allocated.
    *   add() will automatically extend allocated memory.
    * @throw Smartdb::AllocError when failed to allocate memory.
    */
-  FixedLengthColumn(const ColumnDef &coldef, size_t min_n_rows = DEFAULT_MIN_N_ROWS) throw(AllocError);
+  FixedLengthColumn(const ColumnDef & coldef, size_t min_n_rows = DEFAULT_MIN_N_ROWS) throw(AllocError);
+
   ~FixedLengthColumn();
 
   /**
@@ -44,10 +42,11 @@ public:
   void add(const SmartdbValue &val) throw(AllocError);
 
   SmartdbValue get(size_t row_index) const;
-  size_t get_n_filled_row() const;
-  void clear();
 
-  const ColumnDef &coldef;
+  size_t get_n_filled_row() const { return n_filled_row; }
+
+  void clear() { n_filled_row = 0; }
+
   Buffer buf;
 
 private:

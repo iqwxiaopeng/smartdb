@@ -11,6 +11,7 @@
 #include <cerrno>
 #include <PartialCsvParser.hpp>
 #include "Csv.hpp"
+#include "api/SmartdbType.hpp"
 #include "hack/Assert.hpp"
 
 // [TODO] - use thread local storage
@@ -71,8 +72,7 @@ void* storage_finish() {
     size_t col_index_in_csv = kv->second; \
     std::string &column_s = row[col_index_in_csv]; \
     \
-    SmartdbValue column_v = str_to_SmartdbValue(column_s, coldef->type); \
-    col->add(column_v); \
+    col->add(str_to_SmartdbValue(column_s, coldef->type)); \
   }
 
 /**

@@ -9,8 +9,9 @@
 #define LIB_DATASTRUCT_RECORDS_H_
 
 #include <vector>
-#include "storageinterface/ColumnDef.hpp"
+
 #include "storageinterface/Column.hpp"
+#include "storageinterface/ColumnDef.hpp"
 #include "storageinterface/Buffer.hpp"
 #include "hack/Class.hpp"
 
@@ -38,8 +39,7 @@ public:
 };
 
 
-inline
-size_t Records::size() const {
+inline size_t Records::size() const {
   ASSERT(columns.size() > 0);
   size_t _size = columns[0]->get_n_filled_row();
   for (size_t i = 1; i < columns.size(); ++i)

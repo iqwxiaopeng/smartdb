@@ -8,6 +8,7 @@
 #ifndef LIB_HACK_ASSERT_H_
 #define LIB_HACK_ASSERT_H_
 
+#include <iostream>
 #include "hack/stacktrace.h"
 
 #ifdef SMARTDB_GTEST
@@ -40,5 +41,13 @@ public:
   }
 
 #endif /* SMARTDB_GTEST */
+
+
+#define NOT_IMPLEMENTED \
+{ \
+  std::cerr << "Not implemented error." << std::endl; \
+  ASSERT(false); \
+}
+
 
 #endif /* LIB_HACK_ASSERT_H_ */

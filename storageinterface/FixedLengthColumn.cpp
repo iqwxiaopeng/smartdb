@@ -21,7 +21,7 @@
 namespace Smartdb {
 
 FixedLengthColumn::FixedLengthColumn(const ColumnDef &coldef, size_t min_n_rows) throw(AllocError)
-: coldef(coldef), buf(min_n_rows), n_filled_row(0)
+: Column(coldef), buf(SMARTDB_SIZEOF(coldef.type) * min_n_rows), n_filled_row(0)
 {
 }
 
@@ -30,17 +30,17 @@ FixedLengthColumn::~FixedLengthColumn() {
 }
 
 inline void FixedLengthColumn::add(const SmartdbValue& val) throw(AllocError) {
+  if ((n_filled_row + 1) * SMARTDB_SIZEOF(coldef.type) > buf.size()) buf.extend();
+
   switch (coldef.type) {
   case SMARTDB_INT:
-    if ((n_filled_row + 1) * sizeof(SmartdbDouble) > buf.size()) buf.extend();
     ADD_TO_BUF(SmartdbInt)
     break;
   case SMARTDB_DOUBLE:
-    if ((n_filled_row + 1) * sizeof(SmartdbDouble) > buf.size()) buf.extend();
     ADD_TO_BUF(SmartdbDouble)
     break;
   default:
-    ASSERT(false);
+    NOT_IMPLEMENTED;
   }
   n_filled_row++;
 }
@@ -58,18 +58,9 @@ inline SmartdbValue FixedLengthColumn::get(size_t row_index) const {
     GET_FROM_BUF(SmartdbDouble);
     break;
   default:
-    ASSERT(false);
+    NOT_IMPLEMENTED;
   }
   return val;
-}
-
-inline size_t FixedLengthColumn::get_n_filled_row() const {
-  return n_filled_row;
-}
-
-inline
-void FixedLengthColumn::clear() {
-  n_filled_row = 0;
 }
 
 } /* namespace Smartdb */

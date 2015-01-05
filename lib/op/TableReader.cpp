@@ -41,17 +41,13 @@ SmartdbErr TableReader::read() {
   if (ret != (uintptr_t)NO_ERR) return (SmartdbErr)ret;
 
   std::vector<Buffer *> colbufs(param->coldefs.size(), NULL);
-  std::vector<size_t> colbuf_sizes(param->coldefs.size(), 0);
+  std::vector<size_t> n_rows(param->coldefs.size(), param->records_chunk_size);
 
   size_t n_read_records = 0;
   bool finished = false;
   while (!finished) {
     // prepare for Records
-    for (size_t i = 0; i < colbuf_sizes.size(); ++i) {
-      // [TODO] - calculate average size of variable-sized column
-      colbuf_sizes[i] = param->coldefs[i]->size() * param->records_chunk_size;
-    }
-    Records *records = new Records(param->coldefs, colbuf_sizes);  // [FIXME] - delete
+    Records *records = new Records(param->coldefs, n_rows);  // [FIXME] - delete
 
     ret = (uintptr_t)storage_funcs.storage_read_records(
       param->records_chunk_size, *records, n_read_records, finished);

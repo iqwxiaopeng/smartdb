@@ -11,10 +11,9 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include "storageinterface/ColumnDef.hpp"
 
 namespace Smartdb {
-
-class ColumnDef;
 
 typedef struct OperatorParam {} OperatorParam;
 

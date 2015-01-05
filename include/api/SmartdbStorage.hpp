@@ -3,10 +3,8 @@
 
 #include "api/SmartdbType.hpp"
 #include "log/Logger.hpp"
-#include "log/Errmsg.hpp"
 #include "storageinterface/Records.hpp"
 #include "storageinterface/Buffer.hpp"
-#include "storageinterface/ColumnDef.hpp"
 
 //
 // storage engine functions

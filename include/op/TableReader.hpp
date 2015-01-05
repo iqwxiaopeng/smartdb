@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "storageinterface/ColumnDef.hpp"
+
 #include "api/SmartdbStorage.hpp"
 #include "op/Operator.hpp"
 #include "op/OperatorParam.hpp"
