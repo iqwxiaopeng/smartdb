@@ -32,10 +32,12 @@ inline std::string TableReader::dlib_name_without_suffix(const std::string & sto
 }
 
 #define FIND_DLIB(logger, dlib_handler, dlib_name, dlib_suffix) \
+{ \
   if (!(dlib_handler = load_dlib((dlib_name + dlib_suffix).c_str()))) \
     logger->info(::dlerror()); \
   else \
-    logger->info((std::string("Found ") + dlib_name + dlib_suffix).c_str());
+    logger->info((std::string("Found ") + dlib_name + dlib_suffix).c_str()); \
+}
 
 #define LOAD_FUNC(logger, dlib_handler, storage_funcs, func_name) \
   if (!((storage_funcs).func_name = \
@@ -51,18 +53,21 @@ inline void TableReader::load_dlib_funcs(
   storage_funcs_t * storage_funcs)
 {
   std::string name = dlib_name_without_suffix(storage_engine_name);
-  FIND_DLIB(logger, *dlib_handler, name, ".so");
-  FIND_DLIB(logger, *dlib_handler, name, ".dylib");
 
-  if (!dlib_handler) {
+  lib_t _dlib_handler = *dlib_handler;
+  _dlib_handler = 0;
+  if (!_dlib_handler) FIND_DLIB(logger, _dlib_handler, name, ".so");
+  if (!_dlib_handler) FIND_DLIB(logger, _dlib_handler, name, ".dylib");
+
+  if (!_dlib_handler) {
     logger->error((std::string("Could not load ") + name + ". Check if it is in correct library path. e.g. /usr/lib/").c_str());
     print_stacktrace();
     std::abort();
   }
 
-  LOAD_FUNC(logger, *dlib_handler, *storage_funcs, storage_init);
-  LOAD_FUNC(logger, *dlib_handler, *storage_funcs, storage_read_records);
-  LOAD_FUNC(logger, *dlib_handler, *storage_funcs, storage_finish);
+  LOAD_FUNC(logger, _dlib_handler, *storage_funcs, storage_init);
+  LOAD_FUNC(logger, _dlib_handler, *storage_funcs, storage_read_records);
+  LOAD_FUNC(logger, _dlib_handler, *storage_funcs, storage_finish);
 }
 
 inline void TableReader::unload_dlib_funcs(lib_t dlib_handler) {
