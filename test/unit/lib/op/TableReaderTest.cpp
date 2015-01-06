@@ -33,13 +33,16 @@ TEST_F(TableReaderTest, reads_from_csv) {
   std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
   std::string engine_name("csv");
   storage_engine_lib_t * engine = TableReader::init_storage_engine(engine_name, extra);
+  printf("1. %p\n", engine->dlib_handler);
 
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
 
   TableReaderParam param(coldefs, engine, 100);
+  printf("2. %p\n", engine->dlib_handler);
   TableReader op(&param);
   EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
+  printf("3. %p\n", engine->dlib_handler);
   while (!op.out_q.finished()) {
     const Records *records = op.out_q.front();
     EXPECT_NE((Records *)NULL, records);
@@ -50,6 +53,7 @@ TEST_F(TableReaderTest, reads_from_csv) {
     EXPECT_EQ(301, GET_SMARTDB_VALUE(records->columns[0]->get(2), SmartdbInt));
     op.out_q.pop();
   }
+  printf("4. %p\n", engine->dlib_handler);
   TableReader::finish_storage_engine(engine);
 }
 TEST_F(TableReaderTest, reads_from_csv_record_by_record) {

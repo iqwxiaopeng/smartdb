@@ -66,6 +66,7 @@ inline void TableReader::load_dlib_funcs(
 }
 
 inline void TableReader::unload_dlib_funcs(lib_t dlib_handler) {
+  ASSERT(dlib_handler);
   unload_dlib(dlib_handler);
 }
 
@@ -73,8 +74,7 @@ inline void TableReader::unload_dlib_funcs(lib_t dlib_handler) {
 // Member functions
 TableReader::TableReader(const OperatorParam * const param)
 : param((TableReaderParam*)param)
-{
-}
+{}
 
 TableReader::~TableReader() {}
 
