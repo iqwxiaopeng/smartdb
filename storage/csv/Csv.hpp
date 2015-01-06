@@ -25,9 +25,8 @@ extern "C" void *storage_init(
  * @param[out] records Have ColumnDef array to specify records type.  Also records data will be stored in this param.
  * @param[out] n_read_records Number of records read. Can take 0 ~ \p n_records_chunk
  * @param[out] finished When records to read no longer remain, this flag will be true.
- * @return SmartdbErr casted to (void *).
  */
-extern "C" void *storage_read_records(
+extern "C" SmartdbErr storage_read_records(
   size_t n_records_chunk,
   /* out */
   Smartdb::Records &records,
@@ -37,7 +36,7 @@ extern "C" void *storage_read_records(
 /**
  * @note storage_finish() is reentrant function.
  */
-extern "C" void *storage_finish();
+extern "C" void storage_finish();
 
 /**
  * Push a \p row to \p records.

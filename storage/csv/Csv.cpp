@@ -46,13 +46,12 @@ void* storage_init(
   return (void *)NO_ERR;
 }
 
-void* storage_finish() {
+void storage_finish() {
   if (csv_config) delete csv_config;
   if (parser) delete parser;
-  return (void *)NO_ERR;
 }
 
-void* storage_read_records(
+SmartdbErr storage_read_records(
   size_t n_records_chunk,
   /* out */
   Smartdb::Records& records,
@@ -71,12 +70,12 @@ void* storage_read_records(
       break;
     }
     SmartdbErr ret;
-    if ((ret = _fill_a_row(row, records)) != NO_ERR) return (void *)ret;
+    if ((ret = _fill_a_row(row, records)) != NO_ERR) return ret;
   }
 
   ASSERT(0 <= n_read_records);
   ASSERT(n_read_records <= n_records_chunk);
-  return (void *)NO_ERR;
+  return NO_ERR;
 }
 
 static inline SmartdbErr _fill_a_row(const std::vector<std::string> & row, Smartdb::Records & records) {
