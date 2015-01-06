@@ -12,6 +12,7 @@
 #include <string>
 #include <unordered_map>
 #include "storageinterface/ColumnDef.hpp"
+#include "op/StorageEngineLib.hpp"
 
 namespace Smartdb {
 
@@ -19,17 +20,22 @@ typedef struct OperatorParam {} OperatorParam;
 
 typedef struct TableReaderParam : OperatorParam {
   const std::vector<const ColumnDef *> &coldefs;
-  const std::string& storage_engine_name;
-  const std::unordered_map<std::string, std::string> &extra;
+  storage_engine_lib_t * engine;
   size_t records_chunk_size;
 
+  /**
+   * Parameters to pass to TableReader.
+   * @param coldefs Column definition.
+   * @param engine Return value of TableReader::init_storage_engine().
+   * @param records_chunk_size Number of records to read from storage engine. Storage engine should memorize how many records are already read.
+   */
   TableReaderParam(
     const std::vector<const ColumnDef *> &coldefs,
-    const std::string& storage_engine_name,
-    const std::unordered_map<std::string, std::string> &extra,
+    storage_engine_lib_t * engine,
     size_t records_chunk_size)
-  : coldefs(coldefs), storage_engine_name(storage_engine_name), extra(extra), records_chunk_size(records_chunk_size)
+  : coldefs(coldefs), engine(engine), records_chunk_size(records_chunk_size)
   {}
+
 } TableReaderParam;
 
 } /* namespace Smartdb */

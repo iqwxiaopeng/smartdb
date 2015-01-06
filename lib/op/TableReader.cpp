@@ -5,28 +5,78 @@
 #include "hack/DynamicLib.hpp"
 #include "log/Logger.hpp"
 
-#define LOAD_FUNC(func_name) \
-  if (!(storage_funcs.func_name = \
+namespace Smartdb {
+
+extern Logger *logger;
+
+//
+// Static functions
+storage_engine_lib_t * TableReader::init_storage_engine(
+  const std::string & storage_engine_name,
+  const std::unordered_map<std::string, std::string> & extra)
+{
+  storage_engine_lib_t * p = new storage_engine_lib_t;
+  load_dlib_funcs(storage_engine_name, &(p->dlib_handler), &(p->storage_funcs));
+  p->storage_status = p->storage_funcs.storage_init(logger, extra);
+  ASSERT(p->storage_status);
+  return p;
+}
+
+void TableReader::finish_storage_engine(storage_engine_lib_t * p) {
+  p->storage_funcs.storage_finish(p->storage_status);
+  unload_dlib_funcs(p->dlib_handler);
+}
+
+inline std::string TableReader::dlib_name_without_suffix(const std::string & storage_engine_name) {
+  return std::string("libsmartdb_engine_") + storage_engine_name;
+}
+
+#define FIND_DLIB(logger, dlib_handler, dlib_name, dlib_suffix) \
+  if (!(dlib_handler = load_dlib((dlib_name + dlib_suffix).c_str()))) \
+    logger->info(::dlerror()); \
+  else \
+    logger->info((std::string("Found ") + dlib_name + dlib_suffix).c_str());
+
+#define LOAD_FUNC(logger, dlib_handler, storage_funcs, func_name) \
+  if (!((storage_funcs).func_name = \
         (func_name ## _t)load_func(dlib_handler, #func_name))) { \
     logger->error(::dlerror()); \
     std::abort(); \
   }
 
-
-namespace Smartdb {
-
-extern
-Logger *logger;
-
-TableReader::TableReader(const OperatorParam * const param)
-: param((TableReaderParam*)param), dlib_handler(0)
+inline void TableReader::load_dlib_funcs(
+  const std::string & storage_engine_name,
+  /*out*/
+  lib_t * dlib_handler,
+  storage_funcs_t * storage_funcs)
 {
-  load_dlib_funcs();
+  std::string name = dlib_name_without_suffix(storage_engine_name);
+  FIND_DLIB(logger, *dlib_handler, name, ".so");
+  FIND_DLIB(logger, *dlib_handler, name, ".dylib");
+
+  if (!dlib_handler) {
+    logger->error((std::string("Could not load ") + name + ". Check if it is in correct library path. e.g. /usr/lib/").c_str());
+    print_stacktrace();
+    std::abort();
+  }
+
+  LOAD_FUNC(logger, *dlib_handler, *storage_funcs, storage_init);
+  LOAD_FUNC(logger, *dlib_handler, *storage_funcs, storage_read_records);
+  LOAD_FUNC(logger, *dlib_handler, *storage_funcs, storage_finish);
 }
 
-TableReader::~TableReader() {
-  unload_dlib_funcs();
+inline void TableReader::unload_dlib_funcs(lib_t dlib_handler) {
+  unload_dlib(dlib_handler);
 }
+
+
+// Member functions
+TableReader::TableReader(const OperatorParam * const param)
+: param((TableReaderParam*)param)
+{
+}
+
+TableReader::~TableReader() {}
 
 SmartdbErr TableReader::run(const Scheduler & scheduler) {
   return read();
@@ -35,10 +85,6 @@ SmartdbErr TableReader::run(const Scheduler & scheduler) {
 SmartdbErr TableReader::read() {
   uintptr_t ret;  // hack: functions loaded by dlsym() seem to return void *.
                   // void * => SmartdbErr is prohibited.
-
-  // [TODO] - storage_init() should not be called from each instance of TableReader.
-  ret = (uintptr_t)storage_funcs.storage_init(logger, param->extra);
-  if (ret != (uintptr_t)NO_ERR) return (SmartdbErr)ret;
 
   std::vector<Buffer *> colbufs(param->coldefs.size(), NULL);
   std::vector<size_t> n_rows(param->coldefs.size(), param->records_chunk_size);
@@ -49,8 +95,8 @@ SmartdbErr TableReader::read() {
     // prepare for Records
     Records *records = new Records(param->coldefs, n_rows);  // [FIXME] - delete
 
-    ret = (uintptr_t)storage_funcs.storage_read_records(
-      param->records_chunk_size, *records, n_read_records, finished);
+    ret = (uintptr_t)param->engine->storage_funcs.storage_read_records(
+      param->engine->storage_status, param->records_chunk_size, *records, n_read_records, finished);
     if (ret != (uintptr_t)NO_ERR) goto fin;
     ASSERT(finished || n_read_records > 0);
     if (n_read_records > 0) out_q.push(records);
@@ -60,33 +106,7 @@ SmartdbErr TableReader::read() {
   ret = (uintptr_t)NO_ERR;
 
 fin:
-  storage_funcs.storage_finish();
   return (SmartdbErr)ret;
-}
-
-inline std::string TableReader::dlib_name_without_suffix() {
-  return std::string("libsmartdb_engine_") + param->storage_engine_name;
-}
-
-inline
-void TableReader::load_dlib_funcs() {
-  if (!(dlib_handler = load_dlib((dlib_name_without_suffix() + ".so").c_str())))
-    logger->info(::dlerror());
-  if (!dlib_handler && !(dlib_handler = load_dlib((dlib_name_without_suffix() + ".dylib").c_str())))
-    logger->info(::dlerror());
-  if (!dlib_handler) {
-    logger->error((std::string("Could not load ") + dlib_name_without_suffix() + ". Check if it is in correct library path. e.g. /usr/lib/").c_str());
-    std::abort();
-  }
-
-  LOAD_FUNC(storage_init);
-  LOAD_FUNC(storage_read_records);
-  LOAD_FUNC(storage_finish);
-}
-
-inline
-void TableReader::unload_dlib_funcs() {
-  unload_dlib(dlib_handler);
 }
 
 }

@@ -29,6 +29,7 @@ INCLUDE_DIRECTORIES(
     ${PROJ_ROOT_DIR}/include
     ${PROJ_ROOT_DIR}/test
     ${PROJ_ROOT_DIR}/storage
+    ${PROJ_ROOT_DIR}/contrib/PartialCsvParser/include
 )
 
 #

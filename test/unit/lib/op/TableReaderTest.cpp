@@ -30,12 +30,14 @@ protected:
 };
 
 TEST_F(TableReaderTest, reads_from_csv) {
+  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::string engine_name("csv");
+  storage_engine_lib_t * engine = TableReader::init_storage_engine(engine_name, extra);
+
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
-  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
-  std::string engine("csv");
 
-  TableReaderParam param(coldefs, engine, extra, 100);
+  TableReaderParam param(coldefs, engine, 100);
   TableReader op(&param);
   EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
   while (!op.out_q.finished()) {
@@ -48,14 +50,17 @@ TEST_F(TableReaderTest, reads_from_csv) {
     EXPECT_EQ(301, GET_SMARTDB_VALUE(records->columns[0]->get(2), SmartdbInt));
     op.out_q.pop();
   }
+  TableReader::finish_storage_engine(engine);
 }
 TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
+  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
+  std::string engine_name("csv");
+  storage_engine_lib_t * engine = TableReader::init_storage_engine(engine_name, extra);
+
   ColumnDef coldef("col1", SMARTDB_INT);
   std::vector<const ColumnDef *> coldefs(1, &coldef);
-  std::unordered_map<std::string, std::string> extra = { {"path", "fixture/storage_csv_normal.csv"} };
-  std::string engine("csv");
 
-  TableReaderParam param(coldefs, engine, extra, 1);
+  TableReaderParam param(coldefs, engine, 1);
   TableReader op(&param);
   EXPECT_EQ(NO_ERR, op.run(dummy_scheduler));
 
@@ -68,4 +73,5 @@ TEST_F(TableReaderTest, reads_from_csv_record_by_record) {
     EXPECT_EQ(records_cnt * 100 + 1, GET_SMARTDB_VALUE(records->columns[0]->get(0), SmartdbInt));
     op.out_q.pop();
   }
+  TableReader::finish_storage_engine(engine);
 }
